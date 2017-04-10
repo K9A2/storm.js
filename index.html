@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script src="./js/jquery.min.js">
+    </script>
+    <link rel="stylesheet" href="css/github.css"/>
+    <script src="js/marked.js"></script>
+
+    <link href="css/prettify.css" rel="stylesheet">
+
+    <style>
+        body {
+            width: 60%;
+            border-radius: 3px;
+            margin: 5% auto;
+            border: 1px solid #ddd;
+            padding: 3% 3% 3% 3%;
+        }
+    </style>
+
+    <script>
+        $.get("./md/helloworld.md").success(function (content) {
+            $(".markdown-body").append(marked(content));
+            var pre = $("pre").addClass("prettyprint linenums");
+        });
+    </script>
+
+</head>
+<body>
+
+<!--Markdown 渲染结果-->
+<article class="markdown-body">
+
+</article>
+
+<!--代码高亮-->
+<script src="js/run_prettify.js?lang=css&amp;skin=default"></script>
+
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <title>Dynamic Post Title</title>
     <script src="./js/jquery.min.js">
     </script>
     <link rel="stylesheet" href="css/github.css"/>
@@ -21,16 +21,26 @@
     </style>
 
     <script>
-        $.get("./md/index.md").success(function (content) {
+
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+        
+        function RedirectTo404() {
+            window.location = "./404.html";
+        }
+
+        $.get("./md/" + getQueryString("name") + ".md").success(function (content) {
             $(".markdown-body").append(marked(content));
             var pre = $("pre").addClass("prettyprint linenums");
-        });
-    </script>
+        }).error(RedirectTo404);
 
+    </script>
 </head>
 <body>
 
-<!--Markdown 渲染结果-->
 <article class="markdown-body">
 
 </article>

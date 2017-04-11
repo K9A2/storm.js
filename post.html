@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Dynamic Post Title</title>
+    <title>文章内容</title>
     <script src="./js/jquery.min.js">
     </script>
     <link rel="stylesheet" href="css/github.css"/>
@@ -25,17 +25,19 @@
         function getQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
             var r = window.location.search.substr(1).match(reg);
-            if (r != null) return unescape(r[2]); return null;
+            if (r !== null) return unescape(r[2]); return null;
         }
         
         function RedirectTo404() {
             window.location = "./404.html";
         }
 
+        //获取文章正文
         $.get("./md/" + getQueryString("name") + ".md").success(function (content) {
             $(".markdown-body").append(marked(content));
-            var pre = $("pre").addClass("prettyprint linenums");
+            $("pre").addClass("prettyprint linenums");
         }).error(RedirectTo404);
+
 
     </script>
 </head>
@@ -47,6 +49,8 @@
 
 <!--代码高亮-->
 <script src="js/run_prettify.js?lang=css&amp;skin=default"></script>
+
+
 
 </body>
 </html>

@@ -36,6 +36,7 @@
         $.get("./md/" + getQueryString("name") + ".md").success(function (content) {
             $(".markdown-body").append(marked(content));
             $("pre").addClass("prettyprint linenums");
+            $("title").html($("h1").html());
         }).error(RedirectTo404);
 
 

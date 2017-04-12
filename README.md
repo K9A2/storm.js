@@ -21,6 +21,8 @@ For daily use, you should follow steps below:
 + Update the **index.md** in the same directory. Add link to your new post as the example shows.
 + Upload **index.md** and **yourpost.md** to your remote host. Of course, you can upload it with **git** for **github.io**, or **filezilla** for **other host**.
 
+**IMPORTANT: Make sure there is only *one* H1(i.e. # SAMPLE_HEADLINE) in your markdown document, as the program will look for the first H1 and used it to set the title of *page.html*.**
+
 ## Acknowledgemet
 
 Currently, this project applied many other open-souce projects. Below is a completed list of applied open-souce project:

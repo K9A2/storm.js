@@ -3,43 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>文章内容</title>
+    <link rel="SHORTCUT ICON" href="./img/icon.jpg">
     <script src="./js/jquery.min.js">
     </script>
     <link rel="stylesheet" href="css/github.css"/>
     <script src="js/marked.js"></script>
-
     <link href="css/prettify.css" rel="stylesheet">
-
-    <style>
-        body {
-            width: 60%;
-            border-radius: 3px;
-            margin: 5% auto;
-            border: 1px solid #ddd;
-            padding: 3% 3% 3% 3%;
-        }
-    </style>
-
+    <link href="css/style.css" rel="stylesheet">
     <script>
-
         function getQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
             var r = window.location.search.substr(1).match(reg);
-            if (r !== null) return unescape(r[2]); return null;
+            if (r !== null) return unescape(r[2]);
+            return null;
         }
-        
         function RedirectTo404() {
             window.location = "./404.html";
         }
-
         //获取文章正文
         $.get("./md/" + getQueryString("name") + ".md").success(function (content) {
             $(".markdown-body").append(marked(content));
             $("pre").addClass("prettyprint linenums");
             $("title").html($("h1").html());
         }).error(RedirectTo404);
-
-
     </script>
 </head>
 <body>
@@ -50,8 +36,6 @@
 
 <!--代码高亮-->
 <script src="js/run_prettify.js?lang=css&amp;skin=default"></script>
-
-
 
 </body>
 </html>

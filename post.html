@@ -10,16 +10,8 @@
     <script src="js/marked.js"></script>
     <link href="css/prettify.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <script src="js/storm.js"></script>
     <script>
-        function getQueryString(name) {
-            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-            var r = window.location.search.substr(1).match(reg);
-            if (r !== null) return unescape(r[2]);
-            return null;
-        }
-        function RedirectTo404() {
-            window.location = "./404.html";
-        }
         //获取文章正文
         $.get("./md/" + getQueryString("name") + ".md").success(function (content) {
             $(".markdown-body").append(marked(content));

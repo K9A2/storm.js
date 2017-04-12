@@ -22,7 +22,6 @@
 
     <!--
         todo: 增加自动获取 ./md 文件夹下的 markdown 文件列表功能
-        todo: 首页链接增加在打开新空白页的功能，<a target="_blank">
     -->
 
 </head>
@@ -33,6 +32,7 @@
         $(".markdown-body").append(marked(content));
         var pre = $("pre").addClass("prettyprint linenums");
         $("title").html($("h1").html());
+        $("a").attr("target", "_blank");
     });
 </script>
 

@@ -13,7 +13,10 @@
 
     <!--
         todo: 增加自动获取 ./md 文件夹下的 markdown 文件列表功能
+        todo: 增加移动适配功能
     -->
+
+
 
 </head>
 <body>
@@ -21,7 +24,7 @@
 <script>
     $.get("./md/index.md").success(function (content) {
         $(".markdown-body").append(marked(content));
-        var pre = $("pre").addClass("prettyprint linenums");
+        $("pre").addClass("prettyprint linenums");
         $("title").html($("h1").html());
         $("a").attr("target", "_blank");
     });

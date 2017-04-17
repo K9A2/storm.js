@@ -1,5 +1,7 @@
-# Index
+# stormlin
 
-## 文章页面
+## 文章列表
 
-+ [hello world](./post.html?name=helloworld)
++   [storm.js 开发笔记](./post.html?name=summary_for_developing_storm_js)
+
+    > 记录了开发 storm.js 中所遇到的一些要点和坑点。[Read More](./post.html?name=summary_for_developing_storm_js)

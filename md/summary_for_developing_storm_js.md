@@ -194,3 +194,137 @@ $.get(url).success().error();
 以上是本项目中用到的 jQuery get 方法。其中 success 填入操作成功时的回调函数，error 填入操作失败是的回调函数。
 
 官方参考文档：[http://jquery.cuishifeng.cn/jQuery.get.html](http://jquery.cuishifeng.cn/jQuery.get.html)。
+
+*但是，这个方法有个很大的问题：当要获取的文件的文件名中含有 **.** 时会出错。例如获取 **storm.js.md** 或出错。如第一点中的代码段一，会先执行 success 中的内容再执行 error 中的内容。目前此问题已经到 jQuery 的 GitHub 上提交 issue，等待对方处理。*
+
+## 3. 为移动设备放大字体
+
+目前有两种方法：
+
++   使用 CSS3 中的 **@media 查询**来获取客户机的分辨率，以动态地调整客户机浏览器上的字体大小；
++   使用 js 代码进行动态计算并用 DOM 操作来改变字体大小。
+
+显然，方法二的性能损失比方法一要大；而且方法一有现成的 API 可用，何乐而不为？
+
+下面是一些我为小米四上的 Chrome 和 Firefox 调整过的 CSS 样式，大家可以参考：
+
+```css
+/* 屏幕最小分辨率为 320 px 的设备 */
+@media screen and (min-width: 320px) {
+    html {font-size: 26px;}
+    article {
+        margin: auto 15px auto 15px;
+    }
+    body {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        border: none;
+    }
+}
+
+/* 屏幕最小分辨率为 360 px 的设备 */
+@media screen and (min-width: 360px) {
+    html {font-size: 28px;}
+    article {
+        margin: auto 15px auto 15px;
+    }
+    body {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        border: none;
+    }
+}
+
+/* 屏幕最小分辨率为 400 px 的设备 */
+@media screen and (min-width: 400px) {
+    html {font-size: 30px;}
+    article {
+        margin: auto 15px auto 15px;
+    }
+    body {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        border: none;
+    }
+}
+
+/* 屏幕最小分辨率为 440 px 的设备 */
+@media screen and (min-width: 440px) {
+    html {font-size: 32px;}
+    article {
+        margin: auto 15px auto 15px;
+    }
+    body {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        border: none;
+    }
+}
+
+/* 屏幕最小分辨率为 480 px 的设备 */
+@media screen and (min-width: 480px) {
+    html {font-size: 34px;}
+    article {
+        margin: auto 15px auto 15px;
+    }
+    body {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        border: none;
+    }
+}
+
+/* 屏幕最小分辨率为 640 px 的设备 */
+@media screen and (min-width: 640px) {
+    html {font-size: 40px;}
+    article {
+        margin: auto 15px auto 15px;
+    }
+    body {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        border: none;
+    }
+}
+
+/* 屏幕最小分辨率为 1080 px 的设备 */
+@media screen and (min-width: 1080px) {
+    html {
+        font-size: 16px;
+    }
+    body {
+        margin: 5% auto;
+        width: 60%;
+        border: none;
+        border: 1px solid #ddd;
+    }
+}
+
+/* 默认大小，适配 PC 页面 */
+body {
+    border-radius: 3px;
+    padding: 3% 3% 3% 3%;
+    font-size: 16px;
+}
+```
+
+## 4. 使用 Chrome 来调试移动设备上的网页
+
+有些时候，我们需要查看一下移动设备上的网页的具体情况。但是移动端浏览器一般没有 Chrome 的 Inspect 功能，所以需要借助 PC 端的 Chrome 来“代理”一下：
+
+1.  PC 端以及 Android 端安装最新的 Chrome 浏览器；
+2.  Android 端打开 Debug 模式，并用 USB 线连接到 PC 上；
+3.  在 PC 端的 Chrome 浏览器的地址框中输入：**chrome://inspect**，即可看到自己的 Android 设备；
+4.  在刚才的页面中点击 Inspect 即可。
+
+*注意：在点击 Inspect 之后弹出空白页面，请打开 VPN。*
+
+*参考资料：[移动前端调试方案（Android + Chrome 实现远程调试）](http://www.cnblogs.com/alantao/p/5220392.html)。*
+
+

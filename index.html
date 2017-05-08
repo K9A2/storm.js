@@ -23,10 +23,11 @@
 <body>
 
 <script>
-    //Get blog information for config.xml
+
     var title;
     var motto;
 
+    ////Get blog information from config.xml, and set the headed for this page.
     $.ajax({
         url: "./config.xml",
         dataType: "xml",
@@ -42,9 +43,8 @@
             });
         }
     });
-</script>
 
-<script>
+    //Read the index markdown file
     $.get("./md/index.md").success(function (content) {
         $(".markdown-body").append(marked(content));
         $("pre").addClass("prettyprint linenums");
@@ -53,7 +53,7 @@
     });
 </script>
 
-<!--Markdown 渲染结果-->
+<!-- Converted markdown text -->
 <article class="markdown-body">
 
 </article>

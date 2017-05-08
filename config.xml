@@ -2,4 +2,10 @@
 <config>
     <title>stormlin</title>
     <motto>Yet another full stack developer.</motto>
+    <category>
+        <category-item>
+            <item-id>java</item-id>
+            <item-text>Java</item-text>
+        <category-item>
+    </category>
 </config> 

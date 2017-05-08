@@ -27,7 +27,9 @@
     var title;
     var motto;
 
-    ////Get blog information from config.xml, and set the headed for this page.
+    var configure;
+
+    //Get blog title and motto from config.xml, and set the header for this page.
     $.ajax({
         url: "./config.xml",
         dataType: "xml",
@@ -40,7 +42,27 @@
                 title = "<h1>" + $(this).children("title").text() + "</h1>";
                 motto = "<p>" + $(this).children("motto").text() + "</p>";
                 $(".markdown-body").append(title + motto);
-            });
+                //todo: note it, the usage of find() and each().
+//                var item = $(this).find("category").find("category-item").children("item-text").text();
+//                alert(item + i);
+            }),
+            function (xml) {
+                var categories = $(xml).find("config").children("category");
+
+            };
+        }
+    });
+
+    $.ajax({
+        url: "./config.xml",
+        dataType: "xml",
+        type: "GET",
+        error: function (xml) {
+            alert("Unable to reach the config file.");
+        },
+        success: function (xml) {
+            var categories = $(xml).find("config").children("category").text();
+            alert(categories);
         }
     });
 

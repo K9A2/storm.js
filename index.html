@@ -17,17 +17,15 @@
         todo: 增加分类列表功能，样式类似于博客园：http://www.cnblogs.com/lwbqqyumidi/p/3804883.html
         todo: 调整首页样式，类似于：http://www.cnblogs.com/wxd0108/
         todo: 使用xml文件来管理各种字符串
+        todo: 使用最新版 jQuery 进行改写
     -->
 
 </head>
 <body>
 
 <script>
-
     var title;
     var motto;
-
-    var configure;
 
     //Get blog title and motto from config.xml, and set the header for this page.
     $.ajax({
@@ -45,14 +43,11 @@
                 //todo: note it, the usage of find() and each().
 //                var item = $(this).find("category").find("category-item").children("item-text").text();
 //                alert(item + i);
-            }),
-            function (xml) {
-                var categories = $(xml).find("config").children("category");
-
-            };
+            })
         }
     });
 
+    //Set the categories
     $.ajax({
         url: "./config.xml",
         dataType: "xml",
@@ -61,8 +56,16 @@
             alert("Unable to reach the config file.");
         },
         success: function (xml) {
-            var categories = $(xml).find("config").children("category").text();
-            alert(categories);
+            //todo: note it, how to get an array for category
+            var categories = $(xml).find("category-item");
+            alert();
+//            $(xml).find("category-item").each(function () {
+//                alert($(this).children("item-text").text());
+//            })
+//            alert(categories);
+//            for (var category in categories) {
+//                alert(category);
+//            }
         }
     });
 

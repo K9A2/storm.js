@@ -14,12 +14,35 @@
     <!--
         todo: 增加自动获取 ./md 文件夹下的 markdown 文件列表功能
         todo: 增加移动适配功能
+        todo: 增加分类列表功能，样式类似于博客园：http://www.cnblogs.com/lwbqqyumidi/p/3804883.html
+        todo: 调整首页样式，类似于：http://www.cnblogs.com/wxd0108/
+        todo: 使用xml文件来管理各种字符串
     -->
-
-
 
 </head>
 <body>
+
+<script>
+    //Get blog information for config.xml
+    var title;
+    var motto;
+
+    $.ajax({
+        url: "./config.xml",
+        dataType: "xml",
+        type: "GET",
+        error: function (xml) {
+            alert("Unable to reach the config file.");
+        },
+        success: function (xml) {
+            $(xml).find("config").each(function (i) {
+                title = "<h1>" + $(this).children("title").text() + "</h1>";
+                motto = "<p>" + $(this).children("motto").text() + "</p>";
+                $(".markdown-body").append(title + motto);
+            });
+        }
+    });
+</script>
 
 <script>
     $.get("./md/index.md").success(function (content) {

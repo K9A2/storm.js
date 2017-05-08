@@ -1,6 +1,4 @@
-# stormlin
-
-## 文章列表
+## Blogs
 
 +   [storm.js 开发笔记](./post.html?name=summary_for_developing_storm_js)
 

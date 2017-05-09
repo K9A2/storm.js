@@ -18,7 +18,7 @@
         todo: 增加移动适配功能
         todo: 增加分类列表功能，样式类似于博客园：http://www.cnblogs.com/lwbqqyumidi/p/3804883.html
         todo: 调整首页样式，类似于：http://www.cnblogs.com/wxd0108/
-        todo: 使用xml文件来管理各种字符串
+        todo: 使用xml文件来管理各种字符串\
     -->
 
 </head>
@@ -31,12 +31,10 @@
     var indexFilePath = "./md/index.md"
     //var category = getCategories(xmlFilePath);
 
-    var categories = getCategories(xmlFilePath);
-    console.log(categories.length);
-    for (var category in categories) {
-        alert(category);
-    }
     getBlogConfig(xmlFilePath);
+
+
+
     getPostList(indexFilePath);
     //alert(category[0]);
 
@@ -44,6 +42,15 @@
 
 <!-- Converted markdown text -->
 <article class="markdown-body">
+
+    <script>
+        //todo: Find a proper place to put those categories in the header.
+        var categories = getCategories(xmlFilePath);
+        //console.log(categories.length);
+        for (var i = 0; i < categories.length; i++) {
+            document.write("<p>" + categories[i] + "</p>");
+        }
+    </script>
 
 </article>
 

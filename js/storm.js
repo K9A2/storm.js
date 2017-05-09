@@ -9,6 +9,12 @@
  *
  */
 
+//Default settings
+var defaultSetting = {
+    xmlFilePath: "./config.xml",
+    indexFilePath: "./md/index.md"
+};
+
 /**
  * Get the target parameter specified by name from url.
  *
@@ -62,9 +68,8 @@ function getBlogConfig(xmlFilePath) {
  *
  * @param xmlFilePath File path to config.xml
  */
-
-//todo: Add categories at the head of each page.
 function getCategories(xmlFilePath) {
+    //todo: Add categories at the head of each page.
     var categories = new Array();
 
     $.ajax({
@@ -75,13 +80,18 @@ function getCategories(xmlFilePath) {
         },
         success: function (xml) {
             $(xml).find("category").find("category-item").each(function (index) {
-                var id = $(this).children("item-id");
-                console.log(id.text());
+                var itemText = $(this).children("item-text");
+                //console.log(itemText.text());
                 //todo: note it
-                categories.push(id.text());
+                categories.push(itemText.text());
             })
         }
     });
+
+    // for (var i = 0; i < categories.length; i++) {
+    //     //console.log(categories[i]);
+    //     alert(categories[i]);
+    // }
 
     return categories;
 }

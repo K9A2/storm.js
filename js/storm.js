@@ -62,6 +62,8 @@ function getBlogConfig(xmlFilePath) {
  *
  * @param xmlFilePath File path to config.xml
  */
+
+//todo: Add categories at the head of each page.
 function getCategories(xmlFilePath) {
     var categories = new Array();
 

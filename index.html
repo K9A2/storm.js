@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <title>首页</title>
     <link rel="SHORTCUT ICON" href="./img/icon.jpg">
-    <script src="./js/jquery.min.js">
-    </script>
-    <link rel="stylesheet" href="css/github.css"/>
+
+    <script src="js/jquery-3.2.1.js"></script>
     <script src="js/marked.js"></script>
+    <script src="js/storm.js"></script>
+
+    <link rel="stylesheet" href="css/github.css"/>
     <link href="css/prettify.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
@@ -24,55 +26,20 @@
 
 <script>
 
-    var title;
-    var motto;
+    //Configure file entry
+    var xmlFilePath = "./config.xml";
+    var indexFilePath = "./md/index.md"
+    //var category = getCategories(xmlFilePath);
 
-    var configure;
+    var categories = getCategories(xmlFilePath);
+    console.log(categories.length);
+    for (var category in categories) {
+        alert(category);
+    }
+    getBlogConfig(xmlFilePath);
+    getPostList(indexFilePath);
+    //alert(category[0]);
 
-    //Get blog title and motto from config.xml, and set the header for this page.
-    $.ajax({
-        url: "./config.xml",
-        dataType: "xml",
-        type: "GET",
-        error: function (xml) {
-            alert("Unable to reach the config file.");
-        },
-        success: function (xml) {
-            $(xml).find("config").each(function (i) {
-                title = "<h1>" + $(this).children("title").text() + "</h1>";
-                motto = "<p>" + $(this).children("motto").text() + "</p>";
-                $(".markdown-body").append(title + motto);
-                //todo: note it, the usage of find() and each().
-//                var item = $(this).find("category").find("category-item").children("item-text").text();
-//                alert(item + i);
-            }),
-            function (xml) {
-                var categories = $(xml).find("config").children("category");
-
-            };
-        }
-    });
-
-    $.ajax({
-        url: "./config.xml",
-        dataType: "xml",
-        type: "GET",
-        error: function (xml) {
-            alert("Unable to reach the config file.");
-        },
-        success: function (xml) {
-            var categories = $(xml).find("config").children("category").text();
-            alert(categories);
-        }
-    });
-
-    //Read the index markdown file
-    $.get("./md/index.md").success(function (content) {
-        $(".markdown-body").append(marked(content));
-        $("pre").addClass("prettyprint linenums");
-        $("title").html($("h1").html());
-        $("a").attr("target", "_blank");
-    });
 </script>
 
 <!-- Converted markdown text -->

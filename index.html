@@ -21,36 +21,65 @@
         todo: 使用xml文件来管理各种字符串\
     -->
 
+
+    <style>
+
+        div#header a {
+            color: red;
+            width: 100px;
+            float: left;
+            display: block;
+        }
+
+        div#header {
+            padding-left: 15px;
+            margin-bottom: 3%;
+        }
+
+        .markdown-body {
+            float: none;
+        }
+
+    </style>
+
 </head>
 <body>
 
+<div id="header">
+
+    <div id="title"></div>
+
+    <div id="categories"></div>
+
+    <script>
+
+        //Configure file entry
+        var xmlFilePath = "./config.xml";
+        var indexFilePath = "./md/index.md"
+        //var category = getCategories(xmlFilePath);
+
+        getHeader();
+
+        //        getBlogConfig(xmlFilePath);
+        //
+        //        //note: Find a proper place to put those categories in the header.
+        //        //note: The execute sequence of js
+        //        getCategories(xmlFilePath);
+
+
+    </script>
+
+
+</div>
+
 <script>
 
-    //Configure file entry
-    var xmlFilePath = "./config.xml";
-    var indexFilePath = "./md/index.md"
-    //var category = getCategories(xmlFilePath);
-
-    getBlogConfig(xmlFilePath);
-
-
-
     getPostList(indexFilePath);
-    //alert(category[0]);
 
 </script>
 
 <!-- Converted markdown text -->
 <article class="markdown-body">
-
-    <script>
-        //todo: Find a proper place to put those categories in the header.
-        var categories = getCategories(xmlFilePath);
-        //console.log(categories.length);
-        for (var i = 0; i < categories.length; i++) {
-            document.write("<p>" + categories[i] + "</p>");
-        }
-    </script>
 
 </article>
 

@@ -10,7 +10,7 @@
  */
 
 //Default settings
-var defaultSetting = {
+var settings = {
     xmlFilePath: "./config.xml",
     indexFilePath: "./md/index.md"
 };
@@ -55,7 +55,7 @@ function getBlogConfig(xmlFilePath) {
                 var title = "<h1>" + $(this).children("title").text() + "</h1>";
                 var motto = "<p>" + $(this).children("motto").text() + "</p>";
                 $(".markdown-body").append(title + motto);
-                //todo: note it, the usage of find() and each().
+                //note: The usage of find() and each().
 //                var item = $(this).find("category").find("category-item").children("item-text").text();
 //                alert(item + i);
             })
@@ -82,7 +82,7 @@ function getCategories(xmlFilePath) {
             $(xml).find("category").find("category-item").each(function (index) {
                 var itemText = $(this).children("item-text");
                 //console.log(itemText.text());
-                //todo: note it
+                //note: The usage of js array
                 categories.push(itemText.text());
             })
         }
@@ -92,6 +92,10 @@ function getCategories(xmlFilePath) {
     //     //console.log(categories[i]);
     //     alert(categories[i]);
     // }
+
+    for (var i = 0; i < categories.length; i++) {
+        document.write("" + categories[i] + "");
+    }
 
     return categories;
 }
@@ -108,4 +112,53 @@ function getPostList(indexFilePath) {
         $("title").html($("h1").html());
         $("a").attr("target", "_blank");
     });
+}
+
+function getHeader() {
+    //getBlogConfig(xmlFilePath);
+    //getCategories(xmlFilePath);
+
+    var xmlFilePath = settings.xmlFilePath;
+    var indexFilePath = settings.indexFilePath;
+
+    $.ajax({
+        url: xmlFilePath,
+        dataType: "xml",
+        async: true,
+        type: "GET",
+        error: function () {
+            alert("Unable to reach the config file.");
+        },
+        success: function (xml) {
+            $(xml).find("config").each(function () {
+                var title = "<h1>" + $(this).children("title").text() + "</h1>";
+                var motto = "<p>" + $(this).children("motto").text() + "</p>";
+                $("#title").append(title + motto);
+                //note: The usage of find() and each().
+//                var item = $(this).find("category").find("category-item").children("item-text").text();
+//                alert(item + i);
+            })
+        }
+    });
+
+    //var categories = new Array();
+
+    //note: The execute sequence of js
+    $.ajax({
+        url: xmlFilePath,
+        async: true,
+        error: function () {
+            alert("Unable to reach the xml config file.");
+        },
+        success: function (xml) {
+            $(xml).find("category").find("category-item").each(function () {
+                var itemText = $(this).children("item-text");
+                //console.log(itemText.text());
+                //note: The usage of js array
+                //categories.push(itemText.text());
+                $("#categories").append("<a href='#'>" + itemText.text() + "</a>");
+            });
+        }
+    });
+
 }

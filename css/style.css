@@ -64,7 +64,7 @@
 }
 
 @media screen and (min-width: 640px) {
-    html {font-size: 40px;}
+    html {font-size: 28px;}
     article {
         margin: auto 15px auto 15px;
     }

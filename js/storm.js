@@ -107,7 +107,7 @@ function getCategories(xmlFilePath) {
  */
 function getPostList() {
     $.get(settings.indexFilePath, function (data) {
-        $(".markdown-body").append(marked(data));
+        $("#post-list").append(marked(data));
         $("pre").addClass("prettyprint linenums");
         $("title").html($("h1").html());
         $("a").attr("target", "_blank");

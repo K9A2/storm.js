@@ -10,6 +10,8 @@
     <script src="js/marked.js"></script>
     <link href="css/prettify.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/content.css" rel="stylesheet">
+
     <script src="js/storm.js"></script>
     <script>
         //获取文章正文
@@ -27,9 +29,33 @@
 </head>
 <body>
 
-<article class="markdown-body">
+<div id="nav">
+    <ul class="nav-list">
+        <li class="nav-list-item"><a href="https://k9a2.github.io/" target="_blank">stormlin</a></li>
+        <li class="nav-list-item"><a href="#">javascript</a></li>
+        <li class="nav-list-item"><a href="#">Hello world</a></li>
+        <li class="nav-list-item"><a href="#">javascript</a></li>
+    </ul>
+</div>
 
-</article>
+<div id="main">
+
+    <div id="blog-info">
+
+        <img id="avatar" src="img/icon.jpg">
+        <br>
+        <a id="user-name" href="#">stormlin</a>
+        <p>Yet another full stack developer</p>
+
+    </div>
+
+    <div id="content">
+        <article class="markdown-body">
+
+        </article>
+    </div>
+
+</div>
 
 <!--代码高亮-->
 <script src="js/run_prettify.js?lang=css&amp;skin=default"></script>

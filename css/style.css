@@ -118,18 +118,17 @@ div#nav {
     list-style: none;
 }
 
-
 /*note: inline-block, block, inline 的区别*/
 /*note: 盒模型 px 宽度计算公式，百分比宽度计算公式*/
 /*note: css 固定头部导航条的制作*/
 .nav-list {
     color: #fff;
     list-style-type: none;
-    width: 60%;
-    margin: 0 17%;
+    width: 1520px;
+    margin: 0 auto;
     padding: 0;
     height: inherit;
-    display: inline-block;
+    display: block;
     text-align: center;
 }
 
@@ -167,53 +166,42 @@ div#nav {
 }
 
 div#main {
-    width: 70%;
+    width: 1440px;
     display: block;
     background: white;
     box-shadow: 0 0 8px #999;
     margin: 4% auto;
-    padding: 1% 2% 2%;
+    padding: 40px 40px;
     overflow: auto;
 }
 
 div#blog-info {
-    display: block;
+    display: inline;
     float: left;
-    width: 20%;
-    position: absolute;
-    height: 100%;
+    width: 300px;
     text-align: center;
-    height: 100%;
+    padding-right: 20px;
 }
 
-div#blog-info img{
-    width: 8rem;
-    height: 8rem;
-}
-
-div#post-list {
-    display: block;
+div#post-list, div#content {
+    display: inline;
     border-left: 1px solid #ddd;
-    width: 70%;
-    float: right;
-    height: 100%;
-    position: relative;
-    padding-left: 1.5%;
-}
-
-div#content {
-    display: block;
-    border-left: 1px solid #ddd;
-    width: 70%;
-    float: right;
-    height: 100%;
-    position: relative;
-    padding-left: 1.5%;
+    width: 1099px;
+    float: left;
+    /*height: 100%;*/
+    /*position: relative;*/
+    padding-left: 20px;
 }
 
 a#user-name:link {
     text-decoration: none;
     color: #000;
+}
+
+div#blog-info img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 5px;
 }
 
 a#user-name:visited {

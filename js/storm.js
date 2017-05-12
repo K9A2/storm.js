@@ -105,8 +105,8 @@ function getCategories(xmlFilePath) {
  *
  * @param indexFilePath File path to "index.md"
  */
-function getPostList(indexFilePath) {
-    $.get(indexFilePath, function (data) {
+function getPostList() {
+    $.get(settings.indexFilePath, function (data) {
         $(".markdown-body").append(marked(data));
         $("pre").addClass("prettyprint linenums");
         $("title").html($("h1").html());
@@ -160,5 +160,10 @@ function getHeader() {
             });
         }
     });
+
+}
+
+//todo: 返回顶部
+function returnToTop() {
 
 }

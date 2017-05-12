@@ -11,8 +11,10 @@
 
 //Default settings
 var settings = {
-    xmlFilePath: "./config.xml",
-    indexFilePath: "./md/index.md"
+    categoriesPath: "./categories.xml",
+    indexPath: "./md/index.md",
+    title: "stormlin",
+    motto: "Yet another full stack developer."
 };
 
 /**
@@ -64,40 +66,36 @@ function getBlogConfig(xmlFilePath) {
 }
 
 /**
- * Get categories array from config.xml
+ * Get categories array from categories.xml
  *
- * @param xmlFilePath File path to config.xml
+ * @param xmlFilePath File path to categories.xml
  */
-function getCategories(xmlFilePath) {
+function getCategories() {
     //todo: Add categories at the head of each page.
-    var categories = new Array();
+    //var categories = new Array();
 
     $.ajax({
-        url: xmlFilePath,
+        url: settings.categoriesPath,
         async: false,
         error: function () {
             alert("Unable to reach the xml config file.");
         },
         success: function (xml) {
-            $(xml).find("category").find("category-item").each(function (index) {
-                var itemText = $(this).children("item-text");
+            $(xml).find("categories").find("category-item").each(function (index) {
+                var itemText = $(this).children("item-text").text();
                 //console.log(itemText.text());
                 //note: The usage of js array
-                categories.push(itemText.text());
+                //categories.push(itemText.text());
+                $(".nav-list").append('<li class="nav-list-item"><a href="#">' + itemText + '</a></li>');
             })
         }
     });
 
     // for (var i = 0; i < categories.length; i++) {
-    //     //console.log(categories[i]);
-    //     alert(categories[i]);
+    //     document.write("" + categories[i] + "");
     // }
 
-    for (var i = 0; i < categories.length; i++) {
-        document.write("" + categories[i] + "");
-    }
-
-    return categories;
+    //return categories;
 }
 
 /**
@@ -106,7 +104,7 @@ function getCategories(xmlFilePath) {
  * @param indexFilePath File path to "index.md"
  */
 function getPostList() {
-    $.get(settings.indexFilePath, function (data) {
+    $.get(settings.indexPath, function (data) {
         $("#post-list").append(marked(data));
         $("pre").addClass("prettyprint linenums");
         $("title").html($("h1").html());
@@ -119,7 +117,7 @@ function getHeader() {
     //getCategories(xmlFilePath);
 
     var xmlFilePath = settings.xmlFilePath;
-    var indexFilePath = settings.indexFilePath;
+    var indexFilePath = settings.indexPath;
 
     $.ajax({
         url: xmlFilePath,
@@ -160,6 +158,11 @@ function getHeader() {
             });
         }
     });
+
+}
+
+//todo: 获取导航条
+function getNavBar() {
 
 }
 

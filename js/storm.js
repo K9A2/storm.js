@@ -156,7 +156,7 @@ function getHeader() {
                 //console.log(itemText.text());
                 //note: The usage of js array
                 //categories.push(itemText.text());
-                $("#categories").append("<a href='#'>" + itemText.text() + "</a>");
+                $("#categories").append("<li class='categories-item'><a href='#'>" + itemText.text() + "</a></li>");
             });
         }
     });

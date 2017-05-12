@@ -1,95 +1,162 @@
-@media screen and (min-width: 320px) {
-    html {font-size: 26px;}
-    article {
-        margin: auto 15px auto 15px;
-    }
-    body {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        border: none;
-    }
-}
+/*@media screen and (min-width: 320px) {*/
+/*html {font-size: 26px;}*/
+/*article {*/
+/*margin: auto 15px auto 15px;*/
+/*}*/
+/*body {*/
+/*width: 100%;*/
+/*margin-left: 0;*/
+/*margin-right: 0;*/
+/*border: none;*/
+/*}*/
+/*}*/
 
-@media screen and (min-width: 360px) {
-    html {font-size: 28px;}
-    article {
-        margin: auto 15px auto 15px;
-    }
-    body {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        border: none;
-    }
-}
+/*@media screen and (min-width: 360px) {*/
+/*html {font-size: 28px;}*/
+/*article {*/
+/*margin: auto 15px auto 15px;*/
+/*}*/
+/*body {*/
+/*width: 100%;*/
+/*margin-left: 0;*/
+/*margin-right: 0;*/
+/*border: none;*/
+/*}*/
+/*}*/
 
-@media screen and (min-width: 400px) {
-    html {font-size: 30px;}
-    article {
-        margin: auto 15px auto 15px;
-    }
-    body {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        border: none;
-    }
-}
+/*@media screen and (min-width: 400px) {*/
+/*html {font-size: 30px;}*/
+/*article {*/
+/*margin: auto 15px auto 15px;*/
+/*}*/
+/*body {*/
+/*width: 100%;*/
+/*margin-left: 0;*/
+/*margin-right: 0;*/
+/*border: none;*/
+/*}*/
+/*}*/
 
-@media screen and (min-width: 440px) {
-    html {font-size: 32px;}
-    article {
-        margin: auto 15px auto 15px;
-    }
-    body {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        border: none;
-    }
-}
+/*@media screen and (min-width: 440px) {*/
+/*html {font-size: 32px;}*/
+/*article {*/
+/*margin: auto 15px auto 15px;*/
+/*}*/
+/*body {*/
+/*width: 100%;*/
+/*margin-left: 0;*/
+/*margin-right: 0;*/
+/*border: none;*/
+/*}*/
+/*}*/
 
-@media screen and (min-width: 480px) {
-    html {font-size: 34px;}
-    article {
-        margin: auto 15px auto 15px;
-    }
-    body {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        border: none;
-    }
-}
+/*@media screen and (min-width: 480px) {*/
+/*html {font-size: 34px;}*/
+/*article {*/
+/*margin: auto 15px auto 15px;*/
+/*}*/
+/*body {*/
+/*width: 100%;*/
+/*margin-left: 0;*/
+/*margin-right: 0;*/
+/*border: none;*/
+/*}*/
+/*}*/
 
-@media screen and (min-width: 640px) {
-    html {font-size: 28px;}
-    article {
-        margin: auto 15px auto 15px;
-    }
-    body {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        border: none;
-    }
-}
+/*@media screen and (min-width: 640px) {*/
+/*html {font-size: 28px;}*/
+/*article {*/
+/*margin: auto 15px auto 15px;*/
+/*}*/
+/*body {*/
+/*width: 100%;*/
+/*margin-left: 0;*/
+/*margin-right: 0;*/
+/*border: none;*/
+/*}*/
+/*}*/
 
-@media screen and (min-width: 1080px) {
-    html {
-        font-size: 16px;
-    }
-    body {
-        margin: 5% auto;
-        width: 60%;
-        border: none;
-        border: 1px solid #ddd;
-    }
+/*@media screen and (min-width: 1080px) {*/
+/*html {*/
+/*font-size: 16px;*/
+/*}*/
+/*body {*/
+/*margin: 5% auto;*/
+/*width: 60%;*/
+/*border: none;*/
+/*border: 1px solid #ddd;*/
+/*}*/
+/*}*/
+
+body {
+    /*border-radius: 3px;*/
+    /*padding: 3% 3% 3% 3%;*/
+    font-size: 16px;
+    /*border: 1px solid #ddd;*/
+    /*width: 60%;*/
+    /*margin: 5% auto;*/
 }
 
 body {
-    border-radius: 3px;
-    padding: 3% 3% 3% 3%;
-    font-size: 16px;
+    margin: 0 auto;
+    background: url("../img/bg.gif") repeat;
 }
+
+div#nav {
+    height: 40px;
+    background-color: #2175bc;
+    display: block;
+    margin: 0 auto;
+}
+
+.nav-list-item {
+    list-style: none;
+}
+
+.nav-list {
+    color: #fff;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: inherit;
+    display: block;
+    text-align: center;
+}
+
+.nav-list li {
+    display: block;
+    float: left;
+    height: 40px;
+    margin-right: 25px;
+    line-height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.nav-list li:first-child {
+    margin-left: 20%;
+}
+
+.nav-list li a {
+    text-decoration: none;
+}
+
+.nav-list li:hover {
+    background-color: #2586d7;
+}
+
+.nav-list li a:link {
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-list li a:visited {
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-list li a:active {
+    text-decoration: none;
+    color: #ffffff;
+}
+

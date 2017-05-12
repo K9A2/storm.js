@@ -20,68 +20,22 @@
         todo: 调整首页样式，类似于：http://www.cnblogs.com/wxd0108/
         todo: 使用xml文件来管理各种字符串\
     -->
-
-
-    <style>
-
-        div#header a {
-            color: red;
-            width: 100px;
-            float: left;
-            display: block;
-        }
-
-        div#header {
-            padding-left: 15px;
-            margin-bottom: 3%;
-        }
-
-        .markdown-body {
-            float: none;
-        }
-
-    </style>
-
 </head>
 <body>
 
-<div id="header">
+<div id="nav">
+    <ul class="nav-list">
+        <li class="nav-list-item"><a href="http://www.baidu.com" target="_blank">Hello world</a></li>
+        <li class="nav-list-item"><a href="#">javascript</a></li>
+        <li class="nav-list-item"><a href="#">Hello world</a></li>
+        <li class="nav-list-item"><a href="#">javascript</a></li>
+    </ul>
+</div>
 
-    <div id="title"></div>
-
-    <div id="categories"></div>
-
-    <script>
-
-        //Configure file entry
-        var xmlFilePath = "./config.xml";
-        var indexFilePath = "./md/index.md"
-        //var category = getCategories(xmlFilePath);
-
-        getHeader();
-
-        //        getBlogConfig(xmlFilePath);
-        //
-        //        //note: Find a proper place to put those categories in the header.
-        //        //note: The execute sequence of js
-        //        getCategories(xmlFilePath);
-
-
-    </script>
+<div id="main">
 
 
 </div>
-
-<script>
-
-    getPostList(indexFilePath);
-
-</script>
-
-<!-- Converted markdown text -->
-<article class="markdown-body">
-
-</article>
 
 </body>
 </html>

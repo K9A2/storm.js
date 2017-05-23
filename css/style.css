@@ -191,13 +191,6 @@ div#blog-info img{
 }
 
 div#post-list {
-    display: block;
-    border-left: 1px solid #ddd;
-    width: 70%;
-    float: right;
-    height: 100%;
-    position: relative;
-    padding-left: 1.5%;
 }
 
 div#content {

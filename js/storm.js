@@ -11,7 +11,7 @@
 
 //Default settings
 var settings = {
-    categoriesPath: "./categories.xml",
+    categoriesPath: "./conf/categories.xml",
     indexPath: "./md/index.md",
     title: "stormlin",
     motto: "Yet another full stack developer."
@@ -67,8 +67,6 @@ function getBlogConfig(xmlFilePath) {
 
 /**
  * Get categories array from categories.xml
- *
- * @param xmlFilePath File path to categories.xml
  */
 function getCategories() {
     //todo: Add categories at the head of each page.
@@ -100,8 +98,6 @@ function getCategories() {
 
 /**
  * Print the post list stored in "index.md".
- *
- * @param indexFilePath File path to "index.md"
  */
 function getPostList() {
     $.get(settings.indexPath, function (data) {

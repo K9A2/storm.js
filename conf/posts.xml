@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+Currently, there are 4 fields for each post.
+
+Note that, you must register every posts you wrote. If not, they
+will not be listed on the index page. And all post must be written
+in a markdown file.
+
+|Field Name|Annotation------------------------------------------|
+|----------|----------------------------------------------------|
+|id        |Nothing to annotate.                                |
+|name      |The file name of this post without file extension.  |
+|          |For example, a markdown file named "example.md" on  |
+|          |your disk. So you should write example here.        |
+|category  |The folder you placed your new post. A category must|
+|          |be registered in the "categories.xml". And you shold|
+|          |only place post under the registered folders.       |
+|date      |The time you wrote this post.                       |
+|----------|----------------------------------------------------|
+
+ -->
+<posts>
+    <post-item>
+        <id>1</id>
+        <name>a_java_post</name>
+        <category>java</category>
+        <date>2017年5月24日 (GMT+8) 下午6:34</date>
+    </post-item>
+</posts>

@@ -118,7 +118,6 @@ div#nav {
     list-style: none;
 }
 
-
 /*note: inline-block, block, inline 的区别*/
 /*note: 盒模型 px 宽度计算公式，百分比宽度计算公式*/
 /*note: css 固定头部导航条的制作*/
@@ -126,7 +125,7 @@ div#nav {
     color: #fff;
     list-style-type: none;
     width: 70%;
-    margin: 0 13%;
+    margin: 0 18%;
     padding: 0;
     height: inherit;
     display: inline-block;
@@ -167,7 +166,7 @@ div#nav {
 }
 
 div#main {
-    width: 50%;
+    width: 60%;
     background: white;
     box-shadow: 0 0 8px #999;
     margin: 0 auto;
@@ -182,7 +181,7 @@ div#blog-info {
     margin: 60px auto 0;
 }
 
-div#blog-info img{
+div#blog-info img {
     width: 8rem;
     height: 8rem;
     margin: 0 auto;

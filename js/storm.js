@@ -96,12 +96,31 @@ function getCategories() {
  * Print the post list stored in "index.md".
  */
 function getPostList() {
-    $.get(settings.indexPath, function (data) {
-        $("#post-list").append(marked(data));
-        $("pre").addClass("prettyprint linenums");
-        $("title").html($("h1").html());
-        $("a").attr("target", "_blank");
+    var requestedPost = [];
+
+    $.ajax({
+        url: settings.postPath,
+        async: false,
+        error: function (e) {
+            alert("Unable to reach the post list file.");
+            console.log(e.message);
+        },
+        success: function (xml) {
+            $(xml).find("posts").find("post-item").each(function () {
+                var categoryItem = {
+                    id: $(this).children("id").text(),
+                    name: $(this).children("name").text(),
+                    title: $(this).children("title").text(),
+                    category: $(this).children("category").text(),
+                    date: $(this).children("date").text(),
+                    description: $(this).children("description").text()
+                };
+                requestedPost.push(categoryItem);
+            })
+        }
     });
+
+    return requestedPost;
 }
 
 function getHeader() {

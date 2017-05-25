@@ -13,6 +13,7 @@
 var settings = {
     categoriesPath: "./conf/categories.xml",
     indexPath: "./md/index.md",
+    postPath: "./conf/posts.xml",
     title: "stormlin",
     motto: "Yet another full stack developer."
 };
@@ -23,7 +24,7 @@ var settings = {
  * @param name Target parameter name
  * @returns {null}
  */
-function getQueryString(name) {
+function getParaValue(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
     var result = window.location.search.substr(1).match(reg);
     if (result !== null) return result[2];
@@ -70,30 +71,25 @@ function getBlogConfig(xmlFilePath) {
  */
 function getCategories() {
     //todo: Add categories at the head of each page.
-    //var categories = new Array();
 
     $.ajax({
         url: settings.categoriesPath,
         async: false,
         error: function () {
-            alert("Unable to reach the xml config file.");
+            alert("Unable to reach the categories file.");
         },
         success: function (xml) {
-            $(xml).find("categories").find("category-item").each(function (index) {
+            $(xml).find("categories").find("category-item").each(function () {
                 var itemText = $(this).children("item-text").text();
+                var itemName = $(this).children("item-id").text();
                 //console.log(itemText.text());
                 //note: The usage of js array
                 //categories.push(itemText.text());
-                $(".nav-list").append('<li class="nav-list-item"><a href="#">' + itemText + '</a></li>');
+                $(".nav-list").append('<li class="nav-list-item"><a href="./category.html?category=' + itemName + '">' + itemText + '</a></li>');
             })
         }
     });
 
-    // for (var i = 0; i < categories.length; i++) {
-    //     document.write("" + categories[i] + "");
-    // }
-
-    //return categories;
 }
 
 /**
@@ -109,8 +105,6 @@ function getPostList() {
 }
 
 function getHeader() {
-    //getBlogConfig(xmlFilePath);
-    //getCategories(xmlFilePath);
 
     var xmlFilePath = settings.xmlFilePath;
     var indexFilePath = settings.indexPath;
@@ -154,6 +148,44 @@ function getHeader() {
             });
         }
     });
+
+}
+
+//todo: 获取符合目的 category 的所有文章的链接
+//note: 不要使用在 xml 文件中用 ------- 来做表格
+/**
+ * Get all requested post links
+ *
+ * @param categoryName Target category
+ */
+function getPostListWithCategory(categoryName) {
+
+    var requestedPost = [];
+
+    $.ajax({
+        url: settings.postPath,
+        async: false,
+        error: function (e) {
+            alert("Unable to reach the post list file.");
+            console.log(e.message);
+        },
+        success: function (xml) {
+            $(xml).find("posts").find("post-item").each(function () {
+                var categoryItem = {
+                    id: $(this).children("id").text(),
+                    name: $(this).children("name").text(),
+                    category: $(this).children("category").text(),
+                    date: $(this).children("date").text()
+                };
+
+                if (categoryItem.category === categoryName) {
+                    requestedPost.push(categoryItem);
+                }
+            })
+        }
+    });
+
+    return requestedPost;
 
 }
 

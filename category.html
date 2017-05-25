@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分类</title>
+
+    <link rel="SHORTCUT ICON" href="./img/icon.jpg">
+
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/marked.js"></script>
+    <script src="js/storm.js"></script>
+
+    <link rel="stylesheet" href="css/content.css"/>
+    <link href="css/prettify.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script>
+        $("title").html("分类：" + getParaValue("category"));
+    </script>
+
+</head>
+<body>
+
+<!--
+获取在 URL 中以 POST 方式发送的 Category-name 参数。之后就会到 post.xml 中查找所有属于此类的 post，并在此页中显示出来。
+-->
+
+<div id="nav">
+    <ul class="nav-list">
+        <li class="nav-list-item"><a href="./index.html" target="_blank">stormlin</a></li>
+        <script>
+            getCategories();
+        </script>
+    </ul>
+</div>
+
+<div id="blog-info">
+
+    <img src="img/icon.jpg">
+    <br>
+    <a id="user-name" href="./index.html">stormlin</a>
+    <p>Yet another full stack developer</p>
+
+</div>
+
+<div id="main">
+
+    <div id="post-list">
+        <script>
+            var categoryName = getParaValue("category");
+            var posts = getPostListWithCategory(categoryName);
+            if (posts.length === 0) {
+                new RedirectTo404();
+            } else {
+                for (var i = 0; i < posts.length; i++) {
+                    $("#main").append('<li><a href="./post.html?name=' + posts[i].name + '" target="_blank">' + posts[i].name + '</a></li>');
+                }
+
+            }
+        </script>
+    </div>
+
+</div>
+
+</body>
+</html>

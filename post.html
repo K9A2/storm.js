@@ -15,7 +15,7 @@
     <script src="js/storm.js"></script>
     <script>
         //获取文章正文
-        $.get("./md/" + getQueryString("name") + ".md").success(function (content) {
+        $.get("./md/" + getParaValue("name") + ".md").success(function (content) {
             $(".markdown-body").append(marked(content));
             $("pre").addClass("prettyprint linenums");
             $("title").html($("h1").html());

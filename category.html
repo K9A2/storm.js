@@ -53,11 +53,21 @@
                 new RedirectTo404();
             } else {
                 for (var i = 0; i < posts.length; i++) {
-                    $("#main").append('<li><a href="./post.html?name=' + posts[i].name + '" target="_blank">' + posts[i].name + '</a></li>');
+                    var item = '<div class="post-item"><a class="postLink" href="';
+                    item += './post.html?name=' + posts[i].name + '"><h3>' + posts[i].title + '</h3></a>' + '<h4>';
+                    item += posts[i].date + '</h4>' + '<p>' + posts[i].description + '</p></div>';
+                    $("#main").append(item);
+                    //$("#main").append('<li><a href="./post.html?name=' + posts[i].name + '" target="_blank">' + posts[i].title + '</a>' + '<p>' + posts[i].description + '</p>' + '</li>');
                 }
-
             }
         </script>
+        <!--
+        <div class="post-item">
+            <a class="postLink" href="./index.html"><h3>storm.js 开发笔记</h3></a>
+            <h4>2017/5/25 20:54</h4>
+            <p>记录了开发 storm.js 中所遇到的一些要点和坑点。</p>
+        </div>
+        -->
     </div>
 
 </div>

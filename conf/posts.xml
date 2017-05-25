@@ -7,36 +7,42 @@ Note that, you must register every posts you wrote. If not, they
 will not be listed on the index page. And all post must be written
 in a markdown file.
 
-|Field Name|Annotation                                          |
-|__________|____________________________________________________|
-|id        |Nothing to annotate.                                |
-|name      |The file name of this post without file extension.  |
-|          |For example, a markdown file named "example.md" on  |
-|          |your disk. So you should write example here.        |
-|category  |The folder you placed your new post. A category must|
-|          |be registered in the "categories.xml". And you shold|
-|          |only place post under the registered folders.       |
-|date      |The time you wrote this post.                       |
-|__________|____________________________________________________|
+|Field Name|Annotation                                           |
+|__________|_____________________________________________________|
+|id        |Nothing to annotate.                                 |
+|name      |The file name of this post without file extension.   |
+|          |For example, a markdown file named "example.md" on   |
+|          |your disk. So you should write example here.         |
+|category  |The folder you placed your new post. A category must |
+|          |be registered in the "categories.xml". And you should|
+|          |only place post under the registered folders.        |
+|date      |The time you wrote this post.                        |
+|__________|_____________________________________________________|
 
  -->
 <posts>
     <post-item>
         <id>1</id>
         <name>a_java_post</name>
+        <title>A Java Post</title>
         <category>java</category>
         <date>2017年5月24日 (GMT+8) 下午6:34</date>
+        <description>This is a java post</description>
     </post-item>
     <post-item>
         <id>2</id>
         <name>2_java_c</name>
-        <category>java</category>
+        <title>2 Java Post</title>
+        <category>csharp</category>
         <date>2017年5月24日 (GMT+8) 下午6:34</date>
+        <description>This is another java post</description>
     </post-item>
     <post-item>
         <id>3</id>
         <name>summary_for_developing_storm_js</name>
+        <title>Summary</title>
         <category>java</category>
         <date>2017年5月24日 (GMT+8) 下午6:34</date>
+        <description>记录了开发 storm.js 中所遇到的一些要点和坑点。</description>
     </post-item>
 </posts>

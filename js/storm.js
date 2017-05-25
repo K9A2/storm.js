@@ -174,8 +174,10 @@ function getPostListWithCategory(categoryName) {
                 var categoryItem = {
                     id: $(this).children("id").text(),
                     name: $(this).children("name").text(),
+                    title: $(this).children("title").text(),
                     category: $(this).children("category").text(),
-                    date: $(this).children("date").text()
+                    date: $(this).children("date").text(),
+                    description: $(this).children("description").text()
                 };
 
                 if (categoryItem.category === categoryName) {

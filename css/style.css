@@ -232,11 +232,12 @@ a#user-name:active {
 }
 
 .post-item h5 {
-    color: rgb(10, 10, 10);
+    color: #868e96;
+    margin: 0.5rem;
 }
 
 .post-item h3 {
-    margin-bottom: 20px;
+    margin: 0.5rem;
     color: #2175bc;
 }
 

@@ -33,7 +33,7 @@ in a markdown file.
         <id>2</id>
         <name>2_java_c</name>
         <title>2 Java Post</title>
-        <category>csharp</category>
+        <category>javascript</category>
         <date>2017年5月24日 (GMT+8) 下午6:34</date>
         <description>This is another java post</description>
     </post-item>

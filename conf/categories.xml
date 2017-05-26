@@ -5,10 +5,6 @@
         <item-text>Java</item-text>
     </category-item>
     <category-item>
-        <item-id>c++</item-id>
-        <item-text>C++</item-text>
-    </category-item>
-    <category-item>
         <item-id>javascript</item-id>
         <item-text>JavaScript</item-text>
     </category-item>

@@ -51,18 +51,7 @@
 
     <div id="post-list">
         <script>
-            var posts = getPostList();
-            if (posts.length === 0) {
-                new RedirectTo404();
-            } else {
-                for (var i = 0; i < posts.length; i++) {
-                    var item = '<div class="post-item"><a class="postLink" href="';
-                    item += './post.html?name=' + posts[i].name + '"><h3>' + posts[i].title + '</h3></a>' + '<h5>';
-                    item += posts[i].date + '</h5>' + '<p>' + posts[i].description + '</p></div>';
-                    $("#main").append(item);
-                    //$("#main").append('<li><a href="./post.html?name=' + posts[i].name + '" target="_blank">' + posts[i].title + '</a>' + '<p>' + posts[i].description + '</p>' + '</li>');
-                }
-            }
+            printPostList(getPostList());
         </script>
     </div>
 

@@ -67,6 +67,38 @@ function getBlogConfig(xmlFilePath) {
 }
 
 /**
+ * Return the text for target category name
+ *
+ * @param categoryName Require category
+ * @returns text Category-Text
+ */
+function getCategoryTextByName(categoryName) {
+
+    var text;
+
+    $.ajax({
+        url: settings.categoriesPath,
+        dataType: "xml",
+        type: "GET",
+        async: false,
+        error: function () {
+            alert("Unable to reach the category file.");
+        },
+        success: function (xml) {
+            $(xml).find("categories").find("category-item").each(function () {
+                var item = $(this).children("item-id").text();
+                if (item === categoryName) {
+                    text = $(this).children("item-text").text();
+                    return text;
+                }
+            })
+        }
+    });
+
+    return text;
+}
+
+/**
  * Get categories array from categories.xml
  */
 function getCategories() {
@@ -207,6 +239,27 @@ function getPostListWithCategory(categoryName) {
     });
 
     return requestedPost;
+
+}
+
+/**
+ * Print target post list
+ *
+ * @param posts Target post list
+ */
+function printPostList(posts) {
+
+    if (posts.length === 0) {
+        new RedirectTo404();
+    } else {
+        for (var i = 0; i < posts.length; i++) {
+            var category = '<a href="./category.html?category=' + posts[i].category + '">' + getCategoryTextByName(posts[i].category) + '</a>';
+            var item = '<div class="post-item"><a class="postLink" href="';
+            item += './post.html?name=' + posts[i].name + '">' + posts[i].title + '</a>' + '<p class="date_and_category">';
+            item += posts[i].date + category + '</p><p class="description">' + posts[i].description + '</p></div>';
+            $("#main").append(item);
+        }
+    }
 
 }
 

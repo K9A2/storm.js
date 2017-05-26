@@ -215,25 +215,28 @@ a#user-name:active {
     border-bottom: 1px solid #ccc;
 }
 
-.postLink {
+.postLink:link {
     font-size: 1.5rem;
     text-decoration: none;
-    color: #000;
+    color: #2175bc;
+    font-weight: bold;
 }
 
 .postLink:active {
     text-decoration: none;
-    color: #000;
+    color: #2175bc;
+    font-weight: bold;
 }
 
 .postLink:visited {
     text-decoration: none;
-    color: #000;
+    color: #2175bc;
+    font-weight: bold;
 }
 
 .post-item h5 {
     color: #868e96;
-    margin: 0.5rem;
+    margin: 0.5rem 0.5rem 0.5rem 0;
 }
 
 .post-item h3 {
@@ -241,11 +244,23 @@ a#user-name:active {
     color: #2175bc;
 }
 
-.post-item p {
+.post-item .description {
     padding-left: 0.5rem;
     border-left: 3px solid #eb3f2f;
 }
 
 .post-item:last-child {
     border-bottom: none;
+}
+
+.date_and_category a {
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid #000;
+    text-decoration: none;
+    color: #2175bc;
+}
+
+.date_and_category a:visited {
+    text-decoration: none;
 }

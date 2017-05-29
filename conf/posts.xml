@@ -23,26 +23,18 @@ in a markdown file.
 <posts>
     <post-item>
         <id>1</id>
-        <name>a_java_post</name>
-        <title>A Java Post</title>
-        <category>java</category>
-        <date>2017年5月24日 (GMT+8) 下午6:34</date>
-        <description>This is a java post</description>
+        <name>summary_for_developing_storm_js</name>
+        <title>storm.js 开发总结</title>
+        <category>javascript</category>
+        <date>2017/5/24 18:34</date>
+        <description>记录了开发 storm.js 中所遇到的一些要点和坑点。</description>
     </post-item>
     <post-item>
         <id>2</id>
-        <name>2_java_c</name>
-        <title>2 Java Post</title>
-        <category>javascript</category>
-        <date>2017年5月24日 (GMT+8) 下午6:34</date>
-        <description>This is another java post</description>
-    </post-item>
-    <post-item>
-        <id>3</id>
-        <name>summary_for_developing_storm_js</name>
-        <title>Summary</title>
+        <name>Java Developer Handbook</name>
+        <title>阿里巴巴 Java 开发手册</title>
         <category>java</category>
-        <date>2017年5月24日 (GMT+8) 下午6:34</date>
-        <description>记录了开发 storm.js 中所遇到的一些要点和坑点。</description>
+        <date>2017/5/29 13:14</date>
+        <description>阿里巴巴集团 Java 开发手册</description>
     </post-item>
 </posts>

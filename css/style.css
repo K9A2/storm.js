@@ -102,6 +102,15 @@ body {
     background: url("../img/bg.gif") repeat;
 }
 
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 div#nav {
     height: 40px;
     background-color: #2175bc;
@@ -169,9 +178,9 @@ div#main {
     width: 60%;
     background: white;
     box-shadow: 0 0 8px #999;
-    margin: 0 auto;
     padding: 2% 2% 2%;
     overflow: auto;
+    margin: 0 auto 3%;
 }
 
 div#blog-info {
@@ -263,4 +272,10 @@ a#user-name:active {
 
 .date_and_category a:visited {
     text-decoration: none;
+}
+
+div#footer {
+    margin: 0 auto 2%;
+    width: 100%;
+    text-align: center;
 }

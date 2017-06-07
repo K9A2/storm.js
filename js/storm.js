@@ -280,6 +280,11 @@ function returnToTop() {
 
 }
 
+/**
+ * Sorti by something
+ * @param name Element attribute
+ * @returns {Function} Sorting algorithm
+ */
 var by = function(name){
     return function(o, p){
         var a, b;
@@ -298,4 +303,12 @@ var by = function(name){
             throw ("error");
         }
     }
+};
+
+/**
+ * Get footer
+ */
+function getFooter() {
+    var footerText = '<div id="footer">' + '<p>Copyright © 2014 - 2017 stormlin.</p><p>All Rights Reserved.</p>' + '<a href="http://www.miitbeian.gov.cn">备案号：粤ICP备16029958号-1</a></div>';
+    $("body").append(footerText);
 }

@@ -2,12 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页</title>
     <link rel="SHORTCUT ICON" href="./img/icon.jpg">
 
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/marked.js"></script>
     <script src="js/storm.js"></script>
+
+    <style>
+        @media only screen and (max-width: 1080px) {
+            body {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                border: none;
+            }
+        }
+    </style>
 
     <link rel="stylesheet" href="css/content.css"/>
     <link href="css/prettify.css" rel="stylesheet">
@@ -32,12 +44,6 @@
     </ul>
 </div>
 
-<!--
-<div id="index-img" style="align: center;">
-    <img src="./img/timg.jpg">
-</div>
--->
-
 <div id="blog-info">
 
     <img src="img/icon.jpg">
@@ -57,10 +63,9 @@
 
 </div>
 
-<div id="footer">
-    <p>Copyright © 2014 - 2017 stormlin. All Rights Reserved.</p>
-    <a href="http://www.miitbeian.gov.cn">备案号：粤ICP备16029958号-1</a>
-</div>
+<script>
+    getFooter();
+</script>
 
 </body>
 </html>

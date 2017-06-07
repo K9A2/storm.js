@@ -1,15 +1,4 @@
-/*@media screen and (min-width: 320px) {*/
-/*html {font-size: 26px;}*/
-/*article {*/
-/*margin: auto 15px auto 15px;*/
-/*}*/
-/*body {*/
-/*width: 100%;*/
-/*margin-left: 0;*/
-/*margin-right: 0;*/
-/*border: none;*/
-/*}*/
-/*}*/
+
 
 /*@media screen and (min-width: 360px) {*/
 /*html {font-size: 28px;}*/
@@ -275,7 +264,46 @@ a#user-name:active {
 }
 
 div#footer {
-    margin: 0 auto 2%;
+    margin: 0 auto;
+    color: white;
+    padding: 1%;
     width: 100%;
     text-align: center;
+    background-color: #2175bc;
 }
+
+div#footer a {
+    color: white;
+}
+
+/* note: css 文档加载顺序 */
+@media screen and (min-width: 360px) {
+    body {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        border: none;
+    }
+
+    div#nav {
+        height: 40px;
+        background-color: #2175bc;
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+    }
+
+    div#main {
+        width: auto;
+        background: white;
+        box-shadow: none;
+        padding: 2% 2% 2%;
+        overflow: auto;
+        margin: 3%;
+    }
+}
+

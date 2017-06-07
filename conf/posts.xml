@@ -39,7 +39,7 @@ in a markdown file.
     </post-item>
     <post-item>
         <id>3</id>
-        <name>数据挖掘实验报告</name>
+        <name>DataMiningReport</name>
         <title>FP-Growth 和 K-Means 学习报告</title>
         <category>java</category>
         <date>2017-06-07 21:01</date>

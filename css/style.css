@@ -277,7 +277,7 @@ div#footer a {
 }
 
 /* note: css 文档加载顺序 */
-@media screen and (min-width: 360px) {
+@media screen and (max-width: 640px) {
     body {
         width: 100%;
         margin-left: 0;

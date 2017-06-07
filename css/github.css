@@ -428,6 +428,10 @@
     margin-bottom: 16px;
 }
 
+.markdown-body p {
+    text-indent: 2rem;
+}
+
 .markdown-body hr {
     height: 0.25em;
     padding: 0;
@@ -711,4 +715,8 @@
 
 .markdown-body hr {
     border-bottom-color: #eee;
+}
+
+.markdown-body ol {
+    padding-left: 3rem;
 }

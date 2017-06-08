@@ -11,8 +11,10 @@
     - [1.2 步骤简介](#12-步骤简介)
     - [1.3 实例分析](#13-实例分析)
         - [1.3.1 Overview](#131-overview)
-        - [1.3.2 如何把不同行的数据聚到一行？](#132-如何把不同行的数据聚到一行)
-        - [1.3.3 如何把 FP-Growth 算法的输出还原成类似于输入的事务？](#133-如何把-fp-growth-算法的输出还原成类似于输入的事务)
+            - [1.3.1.1 预处理](#1311-预处理)
+            - [1.3.1.2 重整输出](#1312-重整输出)
+        - [1.3.2 如何把 FP-Growth 算法的输出还原成可阅读的频繁项集？](#132-如何把-fp-growth-算法的输出还原成可阅读的频繁项集)
+        - [1.3.3 如何判断两个频繁项之间有交集？](#133-如何判断两个频繁项之间有交集)
         - [1.3.4 处理结果与应用场合](#134-处理结果与应用场合)
 - [2. K-Means](#2-k-means)
     - [2.1 分类原理](#21-分类原理)
@@ -61,33 +63,96 @@ public void getFPOutput(List<List<String>> transactions, List<String> postPatter
 
 #### 1.3.1 Overview
 
-针对 FP-Growth 的实例分析，我们采用了一个具有 27 万测试数据的数据集（示例见 Fig.1，可以通过[度盘链接](http://pan.baidu.com/s/1eRZ0vke)下载）。在经过预处理阶段之后（即源代码中的 `preProcess` 方法），数据量下降为 6 万多。包括预处理、FP-Growth 计算频繁项集和重整输出三个阶段的完整流程的处理时间为 10 秒。
+针对 FP-Growth 的实例分析，我们采用了一个具有 27 万测试数据的数据集（示例见 Fig.1，可以通过[度盘链接](http://pan.baidu.com/s/1eRZ0vke)下载）。在经过预处理阶段之后（即源代码中的 `preProcess` 方法），数据量下降为 6 万多，全过程处理时间大约为 10 秒。不同机器可能需要不同的处理时间，具体请参照在程序起止是输出的时间戳。
 
 <div style="text-align: center"><img src="./md/img/实例数据.png"></img></div>
 <p style="text-align: center; font-size: 0.8rem; text-indent: 0;">Fig.1 Data Sample</p>
 
-#### 1.3.2 如何把不同行的数据聚到一行？
+测试程序主要采用了三级处理的方式，预处理、FP-Growth 计算频繁项集和重整输出三个阶段：
+1.  预处理：<br>
+    `fpInput = preProcess(csvFilePath, inputSeparator, requiredClass);`
+2.  FP-Growth 算法生成频繁项：<br>
+    `FPGrowth fpGrowth = new FPGrowth(2);`<br>
+    `fpGrowth.getFPOutput(fpInput, null, fpOutput);`
+3.  重整输出：<br>
+    `result = reProcess(dictionaryFilePath, fpSeparator, fpOutput)`
 
-通过观察，我们可以发现，每一条记录都是独立一行的。那么我们就需要把这些记录合并到同一行中，形成一个类似于购物篮分析中所用的数据集。
+由于频繁项的计算已在 1.2 节中介绍，故以下只介绍预处理和重整输出两个阶段。
 
-在这个数据集中，每一个行都是由*读者记录号*、*图书记录号（种）*以及*图书分类号*等组成的。同时，由于这是一个日志文件，那么就可以通过相同的上下文来确定一项事务中所包含的各项。
+##### 1.3.1.1 预处理
 
-#### 1.3.3 如何把 FP-Growth 算法的输出还原成类似于输入的事务？
+预处理阶段的主要任务是为 FP-Growth 准备需要的输入数据。
+
+如前文所述，原始数据为日志文件，其数据项按行排列，并非 FP-Growth 所要求的多个事物项处在同一行。故预处理阶段的第一个任务就是把这些“属于”同一行的数据全部合并到同一行中：
+```java
+算法输入：
+    1.  String csvFilePath：以 CSV 文件格式存储的原始数据
+    2.  String inputSeparator：CSV 文件中用来分隔同一行中的不同数据项的分隔符
+    3.  String targetClass：目的图书分类
+    
+算法输出：
+    List<List<String>> FPInput：FP-Growth 算法输入数据
+
+List<List<String>> preProcess(String csvFilePath, String inputSeparator, char targetClass) {
+    //1.读取 CSV 文件，构建原始输入
+    ...
+    //2.筛选出符合类别要求的记录项
+    ...
+    //3.读取数据并合并同一次结束记录的连续几行记录
+    ...
+    return FPInput;
+}
+```
+
+##### 1.3.1.2 重整输出
+
+重整输出阶段的任务就是把 FP-Growth 算法输出的杂乱无章的结果重整为在条目之间具有唯一性的输出结果。
+```java
+算法输入：
+    1.  String dictionaryFilePath：CSV 文件格式的书名字典文件的位置
+    2.  String dictionarySeparator：字典文件中每一行的各项之间的分隔符
+    3.  List<List<String>> fpOutput：欲处理的 FP-Growth 输出
+
+算法输出：
+    List<List<String>> result：可以直接输出的结果
+
+List<List<String>> reProcess(String dictionaryFilePath, String dictionarySeparator, List<List<String>> fpOutput) {
+    //1.制作字典
+    Dictionary<String, String> dictionary = new Hashtable<>();
+    ...
+    //2.合并与去重
+    getResultFiltered(result, fpOutput);
+    //3.替换其中的书号以得到最终结果
+    ...
+    return result;
+}
+```
+
+其中，`getResultFiltered(List<List<String>> result, List<List<String>> removedPrefix)` 会在下一节详细介绍。
+
+#### 1.3.2 如何把 FP-Growth 算法的输出还原成可阅读的频繁项集？
 
 FP-Growth 算法输出是杂乱无章的，所以我们就需要对它的输出进行重整。而为了尽可能扩大相关联事务的范围，我们采用了合并所有有交集的行的方法：
 ```java
-private static void getResultFiltered(List<List<String>> result, List<List<String>> removedPrefix) {
+算法输入：
+    1.  List<List<String>> result：处理结果
+    2.  List<List<String>> fpOutput：FP-Growth 处理结果与应用场合
+
+算法输出：
+    在参数 result 中
+
+private static void getResultFiltered(List<List<String>> result, List<List<String>> fpOutput) {
     //合并与去重
     HashSet<String> temp = new HashSet<>();
-    int elementLeft = removedPrefix.size();
+    int elementLeft = fpOutput.size();
     //任意两行之间如果有交集，就合并他们
-    while (removedPrefix.size() != 0) {
-        temp.addAll(removedPrefix.get(0));
+    while (fpOutput.size() != 0) {
+        temp.addAll(fpOutput.get(0));
         for (int j = 1; j < elementLeft - 1; j++) {
             //若两项之间有交集，则 isIntersected 返回 true
-            if (isIntersected(temp, removedPrefix.get(j))) {
-                temp.addAll(removedPrefix.get(j));
-                removedPrefix.remove(j);
+            if (isIntersected(temp, fpOutput.get(j))) {
+                temp.addAll(fpOutput.get(j));
+                fpOutput.remove(j);
                 elementLeft--;
                 j--;
             }
@@ -95,11 +160,37 @@ private static void getResultFiltered(List<List<String>> result, List<List<Strin
         result.add(new ArrayList<>(temp));
         temp.clear();
         elementLeft--;
-        removedPrefix.remove(0);
+        fpOutput.remove(0);
     }
 }
 ```
 以上算法中，HashSet 的使用有效加快了匹配的速度。同时，由于算法会删去已添加的行，重整算法的时间复杂度近似为 O(nlogn)，空间复杂度不会超过输入数组的大小，即 O(n)。
+
+#### 1.3.3 如何判断两个频繁项之间有交集？
+
+为了能尽可能地扩大结果中一条频繁项集的数据，为推荐算法提供更多样化的结果，在合并频繁项集的时候，需要判断两个频繁项之间是否有交集。如果两个频繁项之间有交集，则合并两者。
+```java
+算法输入：
+    1.  HashSet<String> a：已有结果的条件模式基
+    2.  List<String> b：需要检测的频繁项集
+
+算法输出：
+    true：两者之间有交集
+    false：两者之间无交集
+
+private static boolean isIntersected(HashSet<String> a, List<String> b) {
+    for (String anA : a) {
+        for (String aB : b) {
+            if (anA.equals(aB)) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+```
+
+据其他资料分析，使用 List 的 retainAll() 方法也能检测两者之间是否有交集，大家可以去试试这种方法。
 
 #### 1.3.4 处理结果与应用场合
 

@@ -76,10 +76,13 @@
 /*border: 1px solid #ddd;*/
 /*}*/
 /*}*/
+html {
+    width: auto;
+}
 
 body {
     font-size: 16px;
-    overflow-x: hidden;
+    overflow-x: visible;
 }
 
 body {
@@ -260,10 +263,8 @@ a#user-name:active {
 }
 
 div#footer {
-    margin: 0 0;
     color: white;
-    padding: 1%;
-    width: 100%;
+    padding: 1% 0;
     text-align: center;
     background-color: #2175bc;
 }
@@ -282,15 +283,15 @@ div#footer a {
     }
 
     div#nav {
-        height: 40px;
+        height: auto;
         background-color: #2175bc;
-        display: block;
         margin: 0 auto;
-        width: 100%;
-        position: relative;
-        top: 0;
-        left: 0;
+        position: fixed;
         z-index: 9999;
+    }
+
+    div#nav .generated {
+        display: none;
     }
 
     div#main {
@@ -301,5 +302,12 @@ div#footer a {
         overflow: auto;
         margin: 3%;
     }
+
+    .markdown-body h1 {
+        padding-top: 0.3em;
+        border-top: 2px solid #eeeeee;
+        border-bottom: 2px solid #eeeeee;
+    }
+
 }
 

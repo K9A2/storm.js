@@ -117,7 +117,7 @@ function getCategories() {
                 //console.log(itemText.text());
                 //note: The usage of js array
                 //categories.push(itemText.text());
-                $(".nav-list").append('<li class="nav-list-item"><a href="./category.html?category=' + itemName + '">' + itemText + '</a></li>');
+                $(".nav-list").append('<li class="nav-list-item generated"><a href="./category.html?category=' + itemName + '">' + itemText + '</a></li>');
             })
         }
     });
@@ -309,6 +309,6 @@ var by = function(name){
  * Get footer
  */
 function getFooter() {
-    var footerText = '<div id="footer">' + '<p>Copyright © 2014 - 2017 stormlin.</p><p>All Rights Reserved.</p>' + '<a href="http://www.miitbeian.gov.cn">备案号：粤ICP备16029958号-1</a></div>';
+    var footerText = '<div id="footer">' + '<p>Copyright © 2014 - 2017 stormlin.</p><p>All Rights Reserved.</p>' + '<p><a href="http://www.miitbeian.gov.cn">备案号：粤ICP备16029958号-1</a></p></div>';
     $("body").append(footerText);
 }

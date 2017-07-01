@@ -95,34 +95,65 @@ a {
     color: #000;
 }
 
+#title {
+    font-family: Arial, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #2175bc;
+    min-height: 80px;
+    padding: 5%;
+}
+
+#title h1 {
+    font-size: 22px;
+    margin: 0;
+    text-align: left;
+}
+
+#title img {
+    width: 18px;
+    height: 18px;
+}
+
+#title p {
+    margin-bottom: 0;
+}
+
 a:hover {
     text-decoration: underline;
 }
 
 div#nav {
     height: 40px;
-    background-color: #2175bc;
+    color: #2175bc;
     display: block;
     margin: 0 auto;
     width: 100%;
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     z-index: 9999;
 }
 
+div#icon {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
 .nav-list-item {
     list-style: none;
+    margin-right: 0;
 }
 
 /*note: inline-block, block, inline 的区别*/
 /*note: 盒模型 px 宽度计算公式，百分比宽度计算公式*/
 /*note: css 固定头部导航条的制作*/
 .nav-list {
-    color: #fff;
+    color: inherit;
     list-style-type: none;
-    width: 70%;
-    margin: 0 18%;
+    margin: 0;
     padding: 0;
     height: inherit;
     display: inline-block;
@@ -133,7 +164,6 @@ div#nav {
     display: block;
     float: left;
     height: 40px;
-    margin-right: 25px;
     line-height: 40px;
     padding-left: 10px;
     padding-right: 10px;
@@ -149,17 +179,17 @@ div#nav {
 
 .nav-list li a:link {
     text-decoration: none;
-    color: #fff;
+    color: #333;
 }
 
 .nav-list li a:visited {
     text-decoration: none;
-    color: #fff;
+    color: #333;
 }
 
 .nav-list li a:active {
     text-decoration: none;
-    color: #ffffff;
+    color: #2175bc;
 }
 
 div#main {
@@ -175,15 +205,17 @@ div#blog-info {
     width: 50%;
     height: 100%;
     text-align: center;
-    margin: 60px auto 0;
+    margin: 5% auto 0;
 }
 
-div#blog-info img {
-    width: 8rem;
-    height: 8rem;
+div#icon img {
+    width: 30px;
+    height: 30px;
     margin: 0 auto;
     border-radius: 50%;
     overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 div#post-list {
@@ -274,19 +306,19 @@ div#footer a {
 }
 
 /* note: css 文档加载顺序 */
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 768px) {
     body {
         width: 100%;
         margin-left: 0;
         margin-right: 0;
         border: none;
+        background: none;
     }
 
     div#nav {
-        height: auto;
-        background-color: #2175bc;
+        height: 40px;
         margin: 0 auto;
-        position: fixed;
+        position: relative;
         z-index: 9999;
     }
 

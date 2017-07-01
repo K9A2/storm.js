@@ -15,8 +15,13 @@
 
     <script src="js/storm.js"></script>
     <script>
-        //获取文章正文
-        $.get("./md/" + getParaValue("name") + ".md").success(function (content) {
+        var postName = getParaValue("name");
+        //获取文章信息
+        var post = getPostByName(postName);
+        //渲染文章标题
+        $("#title").html("Hello world!");
+        //获取并渲染写入文章正文
+        $.get("./md/" + postName + ".md").success(function (content) {
             $(".markdown-body").append(marked(content));
             $("pre").addClass("prettyprint linenums");
             $("title").html($("h1").html());
@@ -31,21 +36,24 @@
 <body>
 
 <div id="nav">
-    <ul class="nav-list">
-        <li class="nav-list-item"><a href="./index.html">stormlin</a></li>
-        <script>
-            getCategories();
-        </script>
-    </ul>
+    <div id="icon" style="display: block; float: left">
+        <a href="./index.html"><img id="avatar" src="img/icon.jpg"></a>
+    </div>
+    <div id="list" style="display: block; float: left">
+        <ul class="nav-list">
+            <li class="nav-list-item"><a href="./index.html">首页</a></li>
+            <li class="nav-list-item"><a href="./category.html">分类</a></li>
+            <li class="nav-list-item"><a href="./post.html?name=about">关于我</a></li>
+        </ul>
+    </div>
 </div>
 
-<div id="blog-info">
-
-    <img id="avatar" src="img/icon.jpg">
-    <br>
-    <a id="user-name" href="./index.html">stormlin</a>
-    <p>Yet another full stack developer</p>
-
+<div id="title">
+    <script>
+        var info = "<h1>" + post.title + "</h1>" + "<p>" + "<img src='./img/date.png'>" + "  " + post.date + "  " +
+            "<img src='./img/class.png'>" + "  " + getCategoryTextByName(post.category) + "</p>";
+        $("#title").append(info);
+    </script>
 </div>
 
 <div id="main">

@@ -36,28 +36,24 @@
 <body>
 
 <div id="nav">
-    <ul class="nav-list">
-        <li class="nav-list-item"><a href="./index.html">stormlin</a></li>
-        <script>
-            getCategories();
-        </script>
-    </ul>
-</div>
+    <div id="icon" style="display: block; float: left">
+        <a href="./index.html"><img id="avatar" src="img/icon.jpg"></a>
 
-<div id="blog-info">
-
-    <img src="img/icon.jpg">
-    <br>
-    <a id="user-name" href="./index.html">stormlin</a>
-    <p>Yet another full stack developer</p>
-
+    </div>
+    <div id="list" style="display: block; float: left">
+        <ul class="nav-list">
+            <li class="nav-list-item"><a href="./index.html">首页</a></li>
+            <li class="nav-list-item"><a href="./category.html">分类</a></li>
+            <li class="nav-list-item"><a href="./post.html?name=about">关于我</a></li>
+        </ul>
+    </div>
 </div>
 
 <div id="main">
 
     <div id="post-list">
         <script>
-            printPostList(getPostList());
+            printPostList(getIndexPostList());
         </script>
     </div>
 

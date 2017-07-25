@@ -106,7 +106,7 @@ function getCategories() {
 
     $.ajax({
         url: settings.categoriesPath,
-        async: false,
+        async: true,
         error: function () {
             alert("Unable to reach the categories file.");
         },
@@ -114,9 +114,6 @@ function getCategories() {
             $(xml).find("categories").find("category-item").each(function () {
                 var itemText = $(this).children("item-text").text();
                 var itemName = $(this).children("item-id").text();
-                //console.log(itemText.text());
-                //note: The usage of js array
-                //categories.push(itemText.text());
                 $(".nav-list").append('<li class="nav-list-item generated"><a href="./category.html?category=' + itemName + '">' + itemText + '</a></li>');
             })
         }
@@ -127,7 +124,7 @@ function getCategories() {
 /**
  * Print the post list stored in "index.md".
  */
-function getPostList() {
+function getIndexPostList() {
     var requestedPost = [];
 
     $.ajax({
@@ -249,6 +246,68 @@ function getPostListWithCategory(categoryName) {
 
 }
 
+function getPostByName(postName) {
+
+    var requestedPost;
+
+    $.ajax({
+        url: settings.postPath,
+        async: false,
+        error: function (e) {
+            alert("Unable to reach the post list file.");
+            console.log(e.message);
+        },
+        success: function (xml) {
+            $(xml).find("posts").find("post-item").each(function () {
+                var post = {
+                    id: $(this).children("id").text(),
+                    name: $(this).children("name").text(),
+                    title: $(this).children("title").text(),
+                    category: $(this).children("category").text(),
+                    date: $(this).children("date").text(),
+                    description: $(this).children("description").text()
+                };
+
+                if (post.name === postName) {
+                    requestedPost = post;
+                }
+            })
+        }
+    });
+
+    return requestedPost;
+
+}
+
+function getCategoryItemByName(categoryName) {
+
+    var requestedCategory;
+
+    $.ajax({
+        url: settings.categoriesPath,
+        async: false,
+        error: function (e) {
+            alert("Unable to reach the category list file.");
+            console.log(e.message);
+        },
+        success: function (xml) {
+            $(xml).find("categories").find("category-item").each(function () {
+                var categoryItem = {
+                    id: $(this).children("item-id").text(),
+                    text: $(this).children("item-text").text(),
+                };
+
+                if (categoryItem.name === categoryName) {
+                    requestedCategory = post;
+                }
+            })
+        }
+    });
+
+    return requestedCategory;
+
+}
+
 /**
  * Print target post list
  *
@@ -257,7 +316,7 @@ function getPostListWithCategory(categoryName) {
 function printPostList(posts) {
 
     if (posts.length === 0) {
-        new RedirectTo404();
+        //new RedirectTo404();
     } else {
         for (var i = 0; i < posts.length; i++) {
             var category = '<a href="./category.html?category=' + posts[i].category + '">' + getCategoryTextByName(posts[i].category) + '</a>';

@@ -19,7 +19,11 @@
         //从 URL 中获取 category 名称，然后从 categories.xml 中查找对应的 category-text
         //alert(getParaValue("category"));
 
-        var categoryName = getCategoryTextByName(getParaValue("category"));
+
+        //从category.xml中读取所有的文章分类，并循环显示之
+        //var categoryNames = getCategories();
+        //alert(categoryNames);
+        //var categoryName = getCategoryTextByName(getParaValue("category"));
 
         //alert(categoryName);
 
@@ -35,10 +39,9 @@
 
 <div id="nav">
     <ul class="nav-list">
-        <li class="nav-list-item"><a href="./index.html">stormlin</a></li>
-        <script>
-            getCategories();
-        </script>
+        <li class="nav-list-item"><a href="./index.html">首页</a></li>
+        <li class="nav-list-item"><a href="./category.html">分类</a></li>
+        <li class="nav-list-item"><a href="./about.html">关于我</a></li>
     </ul>
 </div>
 

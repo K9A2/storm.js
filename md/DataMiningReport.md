@@ -1,5 +1,4 @@
-<h1 style="text-align: center">FP-Growth 和 K-Means 学习报告</h1>
-<p style="text-align: center">stormlin 2017-06-07</p>
+<!-- FP-Growth 和 K-Means 学习报告 -->
 
 **最近学习了数据挖掘常用的两种算法：FP-Growth 和 K-Means。现在把我的学习结果分享给大家。**
 

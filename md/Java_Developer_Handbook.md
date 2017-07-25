@@ -1,5 +1,4 @@
-<h1 style="text-align: center">Java 开发手册</h1>
-<p style="text-align: center">Markdown 制作：stormlin，原著：阿里巴巴集团技术部</p>
+<!-- Java 开发手册 -->
 
 ## 一、编程规约
 ### (一) 命名规约

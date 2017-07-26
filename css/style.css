@@ -1,81 +1,3 @@
-
-
-/*@media screen and (min-width: 360px) {*/
-/*html {font-size: 28px;}*/
-/*article {*/
-/*margin: auto 15px auto 15px;*/
-/*}*/
-/*body {*/
-/*width: 100%;*/
-/*margin-left: 0;*/
-/*margin-right: 0;*/
-/*border: none;*/
-/*}*/
-/*}*/
-
-/*@media screen and (min-width: 400px) {*/
-/*html {font-size: 30px;}*/
-/*article {*/
-/*margin: auto 15px auto 15px;*/
-/*}*/
-/*body {*/
-/*width: 100%;*/
-/*margin-left: 0;*/
-/*margin-right: 0;*/
-/*border: none;*/
-/*}*/
-/*}*/
-
-/*@media screen and (min-width: 440px) {*/
-/*html {font-size: 32px;}*/
-/*article {*/
-/*margin: auto 15px auto 15px;*/
-/*}*/
-/*body {*/
-/*width: 100%;*/
-/*margin-left: 0;*/
-/*margin-right: 0;*/
-/*border: none;*/
-/*}*/
-/*}*/
-
-/*@media screen and (min-width: 480px) {*/
-/*html {font-size: 34px;}*/
-/*article {*/
-/*margin: auto 15px auto 15px;*/
-/*}*/
-/*body {*/
-/*width: 100%;*/
-/*margin-left: 0;*/
-/*margin-right: 0;*/
-/*border: none;*/
-/*}*/
-/*}*/
-
-/*@media screen and (min-width: 640px) {*/
-/*html {font-size: 28px;}*/
-/*article {*/
-/*margin: auto 15px auto 15px;*/
-/*}*/
-/*body {*/
-/*width: 100%;*/
-/*margin-left: 0;*/
-/*margin-right: 0;*/
-/*border: none;*/
-/*}*/
-/*}*/
-
-/*@media screen and (min-width: 1080px) {*/
-/*html {*/
-/*font-size: 16px;*/
-/*}*/
-/*body {*/
-/*margin: 5% auto;*/
-/*width: 60%;*/
-/*border: none;*/
-/*border: 1px solid #ddd;*/
-/*}*/
-/*}*/
 html {
     width: auto;
 }
@@ -96,7 +18,7 @@ a {
 }
 
 #title {
-    font-family: 微软雅黑, Arial, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-family: tahoma, arial, "Hiragino Sans GB", 宋体, sans-serif;
     font-size: 20px;
     color: #ffffff;
     background-color: #000B43;
@@ -137,10 +59,15 @@ div#nav {
 }
 
 div#icon {
+    display: block;
+    float: left;
     width: 3rem;
     height: 3rem;
     text-align: center;
-    line-height: 40px;
+}
+
+div#icon a {
+    line-height: 3rem;
 }
 
 div#list {
@@ -149,8 +76,10 @@ div#list {
 
 .nav-list-item {
     height: 3rem;
+    line-height: 3rem;
     list-style: none;
     margin-right: 0;
+    margin-bottom: 0;
 }
 
 /*note: inline-block, block, inline 的区别*/
@@ -169,7 +98,7 @@ div#list {
 .nav-list li {
     display: block;
     float: left;
-    height: 40px;
+    height: 3rem;
     line-height: 3rem;
     padding-left: 10px;
     padding-right: 10px;
@@ -209,14 +138,21 @@ div#main {
 }
 
 div#blog-info {
-    height: 10rem;
     background-color: #000B43;
+    margin-top: 3rem;
+    padding: 1rem;
 }
 
 div#blog-info h1 {
+    font-size: 3rem;
     color: white;
-    margin-top: 3rem;
-    padding: 1rem;
+    margin: 0;
+}
+
+div#blog-info h2 {
+    font-size: 1rem;
+    color: white;
+    margin: 0;
 }
 
 div#icon img {

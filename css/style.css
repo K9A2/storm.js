@@ -12,18 +12,17 @@ body {
     background: url("../img/bg.gif") repeat;
 }
 
-a {
+a:link, :visited, :active {
     text-decoration: none;
-    color: #000;
 }
 
 #title {
     font-family: tahoma, arial, "Hiragino Sans GB", 宋体, sans-serif;
-    font-size: 20px;
+    font-size: 1rem;
     color: #ffffff;
     background-color: #000B43;
-    padding: 3%;
-    margin-top: 14%;
+    padding: 1rem;
+    margin-top: 3rem;
 }
 
 #title h1 {
@@ -46,13 +45,13 @@ a:hover {
 }
 
 div#nav {
-    height: 40px;
+    height: 3rem;
     color: #2175bc;
     background-color: #000B43;
     display: block;
     margin: 0 auto;
     width: 100%;
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
@@ -132,27 +131,30 @@ div#main {
     width: 60%;
     background: white;
     box-shadow: 0 0 8px #999;
-    padding: 2% 2% 2%;
+    padding: 1rem;
     overflow: auto;
-    margin: 0 auto 3%;
+    margin: 1rem auto 1rem;
 }
 
 div#blog-info {
     background-color: #000B43;
     margin-top: 3rem;
     padding: 1rem;
+    text-align: center;
 }
 
 div#blog-info h1 {
     font-size: 3rem;
     color: white;
     margin: 0;
+    font-weight: 500;
 }
 
 div#blog-info h2 {
     font-size: 1rem;
     color: white;
     margin: 0;
+    font-weight: 500;
 }
 
 div#icon img {
@@ -194,19 +196,19 @@ a#user-name:active {
 .postLink:link {
     font-size: 1.5rem;
     text-decoration: none;
-    color: #2175bc;
+    color: #000B43;
     font-weight: bold;
 }
 
 .postLink:active {
     text-decoration: none;
-    color: #2175bc;
+    color: #000B43;
     font-weight: bold;
 }
 
 .postLink:visited {
     text-decoration: none;
-    color: #2175bc;
+    color: 	#000B43;
     font-weight: bold;
 }
 
@@ -234,7 +236,7 @@ a#user-name:active {
     padding-left: 1rem;
     border-left: 1px solid #000;
     text-decoration: none;
-    color: #2175bc;
+    color: #000B43;
 }
 
 .date_and_category a:visited {

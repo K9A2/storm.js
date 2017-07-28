@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <categories>
     <category-item>
-        <item-id>java</item-id>
-        <item-text>Java</item-text>
+        <name>java</name>
+        <text>Java</text>
     </category-item>
     <category-item>
-        <item-id>javascript</item-id>
-        <item-text>JavaScript</item-text>
+        <name>javascript</name>
+        <text>JavaScript</text>
     </category-item>
 </categories>

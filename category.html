@@ -16,18 +16,17 @@
     <link href="css/style.css" rel="stylesheet">
 
     <script>
-        //从 URL 中获取 category 名称，然后从 categories.xml 中查找对应的 category-text
-        //alert(getParaValue("category"));
 
+        // 设定标题
+        var categoryName = getParaValue("category");
+        if (categoryName === null) {
+            // Get all posts in all categories
+            $("title").html("分类目录");
+        } else {
+            // Get target category
+            $("title").html("分类：" + categoryName);
+        }
 
-        //从category.xml中读取所有的文章分类，并循环显示之
-        //var categoryNames = getCategories();
-        //alert(categoryNames);
-        //var categoryName = getCategoryTextByName(getParaValue("category"));
-
-        //alert(categoryName);
-
-        $("title").html("分类：" + categoryName);
     </script>
 
 </head>
@@ -47,10 +46,8 @@
 
 <div id="blog-info">
 
-    <img src="img/icon.jpg">
-    <br>
-    <a id="user-name" href="./index.html">stormlin</a>
-    <p>Yet another full stack developer</p>
+    <h1>stormlin</h1>
+    <h2>On the way to be perfect</h2>
 
 </div>
 
@@ -58,7 +55,26 @@
 
     <div id="post-list">
         <script>
-            printPostList(getPostListWithCategory(getParaValue("category")));
+
+            /*
+             * 从 get 请求参数中获取 categoryName，如果此项为空，则返回所有分类的所有文章；
+             * 如果 categoryName 不为空，则从 categoryName 指定的分类获取文章
+             *
+             * 每一个分类下的所有文章组成一个 post-list-unit，然后 append 到这个 div 中。
+             */
+            if (categoryName === null) {
+                /* Get all post with their own category */
+                // 从 categories.xml 中获取所有 category
+                var categories = getCategories();
+                alert(categories.length);
+                for (var i = 0; i < categories.length; i++) {
+                    alert(categories[i].text);
+                }
+            } else {
+                /* Get specific category with name */
+                printPostList(getPostListWithCategory(categoryName));
+            }
+
         </script>
     </div>
 

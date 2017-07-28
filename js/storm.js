@@ -86,9 +86,9 @@ function getCategoryTextByName(categoryName) {
         },
         success: function (xml) {
             $(xml).find("categories").find("category-item").each(function () {
-                var item = $(this).children("item-id").text();
+                var item = $(this).children("name").text();
                 if (item === categoryName) {
-                    text = $(this).children("item-text").text();
+                    text = $(this).children("text").text();
                     return text;
                 }
             })
@@ -104,6 +104,8 @@ function getCategoryTextByName(categoryName) {
 function getCategories() {
     //todo: Add categories at the head of each page.
 
+    var categories = [];
+
     $.ajax({
         url: settings.categoriesPath,
         async: true,
@@ -112,12 +114,21 @@ function getCategories() {
         },
         success: function (xml) {
             $(xml).find("categories").find("category-item").each(function () {
-                var itemText = $(this).children("item-text").text();
-                var itemName = $(this).children("item-id").text();
-                $(".nav-list").append('<li class="nav-list-item generated"><a href="./category.html?category=' + itemName + '">' + itemText + '</a></li>');
+                var category = {
+                    name: $(this).children("name").text(),
+                    text: $(this).children("text").text()
+                };
+                categories.push(category);
             })
         }
     });
+
+    alert(categories[0].name);
+
+    categories.sort(by("name"));
+    categories.reverse();
+
+    return categories;
 
 }
 
@@ -317,12 +328,13 @@ function printPostList(posts) {
 
     if (posts.length === 0) {
         //new RedirectTo404();
+        alert(posts.length)
     } else {
         for (var i = 0; i < posts.length; i++) {
             var category = '<a href="./category.html?category=' + posts[i].category + '">' + getCategoryTextByName(posts[i].category) + '</a>';
             var item = '<div class="post-item"><a class="postLink" href="';
             item += './post.html?name=' + posts[i].name + '">' + posts[i].title + '</a>' + '<p class="date_and_category">';
-            item += posts[i].date + category + '</p><p class="description">' + posts[i].description + '</p></div>';
+            item += posts[i].date + category + '</p>' + '<a href="' + 'post.html?name=' + posts[i].name + '">' + '<p class="description">' + posts[i].description + '</p></a></div>';
             $("#main").append(item);
         }
     }
@@ -340,12 +352,13 @@ function returnToTop() {
 }
 
 /**
- * Sorti by something
+ * Sort by something
+ *
  * @param name Element attribute
  * @returns {Function} Sorting algorithm
  */
-var by = function(name){
-    return function(o, p){
+var by = function (name) {
+    return function (o, p) {
         var a, b;
         if (typeof o === "object" && typeof p === "object" && o && p) {
             a = o[name];

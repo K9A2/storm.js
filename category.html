@@ -37,11 +37,20 @@
 -->
 
 <div id="nav">
-    <ul class="nav-list">
-        <li class="nav-list-item"><a href="./index.html">首页</a></li>
-        <li class="nav-list-item"><a href="./category.html">分类</a></li>
-        <li class="nav-list-item"><a href="./about.html">关于我</a></li>
-    </ul>
+    <div class="container">
+        <div id="icon">
+            <a href="./index.html">
+                <img id="avatar" src="img/icon.jpg">
+            </a>
+        </div>
+        <div id="list" style="display: block; float: left">
+            <ul class="nav-list">
+                <li class="nav-list-item"><a href="./index.html">首页</a></li>
+                <li class="nav-list-item"><a href="./category.html">分类</a></li>
+                <li class="nav-list-item"><a href="./post.html?name=about">关于我</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 <div id="blog-info">
@@ -54,6 +63,7 @@
 <div id="main">
 
     <div id="post-list">
+
         <script>
 
             /*
@@ -66,16 +76,19 @@
                 /* Get all post with their own category */
                 // 从 categories.xml 中获取所有 category
                 var categories = getCategories();
-                alert(categories.length);
                 for (var i = 0; i < categories.length; i++) {
-                    alert(categories[i].text);
+                    // Post list
+                    var posts = getPostListWithCategory(categories[i].name);
+                    printCategoryUnit(posts, getCategoryTextByName(categories[i].name));
                 }
             } else {
                 /* Get specific category with name */
+                $("#main").append("<h1 class='categoryTitle'>/* Class = " + getCategoryTextByName(categoryName) + " */</h1>");
                 printPostList(getPostListWithCategory(categoryName));
             }
 
         </script>
+
     </div>
 
 </div>

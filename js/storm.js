@@ -108,7 +108,7 @@ function getCategories() {
 
     $.ajax({
         url: settings.categoriesPath,
-        async: true,
+        async: false,
         error: function () {
             alert("Unable to reach the categories file.");
         },
@@ -122,8 +122,6 @@ function getCategories() {
             })
         }
     });
-
-    alert(categories[0].name);
 
     categories.sort(by("name"));
     categories.reverse();
@@ -327,8 +325,7 @@ function getCategoryItemByName(categoryName) {
 function printPostList(posts) {
 
     if (posts.length === 0) {
-        //new RedirectTo404();
-        alert(posts.length)
+        new RedirectTo404();
     } else {
         for (var i = 0; i < posts.length; i++) {
             var category = '<a href="./category.html?category=' + posts[i].category + '">' + getCategoryTextByName(posts[i].category) + '</a>';
@@ -337,6 +334,28 @@ function printPostList(posts) {
             item += posts[i].date + category + '</p>' + '<a href="' + 'post.html?name=' + posts[i].name + '">' + '<p class="description">' + posts[i].description + '</p></a></div>';
             $("#main").append(item);
         }
+    }
+
+}
+
+/**
+ * Print post list with specific category
+ *
+ * @param posts Posts to be printed
+ * @param category Category name
+ */
+function printCategoryUnit(posts, category) {
+
+    if (posts.length === 0) {
+        new RedirectTo404();
+    } else {
+        var categoryUnit = '<div class="categoryUnit"><h1 class="categoryTitle">/* class ' + category + ' */</h1>';
+        for (var i = 0; i < posts.length; i++) {
+            categoryUnit += '<div class="categoryPostUnit"><p class="categoryDate">' + posts[i].date + '</p>';
+            categoryUnit += '<a href="./post.html?name=' + posts[i].name + '" class="categoryLink">' + posts[i].title + '</a></div>';
+        }
+        categoryUnit += '</div>';
+        $("#post-list").append(categoryUnit);
     }
 
 }
@@ -381,6 +400,7 @@ var by = function (name) {
  * Get footer
  */
 function getFooter() {
-    var footerText = '<div id="footer">' + '<p>Copyright © 2014 - 2017 stormlin.</p><p>All Rights Reserved.</p>' + '<p><a href="http://www.miitbeian.gov.cn">备案号：粤ICP备16029958号-1</a></p></div>';
+    var footerText = '<div id="footer">' + '<p>Copyright © 2014 - 2017 stormlin.</p><p>All Rights Reserved.</p>';
+    footerText += '<p><a href="http://www.miitbeian.gov.cn">备案号：粤ICP备16029958号-1</a></p></div>';
     $("body").append(footerText);
 }

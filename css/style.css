@@ -4,20 +4,21 @@ html {
 
 body {
     font-size: 16px;
-    overflow-x: visible;
-}
-
-body {
     margin: 0 auto;
-    background: url("../img/bg.gif") repeat;
+    background: #f7f7f7;
+    overflow-x: visible;
+    font-family: 'Gotham','Microsoft YaHei',"Open Sans","Helvetica Neue",Helvetica,Arial,'Microsoft YaHei',sans-serif;
 }
 
 a:link, :visited, :active {
     text-decoration: none;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    word-break: normal;
+}
+
 #title {
-    font-family: tahoma, arial, "Hiragino Sans GB", 宋体, sans-serif;
     font-size: 1rem;
     color: #ffffff;
     background-color: #000B43;
@@ -122,6 +123,16 @@ div#list {
     color: white;
 }
 
+.container {
+    width: 60%;
+    margin: 0 17%;
+}
+
+div#title {
+    padding: 1rem;
+    margin-top: 3rem;
+}
+
 div#poster {
     height: 5rem;
     background-color: #000B43;
@@ -131,9 +142,9 @@ div#main {
     width: 60%;
     background: white;
     box-shadow: 0 0 8px #999;
-    padding: 1rem;
+    padding: 3%;
     overflow: auto;
-    margin: 1rem auto 1rem;
+    margin: 3% auto;
 }
 
 div#blog-info {
@@ -167,7 +178,47 @@ div#icon img {
     vertical-align: middle;
 }
 
-div#post-list {
+.categoryUnit {
+    padding-bottom: 1rem;
+    border-bottom: 1px #333333 solid;
+}
+
+.categoryUnit:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.categoryTitle {
+    color: #4183c4;
+    font-weight: 500;
+}
+
+.categoryPostUnit {
+    margin-left: 8rem;
+    padding-left: 1rem;
+    color: #333;
+    border-left: 3px solid #666;
+}
+
+.categoryDate {
+    display: inline-block;
+    line-height: 1rem;
+    margin-left: -8rem;
+}
+
+.categoryLink {
+    padding-left: 1rem;
+    margin-left: 1rem;
+}
+
+.categoryPostListItem {
+    padding-left: 1rem;
+}
+
+.categoryPostListItem a {
+    border-left: 1px solid #666;
+    margin-left: 1rem;
+    padding-left: 1rem
 }
 
 div#content {
@@ -208,7 +259,7 @@ a#user-name:active {
 
 .postLink:visited {
     text-decoration: none;
-    color: 	#000B43;
+    color: #000B43;
     font-weight: bold;
 }
 
@@ -244,14 +295,15 @@ a#user-name:active {
 }
 
 div#footer {
-    color: white;
+    color: #777;
+    font-size: 0.8rem;
     padding: 1% 0;
     text-align: center;
     background-color: #000B43;
 }
 
 div#footer a {
-    color: white;
+    color: #777;
 }
 
 /* note: css 文档加载顺序 */
@@ -271,11 +323,6 @@ div#footer a {
         z-index: 9999;
     }
 
-    div#title {
-        padding: 1rem;
-        margin-top: 3rem;
-    }
-
     div#title p {
         font-size: 1rem;
     }
@@ -291,6 +338,15 @@ div#footer a {
         padding: 2% 2% 2%;
         overflow: auto;
         margin: 3%;
+    }
+
+    .container {
+        width: 100%;
+        margin: 0 0;
+    }
+
+    .categoryTitle {
+        font-size: 1.5rem;
     }
 
     .markdown-body h1 {

@@ -36,24 +36,28 @@
 <body>
 
 <div id="nav">
-    <div id="icon">
-        <a href="./index.html"><img id="avatar" src="img/icon.jpg"></a>
-    </div>
-    <div id="list" style="display: block; float: left">
-        <ul class="nav-list">
-            <li class="nav-list-item"><a href="./index.html">首页</a></li>
-            <li class="nav-list-item"><a href="./category.html">分类</a></li>
-            <li class="nav-list-item"><a href="./post.html?name=about">关于我</a></li>
-        </ul>
+    <div class="container">
+        <div id="icon">
+            <a href="./index.html"><img id="avatar" src="img/icon.jpg"></a>
+        </div>
+        <div id="list" style="display: block; float: left">
+            <ul class="nav-list">
+                <li class="nav-list-item"><a href="./index.html">首页</a></li>
+                <li class="nav-list-item"><a href="./category.html">分类</a></li>
+                <li class="nav-list-item"><a href="./post.html?name=about">关于我</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 
 <div id="title">
-    <script>
-        var info = "<h1>" + post.title + "</h1>" + "<p>" + "<img src='./img/date.png'>" + "  " + post.date + "  " +
-            "<img src='./img/class.png'>" + "  " + getCategoryTextByName(post.category) + "</p>";
-        $("#title").append(info);
-    </script>
+    <div class="container">
+        <script>
+            var info = "<h1>" + post.title + "</h1>" + "<p>" + "<img src='./img/date.png'>" + "  " + post.date + "  " +
+                "<img src='./img/class.png'>" + "  " + getCategoryTextByName(post.category) + "</p>";
+            $("div#title .container").append(info);
+        </script>
+    </div>
 </div>
 
 <div id="main">

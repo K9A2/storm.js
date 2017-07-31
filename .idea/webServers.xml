@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="c65159e8-6210-4bb4-b41f-c3348130b5a1" name="stormlin" url="http://hz218598.ftp.aliapp.com">
-        <fileTransfer host="hz218598.ftp.aliapp.com" port="21">
+        <fileTransfer host="hz218598.ftp.aliapp.com" port="21" rootFolder="/htdocs/storm.js">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
           </advancedOptions>

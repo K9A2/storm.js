@@ -244,6 +244,10 @@ a#user-name:active {
     border-bottom: 1px solid #ccc;
 }
 
+.post-item a {
+    color: #000B43;
+}
+
 .postLink:link {
     font-size: 1.5rem;
     text-decoration: none;

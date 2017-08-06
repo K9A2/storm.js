@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>文章内容</title>
+    <link rel="SHORTCUT ICON" href="./img/icon.jpg">
+    <script src="./js/jquery.min.js">
+    </script>
+    <link rel="stylesheet" href="css/github.css"/>
+    <script src="js/marked.js"></script>
+    <link href="css/prettify.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/content.css" rel="stylesheet">
+
+    <script src="js/storm.js"></script>
+    <script>
+        printPostAndAdjustHeight();
+    </script>
+
+</head>
+<body>
+
+<div id="nav">
+
+    <script>
+        getNavBar();
+    </script>
+
+</div>
+
+
+<div id="main" style="margin-top: 3rem">
+
+    <div id="content">
+        <article class="markdown-body">
+
+        </article>
+    </div>
+
+</div>
+
+<!--代码高亮-->
+<script src="js/run_prettify.js?lang=css&amp;skin=default"></script>
+
+<script>
+    getFooter();
+</script>
+
+</body>
+</html>

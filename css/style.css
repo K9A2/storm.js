@@ -351,8 +351,7 @@ div#footer a {
 
     .markdown-body h1 {
         padding-top: 0.3em;
-        border-top: 2px solid #eeeeee;
-        border-bottom: 2px solid #eeeeee;
+        border-bottom: 1px solid #eeeeee;
     }
 
 }

@@ -38,7 +38,7 @@ navPages = [
         name: "分类"
     },
     about = {
-        url: "./post.html?name=about",
+        url: "./page.html?name=about",
         name: "关于我"
     },
     dogFood = {
@@ -396,5 +396,68 @@ function getFooter() {
         '          </div>';
 
     $("body").append(footerText);
+
+}
+
+/**
+ * Adjust div#main to make the page height at least one page height
+ */
+function adjustMainHeight() {
+
+    if (window.innerHeight) {
+        var windowHeight = window.innerHeight;
+    }
+    else if ((document.body) && (document.body.clientHeight)) {
+        var winHeight = document.body.clientHeight;
+    }
+    var main = $("#main");
+    var outerHeight = main.outerHeight(true);
+    var innerHeight = main.height();
+    var rem = parseInt(window.getComputedStyle(document.documentElement)["fontSize"]);
+    var title = $("#blog-info");
+    if (title === null) {
+        alert("null");
+        if ((outerHeight + 3 * rem) < windowHeight) {
+            alert("in");
+            var sub = windowHeight - (outerHeight + $("#footer").outerHeight());
+            main.height(innerHeight + sub);
+        }
+    } else {
+        alert("not null");
+        alert(outerHeight);
+        if ((outerHeight + title.outerHeight()) < windowHeight) {
+            alert("in");
+            alert("windowHeight: " + windowHeight);
+            alert("outerHeight: " + outerHeight);
+            alert("footerHeight: " + $("#footer").outerHeight());
+            var sub = windowHeight - (outerHeight + $("#footer").outerHeight());
+            alert("innerheight: " + innerHeight);
+            alert("sub: " + sub);
+            alert(innerHeight + sub);
+            main.height(innerHeight + sub);
+        }
+    }
+
+}
+
+/**
+ *
+ */
+function printPostAndAdjustHeight() {
+
+
+    var postName = getParaValue("name");
+    //获取文章信息
+    var post = getPostByName(postName);
+    //渲染文章标题
+    $("#title").html("Hello world!");
+    //获取并渲染写入文章正文
+    $.get("./md/" + postName + ".md").success(function (content) {
+        $(".markdown-body").append(marked(content));
+        $("pre").addClass("prettyprint linenums");
+        $("title").html($("h1").html());
+
+        adjustMainHeight();
+    }).error(RedirectTo404);
 
 }

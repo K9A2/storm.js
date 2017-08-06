@@ -18,6 +18,10 @@
         var postName = getParaValue("name");
         //获取文章信息
         var post = getPostByName(postName);
+        //获取并渲染写入文章正文
+        var postName = getParaValue("name");
+        //获取文章信息
+        var post = getPostByName(postName);
         //渲染文章标题
         $("#title").html("Hello world!");
         //获取并渲染写入文章正文
@@ -25,6 +29,8 @@
             $(".markdown-body").append(marked(content));
             $("pre").addClass("prettyprint linenums");
             $("title").html($("h1").html());
+
+            adjustMainHeight();
         }).error(RedirectTo404);
     </script>
 

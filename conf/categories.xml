@@ -8,4 +8,8 @@
         <name>javascript</name>
         <text>JavaScript</text>
     </category-item>
+    <category-item>
+        <name>words</name>
+        <text>Words</text>
+    </category-item>
 </categories>

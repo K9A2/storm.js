@@ -22,14 +22,6 @@ in a markdown file.
  -->
 <posts>
     <post-item>
-        <id>5</id>
-        <name>word9-20</name>
-        <title>Words 9-20</title>
-        <category>words</category>
-        <date>2017-09-20</date>
-        <description>Words 9-20</description>
-    </post-item>
-    <post-item>
         <id>4</id>
         <name>word9-19</name>
         <title>Words 9-19</title>

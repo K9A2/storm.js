@@ -456,8 +456,6 @@ function printPostAndAdjustHeight() {
         $(".markdown-body").append(marked(content));
         $("pre").addClass("prettyprint linenums");
         $("title").html($("h1").html());
-
-        adjustMainHeight();
     }).error(RedirectTo404);
 
 }

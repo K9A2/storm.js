@@ -22,6 +22,14 @@ in a markdown file.
  -->
 <posts>
     <post-item>
+        <id>4</id>
+        <name>word9-19</name>
+        <title>Words 9-19</title>
+        <category>words</category>
+        <date>2017-09-19</date>
+        <description>Words 9-19</description>
+    </post-item>
+    <post-item>
         <id>1</id>
         <name>summary_for_developing_storm_js</name>
         <title>storm.js 开发总结</title>

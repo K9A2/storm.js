@@ -102,4 +102,68 @@
     +   adj. 激励的；刺激的
     +   As an added incentive, there’s a bottle of champagne for the best team. 给最优秀的队发一瓶香槟作为额外的鼓励。
     +   incentive to do sth: Farmers lack any incentive to manage their land organically. 农场主没有任何动力去采用有机耕作法。
-+   
++   on par with 与...同等水平
+    +   “I think chess may be a relatively cool thing for kids to do now, on par with soccer or other sports, ” he says. 他说：“我认为国际象棋同足球或其他运动一样，现在的小孩子玩起来是比较酷的事。
++   假设，前提
+    +   presume [prɪ'zjuːm]
+        +   vt. 假定；推测；擅自；意味着
+        +   vi. 相信；擅自行为
+        +   We must presume innocence until we have evidence of guilt. 在掌握有罪证据之前应作无罪推定。
+    +   assume [ə'sjuːm]
+        +   vi. 假定；设想；承担；采取
+        +   vt. 僭取；篡夺；夺取；擅用；侵占
+        +   When it got to midnight and Paul was still not back, I began to assume the worst (= think that the worst possible thing had happened ) . 到午夜时保罗还没回来，我就开始往最坏的地方想了。
+        +   Whoever they appoint will assume responsibility for all financial matters. 不管他们任命的是谁，他都要负责财务方面的所有事务。
+    +   suppose [sə'pəʊz]
+        +   vi. vt. 假设；认为；让（虚拟语气）；推想
+        +   be supposed to do/be sth: We’re supposed to check out of the hotel by 11 o’clock. 我们应该在 11 点之前从酒店退房。
+    +   premise ['premɪs]
+        +   vt. 引出，预先提出；作为…的前提
+        +   n. 前提；上述各项；房屋连地基
+        +   The idea that there is life on other planets is the central premise of the novel. 其他星球存在生命这一观点是这部小说的核心前提。
+    +   hypothesis [haɪ'pɒθɪsɪs]
+        +   n. 假设
+        +   One hypothesis is that the victim fell asleep while driving. 一种假设是受害人开车时睡着了。
+        +   复数 hypotheses
++   推断
+    +   deduce [dɪ'djuːs]
+        +   vt. 推论，推断；演绎出
+        +   From her son’s age, I deduced that her husband must be at least 60. 从她儿子的年龄来推测，我想她丈夫肯定至少有60岁了。
+    +   infer [ɪn'fɜː]
+        +   vi. vt. 推断；推论
+        +   A lot can be inferred from these statistics. 根据这些统计资料可以推断出很多事情。
+        +   therefore infer 由此推断: One can therefore infer that disability is a social construction. 因此，人们可以得出结论，残障是一种社会结构。
+        +   inference  ['ɪnf(ə)r(ə)ns] n. 推理；推论；推断
++   precede [prɪ'siːd]
+    +   vi. vt. 领先，在…之前；优于，高于
+    +   Because nodes know nothing about the nodes that precede them, each node is itself the start of a list. 由于节点完全不了解它们之前的节点，所以每个节点本身都是一个列表的开始。
+    +   precedent ['presɪd(ə)nt]
+        +   n. 先例；前例
+        +   adj. 在前的；在先的
+        +   UN involvement in the country’s affairs would set a dangerous precedent. 联合国介入该国事务将成为一个危险的先例。
+    +   preceding [prɪ'siːdɪŋ]
+        +   adj. 在前的；前述的
+        +   v. 在...之前（precede的ing形式）
+        +   Each generation surpasses the preceding one. 一代更比一代强。
+    +   unprecedented [ʌn'presɪdentɪd]
+        +   adj. 空前的；无前例的
+        +   Crime has increased on an unprecedented scale. 犯罪率增幅之大前所未有。
++   unpretentious [ʌnprɪ'tenʃəs]
+    +   adj. 谦逊的；含蓄的；不炫耀的；不铺张的
+    +   He is fearless, altruistic, steel-willed, hospitable, unbelievably hardy, unpretentious and warm -- and he has lost none of these qualities since becoming Russia's president. 热情、无畏、无私、好客、谦逊、具有钢铁般的意志，即使在当上俄罗斯总统之后，他仍然保持了所有这些可贵的品质。
++   简而言之
+    +   in short
+    +   at a word
+    +   in brief
+    +   make the story short
++   narrate [nə'reɪt]
+    +   vi. vt. 叙述；给…作旁白
+    +   The women clamored to narrate their stories with an infectious energy and enthusiasm which was hard to leave behind. 这些妇女争先恐后地讲述她们的经历，其感人的活力和热情令人难以忘怀。
+    +   narrative ['nærətɪv]
+        +   n. 叙述；故事；讲述
+        +   adj. 叙事的，叙述的；叙事体的
+    +   narration [nə'reɪʃ(ə)n]
+        +   n. 叙述，讲述；故事
++   other than
+    +   除了；不同于
+    +   Their motivation is other than me. 他们的动机不同于我的。

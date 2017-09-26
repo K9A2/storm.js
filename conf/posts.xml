@@ -22,6 +22,14 @@ in a markdown file.
  -->
 <posts>
     <post-item>
+        <id>6</id>
+        <name>word9-24</name>
+        <title>Words 9-24</title>
+        <category>words</category>
+        <date>2017-09-24</date>
+        <description>Words 9-24</description>
+    </post-item>
+    <post-item>
         <id>5</id>
         <name>word9-20</name>
         <title>Words 9-20</title>

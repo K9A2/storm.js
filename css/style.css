@@ -52,7 +52,6 @@ div#nav {
     display: block;
     margin: 0 auto;
     width: 100%;
-    position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
@@ -130,7 +129,7 @@ div#list {
 
 div#title {
     padding: 1rem;
-    margin-top: 3rem;
+    margin-top: 0rem;
 }
 
 div#poster {
@@ -149,7 +148,7 @@ div#main {
 
 div#blog-info {
     background-color: #000B43;
-    margin-top: 3rem;
+    margin-top: 0rem;
     padding: 1rem;
     text-align: center;
 }

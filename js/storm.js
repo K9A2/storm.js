@@ -47,6 +47,31 @@ navPages = [
     }
 ];
 
+function getTOC(id) {
+    var linkBase = window.location.href;
+    console.log(linkBase);
+    var i = 0;
+    var headers = $(":header").each(function () {
+        console.log(this.innerHTML.toString());
+        $(this).attr("id", i);
+        var link = '<a href="' + linkBase + '#' + i++ + '">' + this.innerHTML.toString() + '</a>'
+        $("#toc").append(link)
+    });
+}
+
+/**
+ * Get file content with given file path
+ *
+ * @param filePath
+ */
+function getFileContent(filePath) {
+    var fileReader = new FileReader();
+    // 读取成功的回调函数
+    fileReader.onload = (function (ev) {
+        console.log(ev.target.result);
+    });
+    fileReader.readAsText(filePath, "utf-8");
+}
 
 /**
  * Get the target parameter specified by name from url.
@@ -386,9 +411,10 @@ var by = function (name) {
  */
 function getFooter() {
 
+    var today = new Date();
     var footerText = '';
     footerText += '<div id="footer">' +
-        '              <p>Copyright © 2014 - 2017 stormlin.</p>' +
+        '              <p>Copyright © 2014 - ' + today.getFullYear() + ' stormlin.</p>' +
         '              <p>All Rights Reserved.</p>';
     footerText += '    <p>' +
         '                  <a href="http://www.miitbeian.gov.cn">备案号：粤ICP备16029958号-1</a>' +

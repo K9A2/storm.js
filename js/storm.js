@@ -47,15 +47,53 @@ navPages = [
     }
 ];
 
+/**
+ * 实现点击返回页面顶部功能，来自 http://blog.csdn.net/zhyh1986/article/details/8644899
+ */
+$(function () {
+    var $backToTopEle = $('#toTop'), $backToTopFun = function () {
+        var st = $(document).scrollTop(), winh = $(window).height();
+        (st > 200) ? $backToTopEle.fadeIn('slow') : $backToTopEle.fadeOut('slow');
+        //IE6下的定位
+        if (!window.XMLHttpRequest) {
+            $backToTopEle.css("top", st + winh - 166);
+        }
+    };
+    $('#toTop').click(function () {
+        $("html, body").animate({scrollTop: 0}, 1200);
+    });
+    $backToTopEle.hide();
+    $backToTopFun();
+    $(window).bind("scroll", $backToTopFun);
+    $('#catalogWord').click(function () {
+        $("#catalog").slideToggle(600);
+    })
+});
+
 function getTOC(id) {
     var linkBase = window.location.href;
-    console.log(linkBase);
     var i = 0;
-    var headers = $(":header").each(function () {
-        console.log(this.innerHTML.toString());
+    var toc = $('#toc');
+    var headers = $("#content :header");
+    headers.each(function () {
+        var indent = 'indent_4';
+        if ($(this).prop("tagName") === "H2") {
+            indent = 'indent_none';
+        } else if ($(this).prop("tagName") === "H3") {
+            indent = 'indent_3';
+        }
         $(this).attr("id", i);
-        var link = '<a href="' + linkBase + '#' + i++ + '">' + this.innerHTML.toString() + '</a>'
-        $("#toc").append(link)
+        var list = $('<li></li>', {
+            class: indent
+        });
+        var link = $('<a>', {
+            text: this.innerHTML.toString(),
+            title: this.innerHTML.toString(),
+            href: linkBase + '#' + i
+        }).appendTo(list);
+        list.appendTo($('#toc'));
+        var old = '<li><a href="' + linkBase + '#' + i++ + '" class="' + indent + '">' + this.innerHTML.toString() + '</a></li>';
+        // toc.append(old);
     });
 }
 

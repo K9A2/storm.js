@@ -16,6 +16,9 @@
 
     <script src="js/storm.js"></script>
     <script>
+        var rem;
+        var height;
+
         var postName = getParaValue("name");
         //获取文章信息
         var post = getPostByName(postName);
@@ -31,7 +34,21 @@
             $("pre").addClass("prettyprint linenums");
             $("title").html($("h1").html());
             getTOC("toc");
+            rem = window.getComputedStyle(document.documentElement)["fontSize"];
+            height = $("#nav").outerHeight() + $("#title").outerHeight();
         }).error(RedirectTo404);
+
+        /**
+         * 判断下拉距离，当下拉超过页眉和标题的高度时，把目录固定在页面顶部
+         */
+        $(window).scroll(function () {
+            if ($(document).scrollTop() >= height) {
+                var toc = $("#toc");
+                toc.css("position", "fixed");
+                toc.css("margin-top", "3%");
+            }
+        });
+
     </script>
 
 </head>

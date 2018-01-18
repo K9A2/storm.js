@@ -24,12 +24,12 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #000B43;
     padding: 1rem;
     margin-top: 3rem;
+    text-align: center;
 }
 
 #title h1 {
-    font-size: 22px;
+    font-size: 3rem;
     margin: 0;
-    text-align: left;
 }
 
 #title img {
@@ -138,15 +138,29 @@ div#poster {
 }
 
 div#toc {
-    width: 25%;
-    position: fixed;
-    left: 5%;
-    margin-top: 3%;
-    padding-top: 3%;
+    width: 14%;
+    margin-left: 17%;
+    margin-top: 4rem;
+    padding: 1rem 1% 1rem 1rem;
+    float: left;
+    border-left: 1px solid #bebebe;
 }
 
-li.indent_none, .indent_3, .indent_4 {
+li.indent_none, .indent_3, .indent_4, .indent_5 {
     list-style: none;
+    text-decoration: none;
+    line-height: 2rem;
+}
+
+li.indent_none a, .indent_3 a, .indent_4 a, .indent_5 a {
+    color: #24292e;
+}
+
+li.indent_none a:hover, .indent_3 a:hover, .indent_4 a:hover, .indent_5 a:hover {
+    color: #0072c6;
+    text-decoration: none;
+    border-left: 3px solid #0072c6;
+    padding-left: 0.5rem;
 }
 
 li.indent_3 {
@@ -155,6 +169,10 @@ li.indent_3 {
 
 li.indent_4 {
     margin-left: 2rem;
+}
+
+li.indent_5 {
+    margin-left: 3rem;
 }
 
 div#toTop {
@@ -193,18 +211,17 @@ div#toTop > .arrow {
 }
 
 div#main {
-    width: 60%;
     background: white;
     box-shadow: 0 0 8px #999;
-    padding: 3%;
+    padding: 2rem;
     overflow: auto;
-    margin-top: 3%;
-    margin-left: 30%;
+    margin-top: 3rem;
+    margin-left: 33%;
+    margin-right: 17%;
 }
 
 div#blog-info {
     background-color: #000B43;
-    margin-top: 0rem;
     padding: 1rem;
     text-align: center;
 }

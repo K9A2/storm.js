@@ -70,6 +70,7 @@ $(function () {
     })
 });
 
+// todo: 完善页面目录部分
 function getTOC(id) {
     var linkBase = window.location.href;
     var i = 0;
@@ -81,8 +82,10 @@ function getTOC(id) {
             indent = 'indent_none';
         } else if ($(this).prop("tagName") === "H3") {
             indent = 'indent_3';
-        } else {
-            return true;
+        } else if ($(this).prop("tagName") === "H4") {
+            indent = 'indent_4';
+        } else if ($(this).prop("tagName") === "H5") {
+            indent = 'indent_5';
         }
         $(this).attr("id", i);
         var list = $('<li></li>', {
@@ -91,11 +94,9 @@ function getTOC(id) {
         var link = $('<a>', {
             text: this.innerHTML.toString(),
             title: this.innerHTML.toString(),
-            href: linkBase + '#' + i
+            href: linkBase + '#' + i++
         }).appendTo(list);
-        list.appendTo($('#toc'));
-        var old = '<li><a href="' + linkBase + '#' + i++ + '" class="' + indent + '">' + this.innerHTML.toString() + '</a></li>';
-        // toc.append(old);
+        list.appendTo(toc);
     });
 }
 

@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="90f018d6-a05c-4746-832c-e84a90fa926d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change beforePath="$PROJECT_DIR$/js/storm.js" afterPath="$PROJECT_DIR$/js/storm.js" />
-      <change beforePath="$PROJECT_DIR$/post.html" afterPath="$PROJECT_DIR$/post.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -224,7 +220,7 @@
       <workItem from="1516201472629" duration="3000" />
       <workItem from="1516201555695" duration="4152000" />
       <workItem from="1516241035895" duration="602000" />
-      <workItem from="1516242875326" duration="2747000" />
+      <workItem from="1516242875326" duration="2778000" />
     </task>
     <task id="LOCAL-00001" summary="返回顶部已完工，尚欠文章目录部分">
       <created>1516205702033</created>
@@ -233,11 +229,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516205702034</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="对央视进行了微调">
+      <created>1516245710952</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1516245710952</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17031000" />
+    <option name="totallyTimeSpent" value="17062000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="232" y="-4" width="1857" height="1092" extended-state="6" />
@@ -270,7 +273,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="返回顶部已完工，尚欠文章目录部分" />
-    <option name="LAST_COMMIT_MESSAGE" value="返回顶部已完工，尚欠文章目录部分" />
+    <MESSAGE value="对央视进行了微调" />
+    <option name="LAST_COMMIT_MESSAGE" value="对央视进行了微调" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

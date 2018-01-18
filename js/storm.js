@@ -81,6 +81,8 @@ function getTOC(id) {
             indent = 'indent_none';
         } else if ($(this).prop("tagName") === "H3") {
             indent = 'indent_3';
+        } else {
+            return true;
         }
         $(this).attr("id", i);
         var list = $('<li></li>', {

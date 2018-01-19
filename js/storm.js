@@ -72,22 +72,39 @@ $(function () {
 
 // todo: 完善页面目录部分
 function getTOC(id) {
-    var linkBase = window.location.href;
+    // 去除连接中的锚点
+    var linkBase = document.location.href;
+    var j = linkBase.length;
+    for (; j > 0; j--) {
+        if (linkBase.charAt(j) === '#') {
+            break
+        }
+    }
+    if (j !== linkBase.length) {
+        linkBase = linkBase.substring(0, j);
+    }
+    console.log(linkBase);
+
     var i = 0;
     var toc = $('#toc');
     var headers = $("#content :header");
     headers.each(function () {
         var indent = 'indent_4';
         if ($(this).prop("tagName") === "H2") {
-            indent = 'indent_none';
+            indent = 'indent_2';
         } else if ($(this).prop("tagName") === "H3") {
             indent = 'indent_3';
         } else if ($(this).prop("tagName") === "H4") {
             indent = 'indent_4';
         } else if ($(this).prop("tagName") === "H5") {
             indent = 'indent_5';
+        } else if ($(this).prop("tagName") === "H6") {
+            indent = 'indent_6';
         }
         $(this).attr("id", i);
+        var box = $('<div></div>', {
+            class: 'linkBox'
+        });
         var list = $('<li></li>', {
             class: indent
         });
@@ -96,7 +113,8 @@ function getTOC(id) {
             title: this.innerHTML.toString(),
             href: linkBase + '#' + i++
         }).appendTo(list);
-        list.appendTo(toc);
+        list.appendTo(box);
+        box.appendTo(toc);
     });
 }
 

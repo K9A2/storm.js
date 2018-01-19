@@ -16,11 +16,6 @@
 
     <script src="js/storm.js"></script>
     <script>
-        var rem;
-        var height;
-        var link = window.location.href;
-        console.log(link);
-
         var postName = getParaValue("name");
         //获取文章信息
         var post = getPostByName(postName);
@@ -36,8 +31,6 @@
             $("pre").addClass("prettyprint linenums");
             $("title").html($("h1").html());
             getTOC("toc");
-            rem = window.getComputedStyle(document.documentElement)["fontSize"];
-            height = $("#nav").outerHeight() + $("#title").outerHeight();
         }).error(RedirectTo404);
 
         //todo: 拦截刷新请求

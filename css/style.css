@@ -140,31 +140,37 @@ div#poster {
 div#toc {
     width: 14%;
     margin-left: 17%;
-    margin-top: 4rem;
-    padding: 1rem 1% 1rem 1rem;
+    margin-top: 2rem;
+    padding: 1rem 1% 1rem 0;
     float: left;
     border-left: 1px solid #bebebe;
 }
 
-li.indent_none, .indent_3, .indent_4, .indent_5 {
+.linkBox:hover {
+    background-color: #ebf8fe;
+}
+
+li.indent_2, .indent_3, .indent_4, .indent_5 {
     list-style: none;
     text-decoration: none;
     line-height: 2rem;
 }
 
-li.indent_none a, .indent_3 a, .indent_4 a, .indent_5 a {
+li.indent_2 a, .indent_3 a, .indent_4 a, .indent_5 a {
     color: #24292e;
 }
 
-li.indent_none a:hover, .indent_3 a:hover, .indent_4 a:hover, .indent_5 a:hover {
-    color: #0072c6;
+li.indent_2 a:hover, .indent_3 a:hover, .indent_4 a:hover, .indent_5 a:hover {
+    font-weight: bold;
     text-decoration: none;
-    border-left: 3px solid #0072c6;
-    padding-left: 0.5rem;
+}
+
+li.indent_2 {
+    margin-left: 1rem;
 }
 
 li.indent_3 {
-    margin-left: 1rem;
+    margin-left: 1.5rem;
 }
 
 li.indent_4 {
@@ -172,7 +178,11 @@ li.indent_4 {
 }
 
 li.indent_5 {
-    margin-left: 3rem;
+    margin-left: 2.5rem;
+}
+
+li.indent_6 {
+    margin-left: 3.0rem;
 }
 
 div#toTop {
@@ -215,7 +225,7 @@ div#main {
     box-shadow: 0 0 8px #999;
     padding: 2rem;
     overflow: auto;
-    margin-top: 3rem;
+    margin-top: 2rem;
     margin-left: 33%;
     margin-right: 17%;
 }

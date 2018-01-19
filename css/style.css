@@ -18,6 +18,31 @@ h1, h2, h3, h4, h5, h6 {
     word-break: normal;
 }
 
+.green {
+    background: #8bc34a;
+    color: #000;
+}
+
+.purple {
+    background: #673ab7;
+    color: #000;
+}
+
+.orange {
+    background: #ff9800;
+    color: #000;
+}
+
+.red {
+    background: #f44336;
+    color: #000;
+}
+
+.blue {
+    background: #00abc0;
+    color: #000;
+}
+
 #title {
     font-size: 1rem;
     color: #ffffff;
@@ -227,6 +252,91 @@ div#toTop > .arrow {
     border-bottom-color: #aaa
 }
 
+div.indexList {
+    margin: 2rem 17%;
+}
+
+div.indexItem {
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #ffffff;
+}
+
+.indexList:last-child {
+    margin-top: 0;
+}
+
+div.indexItem h1 {
+    color: #3f51b5;
+    font-weight: normal;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.description {
+    padding-bottom: 0.5rem;
+    line-height: 1.8rem;
+}
+
+.readMore {
+    display: inline;
+    padding: 0.3rem;
+    color: #3f51b5;
+    border-radius: 2px;
+}
+
+.readMore a {
+    color: #3f51b5;
+}
+
+.readMore:hover {
+    background-color: #eaecf7;
+    display: inline;
+}
+
+.indexItem a:hover, a:visited {
+    text-decoration: none;
+}
+
+.tagList {
+    border-top: 1px solid #bebebe;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.tagItem {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+    font-weight: lighter;
+}
+
+.tagItem:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.26)
+}
+
+.date {
+    text-align: left;
+    color: #727272;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: inline;
+}
+
+.category {
+    text-align: left;
+    color: #727272;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 1rem;
+    display: inline;
+}
+
 div#main {
     background: white;
     box-shadow: 0 0 8px #999;
@@ -338,19 +448,19 @@ a#user-name:active {
 .postLink:link {
     font-size: 1.5rem;
     text-decoration: none;
-    color: #000B43;
+    color: #3f51b5;
     font-weight: bold;
 }
 
 .postLink:active {
     text-decoration: none;
-    color: #000B43;
+    color: #3f51b5;
     font-weight: bold;
 }
 
 .postLink:visited {
     text-decoration: none;
-    color: #000B43;
+    color: #3f51b5;
     font-weight: bold;
 }
 
@@ -364,7 +474,7 @@ a#user-name:active {
     color: #2175bc;
 }
 
-.post-item .description {
+.post-item {
     padding-left: 0.5rem;
     border-left: 3px solid #eb3f2f;
 }

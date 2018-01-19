@@ -34,8 +34,8 @@ navPages = [
         name: "首页"
     },
     category = {
-        url: "./category.html",
-        name: "分类"
+        url: "./tag.html",
+        name: "标签"
     },
     about = {
         url: "./page.html?name=about",
@@ -253,6 +253,7 @@ function getIndexPostList() {
                     name: $(this).children("name").text(),
                     title: $(this).children("title").text(),
                     category: $(this).children("category").text(),
+                    tag: $(this).children("tag").text().toString().split(','),
                     date: $(this).children("date").text(),
                     description: $(this).children("description").text()
                 };
@@ -366,7 +367,7 @@ function printPostList(posts) {
                 '           </a>' +
                 '           <p class="date_and_category">' +
                 posts[i].date +
-                '               <a href="./category.html?category=' + posts[i].category + '">' +
+                '               <a href="./tag.html?tag=' + posts[i].category + '">' +
                 getCategoryTextByName(posts[i].category) +
                 '               </a>' +
                 '           </p>' +
@@ -377,7 +378,7 @@ function printPostList(posts) {
                 '           </a>' +
                 '       </div>';
 
-            $("#main").append(item);
+            $("#index").append(item);
         }
     }
 

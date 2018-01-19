@@ -70,8 +70,8 @@ in a markdown file.
         <id>3</id>
         <name>DataMiningReport</name>
         <title>FP-Growth 和 K-Means 学习报告</title>
-        <category>java</category>
-        <tag>java, datamining, fpgrowth, kmeans</tag>
+        <category>Java</category>
+        <tag>Java, Data Mining, FP-Growth, K-Means</tag>
         <date>2017-06-07</date>
         <description>最近学习了数据挖掘常用的两种算法：FP-Growth 和 K-Means。现在把我的学习结果分享给大家。</description>
     </post-item>

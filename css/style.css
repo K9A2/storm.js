@@ -21,8 +21,7 @@ h1, h2, h3, h4, h5, h6 {
 #title {
     font-size: 1rem;
     color: #ffffff;
-    background-color: #000B43;
-    padding: 1rem;
+    background-color: #3f51b5;
     margin-top: 3rem;
     text-align: center;
 }
@@ -48,7 +47,7 @@ a:hover {
 div#nav {
     height: 3rem;
     color: #2175bc;
-    background-color: #000B43;
+    background-color: #3f51b5;
     display: block;
     margin: 0 auto;
     width: 100%;
@@ -122,14 +121,22 @@ div#list {
     color: white;
 }
 
-.container {
+div.container {
     width: 60%;
     margin: 0 17%;
 }
 
+div.container p {
+    display: inline;
+    margin-top: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
 div#title {
-    padding: 1rem;
-    margin-top: 0rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 0;
 }
 
 div#poster {
@@ -225,13 +232,11 @@ div#main {
     box-shadow: 0 0 8px #999;
     padding: 2rem;
     overflow: auto;
-    margin-top: 2rem;
-    margin-left: 33%;
-    margin-right: 17%;
+    margin: 2rem 17% 2rem 33%;
 }
 
 div#blog-info {
-    background-color: #000B43;
+    background-color: #3f51b5;
     padding: 1rem;
     text-align: center;
 }
@@ -381,15 +386,15 @@ a#user-name:active {
 }
 
 div#footer {
-    color: #777;
+    color: #ffffff;
     font-size: 0.8rem;
     padding: 1% 0;
     text-align: center;
-    background-color: #000B43;
+    background-color: #3f51b5;
 }
 
 div#footer a {
-    color: #777;
+    color: #ffffff;
 }
 
 /* note: css 文档加载顺序 */

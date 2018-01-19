@@ -33,7 +33,7 @@
             getTOC("toc");
         }).error(RedirectTo404);
 
-        //todo: 拦截刷新请求
+        // todo: 修改 post 页标题栏样式
 
     </script>
 
@@ -51,9 +51,26 @@
 <div id="title">
     <div class="container">
         <script>
-            var info = "<h1>" + post.title + "</h1>" + "<p>" + "<img src='./img/date.png'>" + "  " + post.date + "  " +
-                "<img src='./img/class.png'>" + "  " + getCategoryTextByName(post.category) + "</p>";
-            $("div#title .container").append(info);
+            var header = $("<h1></h1>", {
+                text: post.title
+            });
+            var date = $("<p></p>", {
+                text: "日期：" + post.date
+            });
+            var category = $("<p></p>", {
+                text: "分类：" + post.category
+            });
+            var tag = $("<p></p>", {
+                text: "标签：" + post.tag.toString()
+            });
+
+            var container = $("div#title .container");
+
+            container.append(header);
+            container.append(date);
+            container.append(category);
+            container.append(tag);
+
         </script>
     </div>
 </div>

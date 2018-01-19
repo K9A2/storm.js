@@ -70,7 +70,6 @@ $(function () {
     })
 });
 
-// todo: 完善页面目录部分
 function getTOC(id) {
     // 去除连接中的锚点
     var linkBase = document.location.href;
@@ -333,6 +332,7 @@ function getPostByName(postName) {
                     name: $(this).children("name").text(),
                     title: $(this).children("title").text(),
                     category: $(this).children("category").text(),
+                    tag: $(this).children("tag").text().toString().split(','),
                     date: $(this).children("date").text(),
                     description: $(this).children("description").text()
                 };

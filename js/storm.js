@@ -33,10 +33,6 @@ navPages = [
         url: "./index.html",
         name: "首页"
     },
-    category = {
-        url: "./tag.html",
-        name: "标签"
-    },
     about = {
         url: "./page.html?name=about",
         name: "关于我"
@@ -46,6 +42,52 @@ navPages = [
         name: "狗粮合集"
     }
 ];
+
+colors = [
+    "green",
+    "purple",
+    "orange",
+    "red",
+    "blue",
+    "lightBlue"
+];
+
+
+function getPostByTag(tag) {
+    var posts = [];
+
+    $.ajax({
+        url: settings.postPath,
+        async: false,
+        error: function (e) {
+            alert("Unable to reach the post list file.");
+        },
+        success: function (xml) {
+            $(xml).find("posts").find("post-item").each(function () {
+                var tagArray = $(this).children("tag").text().toString().split(',');
+                if ($.inArray(tag, tagArray) >= 0) {
+                    // 包含指定 tag
+                    var categoryItem = {
+                        id: $(this).children("id").text(),
+                        name: $(this).children("name").text(),
+                        title: $(this).children("title").text(),
+                        category: $(this).children("category").text(),
+                        tag: tagArray,
+                        date: $(this).children("date").text(),
+                        description: $(this).children("description").text()
+                    };
+                    posts.push(categoryItem);
+                }
+            })
+        }
+    });
+
+    // 结果按照日期排序
+    posts.sort(by("date"));
+    posts.reverse();
+
+    return posts;
+}
 
 /**
  * 实现点击返回页面顶部功能，来自 http://blog.csdn.net/zhyh1986/article/details/8644899

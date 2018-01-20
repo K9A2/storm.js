@@ -43,6 +43,11 @@ h1, h2, h3, h4, h5, h6 {
     color: #000;
 }
 
+.lightBlue {
+    background: #2196f3;
+    color: #000;
+}
+
 #title {
     font-size: 1rem;
     color: #ffffff;
@@ -164,6 +169,17 @@ div#title {
     margin-top: 0;
 }
 
+div#tagInfo {
+    background-color: #3f51b5;
+    color: #ffffff;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+div#tagInfo h1 {
+    font-weight: 500;
+}
+
 div#poster {
     height: 5rem;
     background-color: #000B43;
@@ -254,6 +270,7 @@ div#toTop > .arrow {
 
 div.indexList {
     margin: 2rem 17%;
+    min-height: calc(100vh - 360.451px);
 }
 
 div.indexItem {
@@ -262,6 +279,8 @@ div.indexItem {
     padding-left: 1rem;
     padding-right: 1rem;
     background-color: #ffffff;
+    box-shadow: 0 1px 2px rgba(151, 151, 151, 0.58);
+    border-radius: 2px;
 }
 
 .indexList:last-child {
@@ -306,12 +325,21 @@ div.indexItem h1 {
     padding-bottom: 1rem;
 }
 
+.tagList:last-child {
+    margin-right: 0;
+}
+
 .tagItem {
     display: inline-block;
     color: rgba(255, 255, 255, 0.8);
     padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
     border-radius: 2px;
     font-weight: lighter;
+}
+
+.tagItem a {
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .tagItem:hover {
@@ -335,6 +363,17 @@ div.indexItem h1 {
     margin-bottom: 0;
     margin-left: 1rem;
     display: inline;
+}
+
+.postWithTag {
+    box-shadow: 0 1px 2px rgba(151, 151, 151, 0.58);
+    background-color: #ffffff;
+    padding: 1rem;
+}
+
+#info {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 div#main {

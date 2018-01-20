@@ -22,57 +22,41 @@ in a markdown file.
  -->
 <posts>
     <post-item>
-        <id>6</id>
-        <name>word9-24</name>
-        <title>Words 9-24</title>
-        <category>words</category>
-        <tag></tag>
-        <date>2017-09-24</date>
-        <description>Words 9-24</description>
-    </post-item>
-    <post-item>
-        <id>5</id>
-        <name>word9-20</name>
-        <title>Words 9-20</title>
-        <category>words</category>
-        <tag></tag>
-        <date>2017-09-20</date>
-        <description>Words 9-20</description>
-    </post-item>
-    <post-item>
-        <id>4</id>
-        <name>word9-19</name>
-        <title>Words 9-19</title>
-        <category>words</category>
-        <tag></tag>
-        <date>2017-09-19</date>
-        <description>Words 9-19</description>
-    </post-item>
-    <post-item>
         <id>1</id>
         <name>summary_for_developing_storm_js</name>
         <title>storm.js 开发总结</title>
         <category>javascript</category>
-        <tag>javascript, development, summary</tag>
+        <tag>javascript, Developer, summary</tag>
         <date>2017-05-24</date>
-        <description>记录了开发 storm.js 中所遇到的一些要点和坑点。</description>
+        <description>记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js
+            中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发
+            storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js
+            中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发
+            storm.js 中所遇到的一些要点和坑点。
+        </description>
     </post-item>
     <post-item>
         <id>2</id>
         <name>Java_Developer_Handbook</name>
         <title>阿里巴巴 Java 开发手册</title>
         <category>java</category>
-        <tag>java, alibaba, developer, handbook</tag>
+        <tag>Java, Alibaba, Developer, HandBook</tag>
         <date>2017-05-29</date>
-        <description>阿里巴巴集团 Java 开发手册</description>
+        <description>阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java
+            开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册
+        </description>
     </post-item>
     <post-item>
         <id>3</id>
         <name>DataMiningReport</name>
         <title>FP-Growth 和 K-Means 学习报告</title>
         <category>Java</category>
-        <tag>Java, Data Mining, FP-Growth, K-Means</tag>
+        <tag>Java, DataMining, FP-Growth, K-Means, Speed</tag>
         <date>2017-06-07</date>
-        <description>最近学习了数据挖掘常用的两种算法：FP-Growth 和 K-Means。现在把我的学习结果分享给大家。</description>
+        <description>最近学习了数据挖掘常用的两种算法：FP-Growth 和 K-Means。现在把我的学习结果分享给大家。最近学习了数据挖掘常用的两种算法：FP-Growth 和
+            K-Means。现在把我的学习结果分享给大家。 最近学习了数据挖掘常用的两种算法：FP-Growth 和 K-Means。现在把我的学习结果分享给大家。最近学习了数据挖掘常用的两种算法：FP-Growth 和
+            K-Means。现在把我的学习结果分享给大家。 最近学习了数据挖掘常用的两种算法：FP-Growth 和 K-Means。现在把我的学习结果分享给大家。最近学习了数据挖掘常用的两种算法：FP-Growth 和
+            K-Means。现在把我的学习结果分享给大家
+        </description>
     </post-item>
 </posts>

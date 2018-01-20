@@ -16,25 +16,13 @@
     <link href="css/style.css" rel="stylesheet">
 
     <script>
-
-        // 设定标题
-        var categoryName = getParaValue("category");
-        if (categoryName === null) {
-            // Get all posts in all categories
-            $("title").html("分类目录");
-        } else {
-            // Get target category
-            $("title").html("分类：" + categoryName);
-        }
-
+        // 获取并设定页面标题
+        var tag = getParaValue("tag");
+        $("title").html("标签：" + tag);
     </script>
 
 </head>
 <body>
-
-<!--
-获取在 URL 中以 POST 方式发送的 Category-name 参数。之后就会到 post.xml 中查找所有属于此类的 post，并在此页中显示出来。
--->
 
 <div id="nav">
 
@@ -44,43 +32,31 @@
 
 </div>
 
-<div id="blog-info">
-
+<div id="tagInfo">
+    <div id="info" class="container">
+    </div>
     <script>
-        getBlogPoster();
+        var header = $("<h1></h1>", {
+            text: 'Tag: ' + tag
+        });
+        var info = $("#info");
+        header.appendTo(info);
     </script>
-
 </div>
 
-<div id="main">
+<div id="index" class="indexList">
 
-    <div id="post-list">
-
-        <script>
-
-            /*
-             * 从 get 请求参数中获取 categoryName，如果此项为空，则返回所有分类的所有文章；
-             * 如果 categoryName 不为空，则从 categoryName 指定的分类获取文章
-             *
-             * 每一个分类下的所有文章组成一个 post-list-unit，然后 append 到这个 div 中。
-             */
-            if (categoryName === null) {
-                /* Get all post with their own category */
-                // 从 categories.xml 中获取所有 category
-                var categories = getCategories();
-                for (var i = 0; i < categories.length; i++) {
-                    // Post list
-                    var posts = getPostListWithCategory(categories[i].name);
-                    printCategoryUnit(posts, getCategoryTextByName(categories[i].name));
-                }
-            } else {
-                /* Get specific category with name */
-                $("#main").append("<h1 class='categoryTitle'>/* Class = " + getCategoryTextByName(categoryName) + " */</h1>");
-                printPostList(getPostListWithCategory(categoryName));
-            }
-
-        </script>
-
+    <div class="indexItem">
+        <div class="date">2017-09-24</div>
+        <a href="http://localhost:63342/storm.js/post.html?name=DataMiningReport">
+            <h1>FP-Growth 和 K-Means 学习报告</h1>
+        </a>
+        <div class="tagList">
+            <div class="tagItem green"><a href="./tag.html?tag=Java">Java</a></div>
+            <div class="tagItem purple"><a href="./tag.html?tag=DataMining">DataMining</a></div>
+            <div class="tagItem orange"><a href="./tag.html?tag=FP-Growth">FP-Growth</a></div>
+            <div class="tagItem red"><a href="./tag.html?tag=K-Means">K-Means</a></div>
+        </div>
     </div>
 
 </div>

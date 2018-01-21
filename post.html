@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>文章内容</title>
     <link rel="SHORTCUT ICON" href="./img/icon.jpg">
     <script src="./js/jquery.min.js">
@@ -17,24 +19,22 @@
     <script src="js/storm.js"></script>
     <script>
         var postName = getParaValue("name");
-        //获取文章信息
         var post = getPostByName(postName);
-        //获取并渲染写入文章正文
-        var postName = getParaValue("name");
-        //获取文章信息
-        var post = getPostByName(postName);
-        //渲染文章标题
         $("#title").html("Hello world!");
         //获取并渲染写入文章正文
         $.get("./md/" + postName + ".md").success(function (content) {
             $(".markdown-body").append(marked(content));
             $("pre").addClass("prettyprint linenums");
             $("title").html($("h1").html());
+            // 用以去除写作 Markdown 文档中自然留下的一级标题
+            var header = $("#content").find("h1");
+            header.remove();
             getTOC("toc");
         }).error(RedirectTo404);
     </script>
 
 </head>
+
 <body>
 
 <div id="nav">
@@ -96,4 +96,5 @@
 </script>
 
 </body>
+
 </html>

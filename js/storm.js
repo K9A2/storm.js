@@ -54,6 +54,29 @@ colors = [
 ];
 
 /**
+ * 实现点击返回页面顶部功能，来自 http://blog.csdn.net/zhyh1986/article/details/8644899
+ */
+$(function () {
+    var $backToTopEle = $('#toTop'), $backToTopFun = function () {
+        var st = $(document).scrollTop(), winh = $(window).height();
+        (st > 200) ? $backToTopEle.fadeIn('slow') : $backToTopEle.fadeOut('slow');
+        //IE6下的定位
+        if (!window.XMLHttpRequest) {
+            $backToTopEle.css("top", st + winh - 166);
+        }
+    };
+    $('#toTop').click(function () {
+        $("html, body").animate({scrollTop: 0}, 1200);
+    });
+    $backToTopEle.hide();
+    $backToTopFun();
+    $(window).bind("scroll", $backToTopFun);
+    $('#catalogWord').click(function () {
+        $("#catalog").slideToggle(600);
+    })
+});
+
+/**
  * 获取指定 tag 下的博客信息
  *
  * @param tag 指定的 tag
@@ -102,29 +125,6 @@ function getPostByTag(tag) {
     return posts;
 }
 
-/**
- * 实现点击返回页面顶部功能，来自 http://blog.csdn.net/zhyh1986/article/details/8644899
- */
-$(function () {
-    var $backToTopEle = $('#toTop'), $backToTopFun = function () {
-        var st = $(document).scrollTop(), winh = $(window).height();
-        (st > 200) ? $backToTopEle.fadeIn('slow') : $backToTopEle.fadeOut('slow');
-        //IE6下的定位
-        if (!window.XMLHttpRequest) {
-            $backToTopEle.css("top", st + winh - 166);
-        }
-    };
-    $('#toTop').click(function () {
-        $("html, body").animate({scrollTop: 0}, 1200);
-    });
-    $backToTopEle.hide();
-    $backToTopFun();
-    $(window).bind("scroll", $backToTopFun);
-    $('#catalogWord').click(function () {
-        $("#catalog").slideToggle(600);
-    })
-});
-
 function getTOC(id) {
     // 去除连接中的锚点
     var linkBase = document.location.href;
@@ -137,7 +137,6 @@ function getTOC(id) {
     if (j !== linkBase.length) {
         linkBase = linkBase.substring(0, j);
     }
-    console.log(linkBase);
 
     var i = 0;
     var toc = $('#toc');

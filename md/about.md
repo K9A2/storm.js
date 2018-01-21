@@ -1,7 +1,3 @@
-<!-- About Me -->
-
-# About Me
-
 stormlin - Becoming a full stack developer
 
 ## Contact Me

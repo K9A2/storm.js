@@ -152,7 +152,7 @@ div#list {
 }
 
 div.container {
-    width: 60%;
+    width: 66%;
     margin: 0 17%;
 }
 
@@ -271,6 +271,10 @@ div#toTop > .arrow {
 div.indexList {
     margin: 2rem 17%;
     min-height: calc(100vh - 360.451px);
+}
+
+.aboutBody {
+    min-height: calc(100vh - 403.176px);
 }
 
 div.indexItem {

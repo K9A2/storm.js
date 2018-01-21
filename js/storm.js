@@ -34,7 +34,7 @@ navPages = [
         name: "首页"
     },
     about = {
-        url: "./page.html?name=about",
+        url: "./about.html",
         name: "关于我"
     },
     dogFood = {

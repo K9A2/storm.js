@@ -32,9 +32,6 @@
             $("title").html($("h1").html());
             getTOC("toc");
         }).error(RedirectTo404);
-
-        // todo: 修改 post 页标题栏样式
-
     </script>
 
 </head>
@@ -60,13 +57,10 @@
             var tag = $("<p></p>", {
                 text: "标签：" + post.tag.toString()
             });
-
             var container = $("div#title .container");
-
             container.append(header);
             container.append(date);
             container.append(tag);
-
         </script>
     </div>
 </div>

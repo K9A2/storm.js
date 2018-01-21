@@ -16,7 +16,22 @@
 
     <script src="js/storm.js"></script>
     <script>
-        // printPostAndAdjustHeight();
+        var postName = getParaValue("name");
+        //获取文章信息
+        var post = getPostByName(postName);
+        //获取并渲染写入文章正文
+        var postName = getParaValue("name");
+        //获取文章信息
+        var post = getPostByName(postName);
+        //渲染文章标题
+        $("#title").html("Hello world!");
+        //获取并渲染写入文章正文
+        $.get("./md/about.md").success(function (content) {
+            $(".markdown-body").append(marked(content));
+            $("pre").addClass("prettyprint linenums");
+            $("title").html($("h1").html());
+            getTOC("toc");
+        }).error(RedirectTo404);
     </script>
 
 </head>
@@ -30,8 +45,17 @@
 
 </div>
 
+<div id="title">
+    <div id="info" class="container">
+        <h1>About me</h1>
+    </div>
+</div>
 
-<div id="main" style="margin-top: 3rem">
+<div id="toc">
+
+</div>
+
+<div id="main" class="aboutBody">
 
     <div id="content">
         <article class="markdown-body">
@@ -51,6 +75,10 @@
 
 <script>
     getFooter();
+</script>
+
+<script>
+
 </script>
 
 </body>

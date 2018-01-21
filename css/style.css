@@ -186,15 +186,6 @@ div#poster {
     background-color: #000B43;
 }
 
-div#toc {
-    width: 14%;
-    margin-left: 17%;
-    margin-top: 2rem;
-    padding: 1rem 1% 1rem 0;
-    float: left;
-    border-left: 1px solid #bebebe;
-}
-
 .linkBox:hover {
     background-color: #ebf8fe;
 }
@@ -299,6 +290,35 @@ div.indexItem h1 {
     margin-bottom: 0.5rem;
 }
 
+.leftCol {
+    width: 20%;
+}
+
+.rightCol {
+    width: 77.3%;
+    display: inline;
+}
+
+div#toc {
+    margin-top: 2rem;
+    padding: 1rem 1rem 1rem 0;
+    float: left;
+    border-left: 1px solid #bebebe;
+}
+
+#deprecated {
+    width: inherit;
+    color: #ffffff;
+    background: #eb3f2f;
+    font-weight: bold;
+    margin: 2rem auto -1rem;
+    padding: 1rem;
+    box-shadow: 0 0 8px #999;
+    border-radius: 2px;
+    display: inline-block;
+    text-align: center;
+}
+
 .description {
     padding-bottom: 0.5rem;
     line-height: 1.8rem;
@@ -328,6 +348,27 @@ div.indexItem h1 {
     border-top: 1px solid #bebebe;
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+div#tags {
+    display: inline;
+}
+
+div#tags a {
+    color: #ffffff;
+}
+
+div#tags a:hover {
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+div#tags a:after {
+    content: ", ";
+}
+
+div#tags a:last-child:after {
+    content: none;
 }
 
 .tagList:last-child {
@@ -386,7 +427,8 @@ div#main {
     box-shadow: 0 0 8px #999;
     padding: 2rem;
     overflow: auto;
-    margin: 2rem 17% 2rem 33%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 div#blog-info {

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -8,14 +7,12 @@
     />
     <title>文章内容</title>
     <link rel="SHORTCUT ICON" href="./img/icon.jpg">
-    <script src="./js/jquery.min.js">
-    </script>
     <link rel="stylesheet" href="css/github.css"/>
-    <script src="js/marked.js"></script>
     <link href="css/prettify.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/content.css" rel="stylesheet">
-
+    <script src="./js/jquery.min.js"></script>
+    <script src="js/marked.js"></script>
     <script src="js/storm.js"></script>
     <script>
         var postName = getParaValue("name");
@@ -32,17 +29,13 @@
             getTOC("toc");
         }).error(RedirectTo404);
     </script>
-
 </head>
-
 <body>
 
 <div id="nav">
-
     <script>
         getNavBar();
     </script>
-
 </div>
 
 <div id="title">
@@ -54,29 +47,49 @@
             var date = $("<p></p>", {
                 text: "日期：" + post.date
             });
-            var tag = $("<p></p>", {
-                text: "标签：" + post.tag.toString()
+            var tagList = $("<div></div>", {
+                text: "标签：",
+                id: "tags"
             });
+            for (var i = 0; i < post.tag.length; i++) {
+                var tagLink = $("<a></a>", {
+                    text: post.tag[i],
+                    href: "./tag.html?tag=" + post.tag[i]
+                });
+                tagLink.appendTo(tagList);
+            }
             var container = $("div#title .container");
             container.append(header);
             container.append(date);
-            container.append(tag);
+            container.append(tagList);
         </script>
     </div>
 </div>
 
-<div id="toc">
-
-</div>
-
-<div id="main">
-
-    <div id="content">
-        <article class="markdown-body">
-
-        </article>
+<div class="container">
+    <div class="leftCol">
+        <div id="toc"></div>
     </div>
+    <div class="rightCol">
+        <div id="deprecated">
+            <span>本文章已经发表超过一年，其中部分内容可能已过时，请注意</span>
+            <script>
+                var original = new Date(post.date);
+                var current = new Date();
+                var diff = Math.floor((current.getTime() - original.getTime()) / (24 * 3600 * 1000));
+                if (diff >= 365) {
+                    $("#deprecated").hide();
+                }
+                $("#main").css("margin", "1rem 0 2rem 0");
+            </script>
+        </div>
 
+        <div id="main">
+            <div id="content">
+                <article class="markdown-body"></article>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id='toTop' title="返回顶部">

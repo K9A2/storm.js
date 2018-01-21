@@ -84,7 +84,6 @@ $(function () {
  */
 function getPostByTag(tag) {
     var posts = [];
-    console.log(tag);
 
     $.ajax({
         url: settings.postPath,
@@ -98,9 +97,6 @@ function getPostByTag(tag) {
                 for (var i = 0; i < tagArray.length; i++) {
                     tagArray[i] = tagArray[i].trim();
                 }
-                console.log($(this).children("name").text());
-                console.log(tagArray);
-                console.log(tagArray.indexOf(tag));
                 if (tagArray.indexOf(tag) >= 0) {
                     // 包含指定 tag
                     var categoryItem = {
@@ -382,12 +378,16 @@ function getPostByName(postName) {
         },
         success: function (xml) {
             $(xml).find("posts").find("post-item").each(function () {
+                var tagArray = $(this).children("tag").text().toString().split(',');
+                for (var i = 0; i < tagArray.length; i++) {
+                    tagArray[i] = tagArray[i].trim();
+                }
                 var post = {
                     id: $(this).children("id").text(),
                     name: $(this).children("name").text(),
                     title: $(this).children("title").text(),
                     category: $(this).children("category").text(),
-                    tag: $(this).children("tag").text().toString().split(','),
+                    tag: tagArray,
                     date: $(this).children("date").text(),
                     description: $(this).children("description").text()
                 };

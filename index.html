@@ -59,7 +59,8 @@
             });
             date.appendTo(indexItem);
             var title = $("<a></a>", {
-                href: "./post.html?name=" + posts[i].name
+                href: "./post.html?name=" + posts[i].name,
+                target: "_blank"
             });
             var header = $("<h1></h1>", {
                 text: posts[i].title
@@ -76,7 +77,8 @@
             });
             var link = $("<a></a>", {
                 href: "./post.html?name=" + posts[i].name,
-                text: "阅读原文..."
+                text: "阅读原文...",
+                target: "_blank"
             });
             link.appendTo(readMore);
             readMore.appendTo(description);
@@ -91,7 +93,8 @@
                 });
                 var tagLink = $("<a></a>", {
                     href: "./tag.html?tag=" + posts[i].tag[j].trim(),
-                    text: posts[i].tag[j]
+                    text: posts[i].tag[j],
+                    target: "_blank"
                 });
                 tagLink.appendTo(tag);
                 tag.appendTo(tagList);

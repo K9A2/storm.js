@@ -43,6 +43,7 @@ navPages = [
     }
 ];
 
+// 给 tag 上的颜色，在样式文件中有详细定义
 colors = [
     "green",
     "purple",
@@ -52,20 +53,32 @@ colors = [
     "lightBlue"
 ];
 
-
+/**
+ * 获取指定 tag 下的博客信息
+ *
+ * @param tag 指定的 tag
+ * @returns {Array} 博客信息列表
+ */
 function getPostByTag(tag) {
     var posts = [];
+    console.log(tag);
 
     $.ajax({
         url: settings.postPath,
         async: false,
-        error: function (e) {
+        error: function () {
             alert("Unable to reach the post list file.");
         },
         success: function (xml) {
             $(xml).find("posts").find("post-item").each(function () {
                 var tagArray = $(this).children("tag").text().toString().split(',');
-                if ($.inArray(tag, tagArray) >= 0) {
+                for (var i = 0; i < tagArray.length; i++) {
+                    tagArray[i] = tagArray[i].trim();
+                }
+                console.log($(this).children("name").text());
+                console.log(tagArray);
+                console.log(tagArray.indexOf(tag));
+                if (tagArray.indexOf(tag) >= 0) {
                     // 包含指定 tag
                     var categoryItem = {
                         id: $(this).children("id").text(),

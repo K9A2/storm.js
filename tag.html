@@ -18,6 +18,9 @@
     <script>
         // 获取并设定页面标题
         var tag = getParaValue("tag");
+        if (tag == null || tag === '') {
+            window.location.href = "./index.html"
+        }
         $("title").html("标签：" + tag);
     </script>
 
@@ -45,20 +48,67 @@
 </div>
 
 <div id="index" class="indexList">
+    <script>
+        var posts = getPostByTag(tag);
+        if (posts == null) {
+            new RedirectTo404();
+        }
+        var index = $("#index");
 
-    <div class="indexItem">
-        <div class="date">2017-09-24</div>
-        <a href="http://localhost:63342/storm.js/post.html?name=DataMiningReport">
-            <h1>FP-Growth 和 K-Means 学习报告</h1>
-        </a>
-        <div class="tagList">
-            <div class="tagItem green"><a href="./tag.html?tag=Java">Java</a></div>
-            <div class="tagItem purple"><a href="./tag.html?tag=DataMining">DataMining</a></div>
-            <div class="tagItem orange"><a href="./tag.html?tag=FP-Growth">FP-Growth</a></div>
-            <div class="tagItem red"><a href="./tag.html?tag=K-Means">K-Means</a></div>
-        </div>
-    </div>
+        for (var i = 0; i < posts.length; i++) {
+            var indexItem = $("<div></div>", {
+                class: "indexItem"
+            });
 
+            var date = $("<div></div>", {
+                class: "date",
+                text: posts[i].date
+            });
+            date.appendTo(indexItem);
+            var title = $("<a></a>", {
+                href: "./post.html?name=" + posts[i].name,
+                target: "_blank"
+            });
+            var header = $("<h1></h1>", {
+                text: posts[i].title
+            });
+            header.appendTo(title);
+            title.appendTo(indexItem);
+
+            var description = $("<div></div>", {
+                class: "description",
+                text: posts[i].description
+            });
+            var readMore = $("<div></div>", {
+                class: "readMore"
+            });
+            var link = $("<a></a>", {
+                href: "./post.html?name=" + posts[i].name,
+                text: "阅读原文...",
+                target: "_blank"
+            });
+            link.appendTo(readMore);
+            readMore.appendTo(description);
+            description.appendTo(indexItem);
+
+            var tagList = $("<div></div>", {
+                class: "tagList"
+            });
+            for (var j = 0; j < posts[i].tag.length; j++) {
+                var tag = $("<div></div>", {
+                    class: "tagItem " + colors[j]
+                });
+                var tagLink = $("<a></a>", {
+                    href: "./tag.html?tag=" + posts[i].tag[j].trim(),
+                    text: posts[i].tag[j]
+                });
+                tagLink.appendTo(tag);
+                tag.appendTo(tagList);
+            }
+            tagList.appendTo(indexItem);
+            indexItem.appendTo(index);
+        }
+    </script>
 </div>
 
 <div id='toTop' title="返回顶部">

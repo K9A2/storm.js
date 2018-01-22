@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>分类</title>
 
-    <link rel="SHORTCUT ICON" href="./img/icon.jpg">
-
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/marked.js"></script>
     <script src="js/storm.js"></script>
 
+    <link rel="SHORTCUT ICON" href="./img/icon.jpg">
     <link rel="stylesheet" href="css/content.css"/>
     <link href="css/prettify.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
     <script>
         // 获取并设定页面标题
         var tag = getParaValue("tag");
@@ -23,16 +21,13 @@
         }
         $("title").html("标签：" + tag);
     </script>
-
 </head>
 <body>
 
 <div id="nav">
-
     <script>
         getNavBar();
     </script>
-
 </div>
 
 <div id="tagInfo">
@@ -47,7 +42,7 @@
     </script>
 </div>
 
-<div id="index" class="indexList">
+<div id="index" class="indexList container">
     <script>
         var posts = getPostByTag(tag);
         if (posts == null) {

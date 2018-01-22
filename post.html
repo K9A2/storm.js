@@ -66,7 +66,7 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container postContainer">
     <div class="leftCol">
         <div id="toc"></div>
     </div>
@@ -77,13 +77,12 @@
                 var original = new Date(post.date);
                 var current = new Date();
                 var diff = Math.floor((current.getTime() - original.getTime()) / (24 * 3600 * 1000));
-                if (diff >= 365) {
+                if (diff <= 365) {
                     $("#deprecated").hide();
                 }
                 $("#main").css("margin", "1rem 0 2rem 0");
             </script>
         </div>
-
         <div id="main">
             <div id="content">
                 <article class="markdown-body"></article>

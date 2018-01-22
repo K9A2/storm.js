@@ -28,22 +28,20 @@
 <body>
 
 <div id="nav">
-
     <script>
         getNavBar();
     </script>
-
 </div>
 
-<div id="blog-info">
-
-    <script>
-        getBlogPoster();
-    </script>
-
+<div style="background-color: #3f51b5;">
+    <div id="blog-info" class="container">
+        <script>
+            getBlogPoster();
+        </script>
+    </div>
 </div>
 
-<div id="index" class="indexList aboutBody">
+<div id="index" class="indexList aboutBody container">
     <script>
         var posts = getIndexPostList();
         var index = $("#index");
@@ -103,8 +101,6 @@
             indexItem.appendTo(index);
         }
     </script>
-</div>
-
 </div>
 
 <div id='toTop' title="返回顶部">

@@ -77,7 +77,6 @@ a:hover {
 
 div#nav {
     height: 3rem;
-    color: #2175bc;
     background-color: #3f51b5;
     display: block;
     margin: 0 auto;
@@ -99,10 +98,6 @@ div#icon a {
     line-height: 3rem;
 }
 
-div#list {
-    height: inherit;
-}
-
 .nav-list-item {
     height: 3rem;
     line-height: 3rem;
@@ -119,7 +114,6 @@ div#list {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    height: inherit;
     display: inline-block;
     text-align: center;
 }
@@ -159,6 +153,10 @@ div#list {
 
 .postContainer {
     margin: 2rem auto;
+}
+
+div#list {
+    height: 3rem;
 }
 
 div#title p {
@@ -588,7 +586,7 @@ a#user-name:active {
 div#footer {
     color: #ffffff;
     font-size: 0.8rem;
-    padding: 1% 0;
+    padding: 1rem 0;
     text-align: center;
     background-color: #3f51b5;
 }
@@ -604,35 +602,76 @@ div#footer a {
         margin-left: 0;
         margin-right: 0;
         border: none;
-        background: none;
+        background: #f7f7f7;
     }
 
-    div#nav {
-        height: 3rem;
-        margin: 0 auto;
-        position: fixed;
-        z-index: 9999;
+    #info {
+        margin: 0 1rem 0 1rem;
+        padding-left: 0;
+        padding-right: 0;
+        width: calc(100vw - 2rem);
     }
 
-    div#title {
-        margin-top: 3rem;
+    .postContainer {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     div#title p {
         font-size: 1rem;
     }
 
+    div#title h1 {
+        font-size: 2rem;
+    }
+
     div#nav .generated {
         display: none;
+    }
+
+    div#index {
+        background: #f7f7f7;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .indexList {
+        min-height: calc(100vh - 298.075px);
+    }
+
+    div.indexItem {
+        margin-top: 1rem;
+        margin-bottom: 0;
+    }
+
+    .indexItem:first-child {
+        margin-top: 0;
+    }
+
+    .indexItem:last-child {
+        margin-bottom: 1rem;
+    }
+
+    div.indexItem h1 {
+        font-size: 1.5rem;
+    }
+
+    .tagList {
+        padding-top: 0;
+        padding-bottom: 0.5rem;
+    }
+
+    .tagItem {
+        margin-top: 0.5rem;
     }
 
     div#main {
         width: auto;
         background: white;
         box-shadow: none;
-        padding: 2% 2% 2%;
+        padding: 1rem;
         overflow: auto;
-        margin: 3%;
+        margin: 0;
     }
 
     div#toc {
@@ -641,7 +680,6 @@ div#footer a {
 
     .container {
         width: 100%;
-        margin: 0 0;
     }
 
     .categoryTitle {

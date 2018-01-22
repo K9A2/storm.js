@@ -40,11 +40,7 @@ in a markdown file.
         <category>javascript</category>
         <tag>javascript, Developer, summary</tag>
         <date>2017-01-01</date>
-        <description>记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js
-            中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发
-            storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js
-            中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发 storm.js 中所遇到的一些要点和坑点。记录了开发
-            storm.js 中所遇到的一些要点和坑点。
+        <description>记录了开发 storm.js 中所遇到的一些要点和坑点，分享给大家。
         </description>
     </post-item>
     <post-item>
@@ -54,8 +50,8 @@ in a markdown file.
         <category>java</category>
         <tag>Java, Alibaba, Developer, HandBook</tag>
         <date>2017-05-29</date>
-        <description>阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java
-            开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册阿里巴巴集团 Java 开发手册
+        <description>
+            这是阿里巴巴 Java 开发手册的文字版，与现有的 PDF 版本完全一致，供大家在开发 Java 程序时参考。
         </description>
     </post-item>
     <post-item>
@@ -65,10 +61,8 @@ in a markdown file.
         <category>Java</category>
         <tag>Java, DataMining, FP-Growth, K-Means, Speed</tag>
         <date>2017-06-07</date>
-        <description>最近学习了数据挖掘常用的两种算法：FP-Growth 和 K-Means。现在把我的学习结果分享给大家。最近学习了数据挖掘常用的两种算法：FP-Growth 和
-            K-Means。现在把我的学习结果分享给大家。 最近学习了数据挖掘常用的两种算法：FP-Growth 和 K-Means。现在把我的学习结果分享给大家。最近学习了数据挖掘常用的两种算法：FP-Growth 和
-            K-Means。现在把我的学习结果分享给大家。 最近学习了数据挖掘常用的两种算法：FP-Growth 和 K-Means。现在把我的学习结果分享给大家。最近学习了数据挖掘常用的两种算法：FP-Growth 和
-            K-Means。现在把我的学习结果分享给大家
+        <description>
+            最近学习了数据挖掘常用的两种算法：FP-Growth 和 K-Means。现在把我的学习结果分享给大家。
         </description>
     </post-item>
 </posts>

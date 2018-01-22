@@ -268,7 +268,7 @@ div.indexList {
 }
 
 .aboutBody {
-    min-height: calc(100vh - 403.176px);
+    min-height: calc(100vh - 271.2px);
 }
 
 div.indexItem {
@@ -380,15 +380,14 @@ div#tags a:last-child:after {
 
 .tagItem {
     display: inline-block;
-    color: rgba(255, 255, 255, 0.8);
+    color: #ffffff;
     padding: 0.5rem 1rem;
     margin-right: 0.5rem;
     border-radius: 2px;
-    font-weight: lighter;
 }
 
 .tagItem a {
-    color: rgba(255, 255, 255, 0.8);
+    color: #ffffff;
 }
 
 .tagItem:hover {
@@ -612,6 +611,11 @@ div#footer a {
         width: calc(100vw - 2rem);
     }
 
+    #deprecated {
+        width: calc(100vw - 2rem);
+        margin-top: 1rem;
+    }
+
     .postContainer {
         margin-top: 0;
         margin-bottom: 0;
@@ -635,17 +639,13 @@ div#footer a {
         margin-bottom: 0;
     }
 
-    .indexList {
-        min-height: calc(100vh - 298.075px);
+    div.indexList {
+        min-height: calc(100vh - 330.075px);
     }
 
     div.indexItem {
         margin-top: 1rem;
         margin-bottom: 0;
-    }
-
-    .indexItem:first-child {
-        margin-top: 0;
     }
 
     .indexItem:last-child {
@@ -690,6 +690,5 @@ div#footer a {
         padding-top: 0.3em;
         border-bottom: 1px solid #eeeeee;
     }
-
 }
 

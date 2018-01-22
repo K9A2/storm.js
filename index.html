@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +7,7 @@
     <title>首页</title>
     <link rel="SHORTCUT ICON" href="./img/icon.jpg">
 
-    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/marked.js"></script>
     <script src="js/storm.js"></script>
 
@@ -43,63 +44,80 @@
 
 <div id="index" class="indexList container">
     <script>
-        var posts = getIndexPostList();
-        var index = $("#index");
-
-        for (var i = 0; i < posts.length; i++) {
-            var indexItem = $("<div></div>", {
-                class: "indexItem"
+        var requestedPost = [];
+        $.ajax(settings.postPath).done(function (data) {
+            $(data).find("posts").find("post-item").each(function () {
+                // noinspection Annotator
+                var categoryItem = {
+                    id: $(this).children("id").text(),
+                    name: $(this).children("name").text(),
+                    title: $(this).children("title").text(),
+                    category: $(this).children("category").text(),
+                    tag: $(this).children("tag").text().toString().split(','),
+                    date: $(this).children("date").text(),
+                    description: $(this).children("description").text()
+                };
+                requestedPost.push(categoryItem);
             });
 
-            var date = $("<div></div>", {
-                class: "date",
-                text: posts[i].date
-            });
-            date.appendTo(indexItem);
-            var title = $("<a></a>", {
-                href: "./post.html?name=" + posts[i].name,
-                target: "_blank"
-            });
-            var header = $("<h1></h1>", {
-                text: posts[i].title
-            });
-            header.appendTo(title);
-            title.appendTo(indexItem);
+            requestedPost.sort(by("date"));
+            requestedPost.reverse();
 
-            var description = $("<div></div>", {
-                class: "description",
-                text: posts[i].description
-            });
-            var readMore = $("<div></div>", {
-                class: "readMore"
-            });
-            var link = $("<a></a>", {
-                href: "./post.html?name=" + posts[i].name,
-                text: "阅读原文...",
-                target: "_blank"
-            });
-            link.appendTo(readMore);
-            readMore.appendTo(description);
-            description.appendTo(indexItem);
+            var posts = requestedPost;
+            var index = $("#index");
 
-            var tagList = $("<div></div>", {
-                class: "tagList"
-            });
-            for (var j = 0; j < posts[i].tag.length; j++) {
-                var tag = $("<div></div>", {
-                    class: "tagItem " + colors[j]
+            for (var i = 0; i < posts.length; i++) {
+                var indexItem = $("<div></div>", {
+                    class: "indexItem"
                 });
-                var tagLink = $("<a></a>", {
-                    href: "./tag.html?tag=" + posts[i].tag[j].trim(),
-                    text: posts[i].tag[j],
-                    target: "_blank"
+
+                var date = $("<div></div>", {
+                    class: "date",
+                    text: posts[i].date
                 });
-                tagLink.appendTo(tag);
-                tag.appendTo(tagList);
+                date.appendTo(indexItem);
+                var title = $("<a></a>", {
+                    href: "./post.html?name=" + posts[i].name
+                });
+                var header = $("<h1></h1>", {
+                    text: posts[i].title
+                });
+                header.appendTo(title);
+                title.appendTo(indexItem);
+
+                var description = $("<div></div>", {
+                    class: "description",
+                    text: posts[i].description
+                });
+                var readMore = $("<div></div>", {
+                    class: "readMore"
+                });
+                var link = $("<a></a>", {
+                    href: "./post.html?name=" + posts[i].name,
+                    text: "阅读原文..."
+                });
+                link.appendTo(readMore);
+                readMore.appendTo(description);
+                description.appendTo(indexItem);
+
+                var tagList = $("<div></div>", {
+                    class: "tagList"
+                });
+                for (var j = 0; j < posts[i].tag.length; j++) {
+                    var tag = $("<div></div>", {
+                        class: "tagItem " + colors[j]
+                    });
+                    var tagLink = $("<a></a>", {
+                        href: "./tag.html?tag=" + posts[i].tag[j].trim(),
+                        text: posts[i].tag[j]
+                    });
+                    tagLink.appendTo(tag);
+                    tag.appendTo(tagList);
+                }
+                tagList.appendTo(indexItem);
+                indexItem.appendTo(index);
             }
-            tagList.appendTo(indexItem);
-            indexItem.appendTo(index);
-        }
+        });
     </script>
 </div>
 

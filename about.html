@@ -16,15 +16,9 @@
 
     <script src="js/storm.js"></script>
     <script>
-        //获取文章信息
-        var post = getPostByName(postName);
-        //获取并渲染写入文章正文
-        var postName = getParaValue("name");
-        //获取文章信息
-        var post = getPostByName(postName);
-        //渲染文章标题
+        // 渲染文章标题
         $("#title").html("Hello world!");
-        //获取并渲染写入文章正文
+        // 获取并渲染写入文章正文
         $.get("./md/about.md").success(function (content) {
             $(".markdown-body").append(marked(content));
             $("pre").addClass("prettyprint linenums");
@@ -48,7 +42,7 @@
     </div>
 </div>
 
-<div class="container postContainer">
+<div class="container postContainer aboutBody">
     <div class="leftCol">
         <div id="toc"></div>
     </div>

@@ -58,6 +58,9 @@ colors = [
  */
 $(function () {
     var $backToTopEle = $('#toTop'), $backToTopFun = function () {
+        // noinspection Annotator
+        // noinspection Annotator
+        // noinspection Annotator
         var st = $(document).scrollTop(), winh = $(window).height();
         (st > 200) ? $backToTopEle.fadeIn('slow') : $backToTopEle.fadeOut('slow');
         //IE6下的定位
@@ -93,12 +96,16 @@ function getPostByTag(tag) {
         },
         success: function (xml) {
             $(xml).find("posts").find("post-item").each(function () {
+                // noinspection Annotator
                 var tagArray = $(this).children("tag").text().toString().split(',');
                 for (var i = 0; i < tagArray.length; i++) {
                     tagArray[i] = tagArray[i].trim();
                 }
                 if (tagArray.indexOf(tag) >= 0) {
                     // 包含指定 tag
+                    // noinspection Annotator
+                    // noinspection Annotator
+                    // noinspection Annotator
                     var categoryItem = {
                         id: $(this).children("id").text(),
                         name: $(this).children("name").text(),
@@ -168,33 +175,20 @@ function getTOC(id) {
 }
 
 /**
- * Get file content with given file path
- *
- * @param filePath
- */
-function getFileContent(filePath) {
-    var fileReader = new FileReader();
-    // 读取成功的回调函数
-    fileReader.onload = (function (ev) {
-        console.log(ev.target.result);
-    });
-    fileReader.readAsText(filePath, "utf-8");
-}
-
-/**
  * Get the target parameter specified by name from url.
  *
  * @param name Target parameter name
- * @returns {null}
+ * @returns {string}
  */
 function getParaValue(name) {
 
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
     var result = window.location.search.substr(1).match(reg);
 
-    if (result !== null) return result[2];
+    if (result !== null) { // noinspection Annotator
+        return result[2];
+    }
 
-    return null;
 }
 
 /**
@@ -371,10 +365,9 @@ function getPostByName(postName) {
 
     $.ajax({
         url: settings.postPath,
-        async: false,
+        async: true,
         error: function (e) {
             alert("Unable to reach the post list file.");
-            console.log(e.message);
         },
         success: function (xml) {
             $(xml).find("posts").find("post-item").each(function () {
@@ -536,47 +529,6 @@ function getFooter() {
         '          </div>';
 
     $("body").append(footerText);
-
-}
-
-/**
- * Adjust div#main to make the page height at least one page height
- */
-function adjustMainHeight() {
-
-    if (window.innerHeight) {
-        var windowHeight = window.innerHeight;
-    }
-    else if ((document.body) && (document.body.clientHeight)) {
-        var winHeight = document.body.clientHeight;
-    }
-    var main = $("#main");
-    var outerHeight = main.outerHeight(true);
-    var innerHeight = main.height();
-    var rem = parseInt(window.getComputedStyle(document.documentElement)["fontSize"]);
-    var title = $("#blog-info");
-    if (title === null) {
-        alert("null");
-        if ((outerHeight + 3 * rem) < windowHeight) {
-            alert("in");
-            var sub = windowHeight - (outerHeight + $("#footer").outerHeight());
-            main.height(innerHeight + sub);
-        }
-    } else {
-        alert("not null");
-        alert(outerHeight);
-        if ((outerHeight + title.outerHeight()) < windowHeight) {
-            alert("in");
-            alert("windowHeight: " + windowHeight);
-            alert("outerHeight: " + outerHeight);
-            alert("footerHeight: " + $("#footer").outerHeight());
-            var sub = windowHeight - (outerHeight + $("#footer").outerHeight());
-            alert("innerheight: " + innerHeight);
-            alert("sub: " + sub);
-            alert(innerHeight + sub);
-            main.height(innerHeight + sub);
-        }
-    }
 
 }
 

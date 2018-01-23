@@ -267,7 +267,7 @@
       <workItem from="1516614038327" duration="6572000" />
       <workItem from="1516635878506" duration="632000" />
       <workItem from="1516675430228" duration="3711000" />
-      <workItem from="1516689780072" duration="3104000" />
+      <workItem from="1516689780072" duration="3135000" />
     </task>
     <task id="LOCAL-00001" summary="返回顶部已完工，尚欠文章目录部分">
       <created>1516205702033</created>
@@ -325,11 +325,18 @@
       <option name="project" value="LOCAL" />
       <updated>1516613757860</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="添加了博主信息栏目">
+      <created>1516692910540</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1516692910540</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97417000" />
+    <option name="totallyTimeSpent" value="97448000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -414,7 +421,8 @@
     <MESSAGE value="修复了标签页显示异常的问题" />
     <MESSAGE value="调整了许多页面的样式" />
     <MESSAGE value="移动端和 PC 端的页面基本都能用了" />
-    <option name="LAST_COMMIT_MESSAGE" value="移动端和 PC 端的页面基本都能用了" />
+    <MESSAGE value="添加了博主信息栏目" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加了博主信息栏目" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

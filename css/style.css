@@ -10,7 +10,7 @@ body {
     font-family: 'Gotham', 'Microsoft YaHei', "Open Sans", "Helvetica Neue", Helvetica, Arial, 'Microsoft YaHei', sans-serif;
 }
 
-a:link, :visited, :active {
+a:link, a:visited, a:active, a:hover {
     text-decoration: none;
 }
 
@@ -295,21 +295,75 @@ div.indexItem h1 {
 .leftCol {
     width: 200px;
     display: inline;
+    float: left;
 }
 
 .rightCol {
     width: 760px;
+    height: fit-content;
     display: inline;
 }
 
-div#toc {
+div#author {
     width: 200px;
+    margin-bottom: 1rem;
+}
+
+div#name a {
+    color: #3f51b5;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+}
+
+div#name a:hover {
+    text-decoration: none;
+}
+
+div#avatar {
+    width: calc(200px - 1rem);
+    text-align: center;
+    padding-right: 1rem;
+}
+
+div#avatar img {
+    width: 160px;
+    margin: 0 auto;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+div#contactList {
+    width: 200px;
+    height: 1.5rem;
+}
+
+.contact {
+    height: 1.5rem;
+    vertical-align: middle;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+    float: left;
+}
+
+.contact:last-child {
+    margin-right: 0;
+}
+
+.contact img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+div#toc {
+    width: calc(200px - 1rem);
     padding: 1rem 1rem 1rem 0;
     float: left;
     border-left: 1px solid #bebebe;
 }
 
-#deprecated {
+#warning {
     width: 711px;
     color: #ffffff;
     background: #eb3f2f;
@@ -611,7 +665,7 @@ div#footer a {
         width: calc(100vw - 2rem);
     }
 
-    #deprecated {
+    #warning {
         width: calc(100vw - 2rem);
         margin-top: 1rem;
     }
@@ -672,6 +726,10 @@ div#footer a {
         padding: 1rem;
         overflow: auto;
         margin: 0;
+    }
+
+    div#author {
+        display: none;
     }
 
     div#toc {

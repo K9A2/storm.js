@@ -6,6 +6,32 @@
 
 ## 1. FP-Growth
 
+```javascript
+var lexer = new marked.Lexer(options);
+var tokens = lexer.lex(text);
+console.log(tokens);
+console.log(lexer.rules);
+```
+
+```Java
+/**
+ * @author John Smith <john.smith@example.com>
+*/
+package l2f.gameserver.model;
+
+public abstract class L2Char extends L2Object {
+  public static final Short ERROR = 0x0001;
+
+  public void moveTo(int x, int y, int z) {
+    _ai = null;
+    log("Should not be called");
+    if (1 > 5) { // wtf!?
+      return;
+    }
+  }
+}
+```
+
 在生活中，我们常常会遇到一些需要分析事物之间的关联性的场合。例如，在分析超市的销售数据时，我们可能会想知道，顾客在买牛奶的时候，还会买什么别的东西。还有数据挖掘领域里面著名的啤酒与尿布的故事<sup>R1</sup>。
 
 要解决这些问题，我们就需要一种算法来帮我们寻找这些事务项之间的关联性。常用的**关联分析（Association Analysis）**

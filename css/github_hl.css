@@ -97,3 +97,44 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-strong {
     font-weight: normal;
 }
+
+/* 添加行号用的代码 */
+pre {
+    position: relative;
+    padding-left: 3.5rem !important;
+}
+
+code.has-numbering {
+    margin-left: 26px;
+    font-size: 13px !important;
+}
+
+.pre-numbering {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 100%;
+    background-color: #EEE;
+    text-align: right;
+    font-family: consolas, monospace;
+    font-size: 1rem;
+    color: #AAA;
+    list-style: none;
+}
+
+ol.pre-numbering {
+    padding-left: 0 !important;
+    padding-top: 1rem !important;
+    margin-bottom: 0 !important;
+    list-style: none !important;
+}
+
+.pre-numbering li {
+    margin: 0 0.5rem 0 0;
+    line-height: 20px;
+}
+
+code span {
+    line-height: 20px;
+}

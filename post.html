@@ -168,6 +168,23 @@
             fileHeader.remove();
             getTOC("toc");
             hljs.initHighlightingOnLoad();
+
+            // 添加行号
+            $(function () {
+                // 针对每一个代码块都执行如下操作
+                $('pre code').each(function () {
+                    // 把代码块按行分成数组，此处获取代码行数
+                    var lines = $(this).text().split('\n').length - 1;
+                    var $numbering = $('<ol/>').addClass('pre-numbering');
+                    $(this)
+                        .addClass('has-numbering')
+                        .parent()
+                        .append($numbering);
+                    for (i = 1; i <= lines; i++) {
+                        $numbering.append($('<li/>').text(i));
+                    }
+                });
+            });
         }).error(RedirectTo404);
     });
 </script>

@@ -340,7 +340,7 @@
 }
 
 .markdown-body code {
-    font-family: "Source Code Pro", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-family: "Source Code Pro", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
     font-size: 0.75rem;
 }
 
@@ -658,7 +658,7 @@
     padding: 0;
     margin: 0;
     overflow: visible;
-    line-height: inherit;
+    line-height: 20px;
     word-wrap: normal;
     background-color: transparent;
     border: 0;

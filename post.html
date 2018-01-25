@@ -82,7 +82,6 @@
 
 <!--代码高亮与文档渲染-->
 <script>
-
     var rendererMD = new marked.Renderer();
     marked.setOptions({
         renderer: rendererMD,
@@ -185,6 +184,18 @@
                     }
                 });
             });
+
+            // 修改图片路径
+            $(function () {
+                // 获取所有 markdown-body 元素下的 img 元素
+                $("p img").each(function () {
+                    /* 把图片相对于 markdown 文件的相对路径改为相对于 post.html 的相对路径 */
+                    var image = $(this);
+                    var path = new String(image.attr("src"));
+                    var names = path.toString().split("/");
+                    image.attr("src", "./md/img/" + names[names.length - 1]);
+                })
+            })
         }).error(RedirectTo404);
     });
 </script>

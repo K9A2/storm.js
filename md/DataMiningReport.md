@@ -38,8 +38,7 @@ public void getFPOutput(List<List<String>> transactions, List<String> postPatter
 
 针对 FP-Growth 的实例分析，我们采用了一个具有 27 万测试数据的数据集（示例见 Fig.1，可以通过[度盘链接](http://pan.baidu.com/s/1eRZ0vke)下载）。在经过预处理阶段之后（即源代码中的 `preProcess` 方法），数据量下降为 6 万多，全过程处理时间大约为 10 秒。不同机器可能需要不同的处理时间，具体请参照在程序起止是输出的时间戳。
 
-<div style="text-align: center"><img src="./md/img/实例数据.png"></img></div>
-<p style="text-align: center; font-size: 0.8rem; text-indent: 0;">Fig.1 Data Sample</p>
+![Data Sample](./img/实例数据.png)
 
 测试程序主要采用了三级处理的方式，预处理、FP-Growth 计算频繁项集和重整输出三个阶段：
 1.  预处理：<br>
@@ -181,8 +180,7 @@ private static boolean isIntersected(HashSet<String> a, List<String> b) {
 
 分类的方法主要是计算某个点与所有 K 个质心之间的欧几里得距离。计算两个 n 维点之间的欧几里得距离<sup>R4</sup>：
 
-<div style="text-align: center"><img src="./md/img/n维欧几里得距离.jpg"></img></div>
-<p style="text-align: center; font-size: 0.8rem; text-indent: 0;">Fig.2 EuclidDistance</p>
+![n 维欧几里得距离](./img/n维欧几里得距离.jpg)
 
 实用的计算方法：
 ```java
@@ -277,27 +275,27 @@ private static int[] getUnrepeatedRandomNumbers(int min, int max, int count) {
 1.  如果直接调用系统提供的 `System.arraycopy(b, 0, a, 0, a.length)`，那在复制的时候就是浅复制：即两个数组都是“引用了”同一个来源。在其中一个数组被改变的时候，另外一个数组由于引用了同一块内存区域，其值也会被改变。故要实现数组的“深拷贝”，则需要自行编写复制方法：
 ```java
 private static Point[] getArrayCopy(Point[] b) {
-        Point[] a = new Point[b.length];
-        if (a.length == 0 || b.length == 0) {
-            return null;
-        }
-        System.arraycopy(b, 0, a, 0, a.length);
-        return a;
+    Point[] a = new Point[b.length];
+    if (a.length == 0 || b.length == 0) {
+        return null;
+    }
+    System.arraycopy(b, 0, a, 0, a.length);
+    return a;
 }
 ```
 2.  那么如何判断两个质心是否移动呢？我们可以直接采用逐行判断的方式：
 ```java
 private static boolean isClusterCenterChanged(Point[] a, Point[] b) {
-        for (int i = 0; i < a.length; i++) {
-            if (a[i].getX() != b[i].getX()) {
-                return true;
-            } else if (a[i].getY() != b[i].getY()) {
-                return true;
-            } else if (a[i].getZ() != b[i].getZ()) {
-                return true;
-            }
+    for (int i = 0; i < a.length; i++) {
+        if (a[i].getX() != b[i].getX()) {
+            return true;
+        } else if (a[i].getY() != b[i].getY()) {
+            return true;
+        } else if (a[i].getZ() != b[i].getZ()) {
+            return true;
         }
-        return false;
+    }
+    return false;
 }
 ```
 

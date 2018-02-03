@@ -125,12 +125,12 @@ public static void main(String args[]) {
         ```
     + 反例：
         ```java
-        StringBuffer sb = new StringBuffer(); 
-        //超过 120 个字符的情况下，不要在括号前换行 
-        sb.append("zi").append("xin")…append 
-        ("huang"); 
+        StringBuffer sb = new StringBuffer();
+        //超过 120 个字符的情况下，不要在括号前换行
+        sb.append("zi").append("xin")…append
+        ("huang");
         
-        //参数很多的方法调用也超过 120 个字符，逗号后才是换行处 
+        //参数很多的方法调用也超过 120 个字符，逗号后才是换行处
         method(args1, args2, args3, ... 
         , argsX);
         ```
@@ -482,8 +482,8 @@ public static void main(String args[]) {
 2. 【强制】异常不要用来做流程控制，条件控制，因为异常的处理效率比条件分支低。
 3. 【强制】对大段代码进行 try-catch，这是不负责任的表现。catch 时请分清稳定代码和非稳定代码，稳定代码指的是无论如何不会出错的代码。对于非稳定代码的 catch 尽可能进行区分异常类型，再做对应的异常处理。 
 4. 【强制】捕获异常是为了处理它，不要捕获了却什么都不处理而抛弃之，如果不想处理它，请将该异常抛给它的调用者。最外层的业务使用者，必须处理异常，将其转化为用户可以理解的内容。
-5. 【强制】有 try 块放到了事务代码中，catch 异常后，如果需要回滚事务，一定要注意手动回滚事务。 
-6. 【强制】finally 块必须对资源对象、流对象进行关闭，有异常也要做 try-catch。 
+5. 【强制】有 try 块放到了事务代码中，catch 异常后，如果需要回滚事务，一定要注意手动回滚事务。
+6. 【强制】finally 块必须对资源对象、流对象进行关闭，有异常也要做 try-catch。
     + 说明：如果 JDK7，可以使用 try-with-resources 方法。
 7. 【强制】不能在 finally 块中使用 return，finally 块中的 return 返回后方法结束执行，不会再执行 try 块中的 return 语句。 
 8. 【强制】捕获异常与抛异常，必须是完全匹配，或者捕获异常是抛异常的父类。 
@@ -663,7 +663,7 @@ public static void main(String args[]) {
 
 1. 【推荐】图中默认上层依赖于下层，箭头关系表示可直接依赖，如：开放接口层可以依赖于 Web 层，也可以直接依赖于 Service 层，依此类推：
 
-![层次设计](./layer.jpg)
+![层次设计](./attachment/layer.jpg)
 
 + 开放接口层：可直接封装 Service 接口暴露成 RPC 接口；通过 Web 封装成 http 接口；网关控制层等。
 + 终端显示层：各个端的模板渲染并执行显示层。当前主要是 velocity 渲染，JS 渲染，JSP 渲染，移动端展示层等。

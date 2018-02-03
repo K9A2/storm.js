@@ -1,156 +1,154 @@
 <!DOCTYPE html>
-<!--suppress ALL -->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
+
+    <link rel="SHORTCUT ICON" href="./img/icon.jpg">
 
     <title>文章内容</title>
 
-    <link rel="SHORTCUT ICON" href="./img/icon.jpg">
-    <link rel="stylesheet" href="css/github.css"/>
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/github.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/github_hl.css">
 
     <script src="./js/jquery.min.js"></script>
-    <script src="js/storm.js"></script>
-    <script src="js/marked.js"></script>
-
-    <link rel="stylesheet" href="./css/github_hl.css">
     <script src="./js/highlight.min.js"></script>
 
 </head>
+
 <body>
 
-<div id="nav">
+    <div class="nav">
+        <div class="container">
+            <div class="icon">
+                <a href="./index.html">
+                    <img id="avatar" src="img/icon.jpg">
+                </a>
+            </div>
+            <div class="list">
+                <ul class="nav-list">
+                    <li class="nav-list-item">
+                        <a href="./index.html">首页</a>
+                    </li>
+                    <li class="nav-list-item">
+                        <a href="./about.html">关于我</a>
+                    </li>
+                    <li class="nav-list-item">
+                        <a href="http://u4813096.viewer.maka.im/k/OQHMX6E6?from=timeline">狗粮合集</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="title">
+        <div class="container">
+            <h1>{{title}}</h1>
+            <p>日期：{{date}}</p>
+            <div class="tags">标签：{{tag}}</div>
+        </div>
+    </div>
+
+    <div class="container postContainer">
+        <div class="leftCol">
+            <div id="author">
+                <div id="avatar">
+                    <img src="./img/icon.jpg">
+                </div>
+                <div id="name">
+                    <a href="./about.html" title="关于我">stormlin</a>
+                </div>
+                <div class="contactList">
+                    <div class="contact">
+                        <a href="https://github.com/K9A2" target="_blank">
+                            <img src="./img/GitHub.png" alt="前往我的 GitHub" title="前往我的 GitHub">
+                        </a>
+                    </div>
+                    <div class="contact">
+                        <a href="http://blog.csdn.net/atmiao" target="_blank" title="前往我的 CSDN 博客">
+                            <img src="./img/csdn.png" alt="前往我的 CSDN 博客">
+                        </a>
+                    </div>
+                    <div class="contact">
+                        <a href="mailto:lin-jinting@outlook.com" target="_blank" title="给我发一封邮件">
+                            <img src="./img/mail.png" alt="给我发一封邮件">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="toc">
+                {{toc}}
+            </div>
+        </div>
+        <div class="rightCol">
+            <div id="warning">
+                <span>本文章已经发表超过一年，其中部分内容可能已过时，请注意</span>
+            </div>
+            <div id="main">
+                <div id="content">
+                    <article class="markdown-body">
+                        {{markdown}}
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id='toTop' title="返回顶部">
+        <div class="arrow"></div>
+        <div class="stick"></div>
+    </div>
+
     <script>
-        getNavBar();
-    </script>
-</div>
+        $.ajax(settings.postPath).done(function (data) {
+            $(data).find("posts").find("post-item").each(function () {
+                var tagArray = $(this).children("tag").text().toString().split(',');
+                for (var i = 0; i < tagArray.length; i++) {
+                    tagArray[i] = tagArray[i].trim();
+                }
+                var post = {
+                    id: $(this).children("id").text(),
+                    name: $(this).children("name").text(),
+                    title: $(this).children("title").text(),
+                    category: $(this).children("category").text(),
+                    tag: tagArray,
+                    date: $(this).children("date").text(),
+                    description: $(this).children("description").text()
+                };
 
-<div id="title">
-    <div class="container">
-    </div>
-</div>
-
-<div class="container postContainer">
-    <div class="leftCol">
-        <div id="author">
-            <div id="avatar">
-                <img src="./img/icon.jpg">
-            </div>
-            <div id="name">
-                <a href="./about.html" title="关于我">stormlin</a>
-            </div>
-            <div class="contactList">
-                <div class="contact">
-                    <a href="https://github.com/K9A2" target="_blank">
-                        <img src="./img/GitHub.png" alt="前往我的 GitHub" title="前往我的 GitHub">
-                    </a>
-                </div>
-                <div class="contact">
-                    <a href="http://blog.csdn.net/atmiao" target="_blank" title="前往我的 CSDN 博客">
-                        <img src="./img/csdn.png" alt="前往我的 CSDN 博客">
-                    </a>
-                </div>
-                <div class="contact">
-                    <a href="mailto:lin-jinting@outlook.com" target="_blank" title="给我发一封邮件">
-                        <img src="./img/mail.png" alt="给我发一封邮件">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="toc"></div>
-    </div>
-    <div class="rightCol">
-        <div id="warning">
-            <span>本文章已经发表超过一年，其中部分内容可能已过时，请注意</span>
-        </div>
-        <div id="main">
-            <div id="content">
-                <article class="markdown-body"></article>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id='toTop' title="返回顶部">
-    <div class="arrow"></div>
-    <div class="stick"></div>
-</div>
-
-<!--代码高亮与文档渲染-->
-<script>
-    var rendererMD = new marked.Renderer();
-    marked.setOptions({
-        renderer: rendererMD,
-        gfm: true,
-        tables: true,
-        breaks: false,
-        pedantic: false,
-        sanitize: false,
-        smartLists: true,
-        smartypants: false
-    });
-
-    marked.setOptions({
-        highlight: function (code) {
-            return hljs.highlightAuto(code).value;
-        }
-    });
-
-    var requestedPost = null;
-    var postName = getParaValue("name");
-
-    if (postName == null || postName == '') {
-        window.location.href = './index.html';
-    }
-
-    $.ajax(settings.postPath).done(function (data) {
-        $(data).find("posts").find("post-item").each(function () {
-            var tagArray = $(this).children("tag").text().toString().split(',');
-            for (var i = 0; i < tagArray.length; i++) {
-                tagArray[i] = tagArray[i].trim();
-            }
-            var post = {
-                id: $(this).children("id").text(),
-                name: $(this).children("name").text(),
-                title: $(this).children("title").text(),
-                category: $(this).children("category").text(),
-                tag: tagArray,
-                date: $(this).children("date").text(),
-                description: $(this).children("description").text()
-            };
-
-            if (post.name === postName) {
-                requestedPost = post;
-            }
-        });
-        var post = requestedPost;
-
-        var header = $("<h1></h1>", {
-            text: post.title
-        });
-        var date = $("<p></p>", {
-            text: "日期：" + post.date
-        });
-        var tagList = $("<div></div>", {
-            text: "标签：",
-            id: "tags"
-        });
-        for (var i = 0; i < post.tag.length; i++) {
-            var tagLink = $("<a></a>", {
-                text: post.tag[i],
-                href: "./tag.html?tag=" + post.tag[i]
+                if (post.name === postName) {
+                    requestedPost = post;
+                }
             });
-            tagLink.appendTo(tagList);
-        }
-        var container = $("div#title .container");
-        container.append(header);
-        container.append(date);
-        container.append(tagList);
+            var post = requestedPost;
 
+            var header = $("<h1></h1>", {
+                text: post.title
+            });
+            var date = $("<p></p>", {
+                text: "日期：" + post.date
+            });
+            var tagList = $("<div></div>", {
+                text: "标签：",
+                id: "tags"
+            });
+            for (var i = 0; i < post.tag.length; i++) {
+                var tagLink = $("<a></a>", {
+                    text: post.tag[i],
+                    href: "./tag.html?tag=" + post.tag[i]
+                });
+                tagLink.appendTo(tagList);
+            }
+            var container = $("div#title .container");
+            container.append(header);
+            container.append(date);
+            container.append(tagList);
+        });
+
+        // 过时提示
         var original = new Date(post.date);
         var current = new Date();
         var diff = Math.floor((current.getTime() - original.getTime()) / (24 * 3600 * 1000));
@@ -158,38 +156,22 @@
             $("#warning").hide();
         }
         $("#main").css("margin", "1rem 0 0 0");
-        // 获取并渲染写入文章正文
-        $.get("./md/" + postName + ".md").success(function (content) {
-            $(".markdown-body").append(marked(content));
-            $("title").html($("h1").html());
-            // 用以去除写作 Markdown 文档中自然留下的一级标题
-            var fileHeader = $("#content").find("h1");
-            fileHeader.remove();
-            getTOC("toc");
-            hljs.initHighlightingOnLoad();
 
-            // 修改图片路径
-            $(function () {
-                // 获取所有 markdown-body 元素下的 img 元素
-                $("p img").each(function () {
-                    /* 把图片相对于 markdown 文件的相对路径改为相对于 post.html 的相对路径 */
-                    var image = $(this);
-                    var path = new String(image.attr("src"));
-                    var names = path.toString().split("/");
-                    image.attr("src", "./md/img/" + names[names.length - 1]);
-                })
-            })
-        }).error(RedirectTo404);
-    });
-</script>
+        // 用以去除写作 Markdown 文档中自然留下的一级标题
+        var fileHeader = $("#content").find("h1");
+        fileHeader.remove();
 
-<script>
-    getFooter();
-</script>
+        // 代码高亮
+        hljs.initHighlightingOnLoad();
+    </script>
 
-<script>
-
-</script>
+    <div class="footer">
+        <p>Copyright © 2014 - 2018 stormlin.</p>
+        <p>All Rights Reserved.</p>
+        <p>
+            <a href="http://www.miitbeian.gov.cn">备案号：粤ICP备16029958号-1</a>
+        </p>
+    </div>
 
 </body>
 

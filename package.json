@@ -1,0 +1,34 @@
+{
+  "name": "storm.js",
+  "version": "1.0.0",
+  "description": "A simple static blog page generator",
+  "main": "app.js",
+  "dependencies": {
+    "fs-extra": "^5.0.0",
+    "jQuery": "^1.7.4",
+    "jquery": "^3.3.1",
+    "jsdom": "^11.6.2",
+    "marked": "^0.3.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/K9A2/storm.js.git"
+  },
+  "keywords": [
+    "blog",
+    "generator",
+    "node",
+    "js",
+    "markdown"
+  ],
+  "author": "stormlin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/K9A2/storm.js/issues"
+  },
+  "homepage": "https://github.com/K9A2/storm.js#readme"
+}

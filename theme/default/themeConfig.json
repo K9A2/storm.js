@@ -1,0 +1,9 @@
+{
+    "name": "default",
+    "description": "simple theme template",
+    "author": "stormlin",
+    "email": "lin-jinting@outlook.com",
+    "github": "https://github.com/K9A2",
+    "ignoreFolders": [],
+    "ignoreFiles": ["generate.js", "themeConfig.json"]
+}

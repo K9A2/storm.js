@@ -7,32 +7,76 @@ exports.generate = function (posts, pages, fse, config) {
 
     var marked = require("marked");
 
+    var copydir = require('copy-dir');
+
+    var themeConfig = require("./themeConfig.json");
+
+    var themeBasePath = "./theme/" + config.theme + "/";
+
     console.log("开始生成过程");
 
-    // 博客文章的生成过程
+    /* 博客文章的生成过程 - 生成博客文章页面 */
+    var outdated = fs.readFileSync(themeBasePath + "template/outdated.html");
     posts.forEach(post => {
-        var template = fs.readdirSync("./theme/" + config.theme + "")
+        var template = fs.readFileSync(themeBasePath + "template/" + "post.html", "utf8");
         var content = fs.readFileSync("./draft/" + post.name + "/" + post.name + ".md", "utf8");
         // 写入文章主题
-        content.replace("{{markdown}}", marked(content));
+        template = template.replace("{{markdown}}", marked(content));
         // 写入标题
-        content.replace("{{title}}", post.title);
+        template = template.replace("{{title}}", post.title);
         // 写入时间
-        content.replace("{{date}}", post.date);
+        template = template.replace("{{date}}", post.date);
         // 写入标签
-        // var tagString = post.tag;
         var tagArray = post.tag.toString().split(",");
         var tagList = "";
         tagArray.forEach(tag => {
             tag = tag.trim();
             tagList = tagList + '<a href="./tag.html?tag=' + tag + '">' + tag + '</a>';
         });
-        content.replace("{{tag}}", tagList);
+        template = template.replace("{{tag}}", tagList);
+        // 根据文章编写时间决定是否加入过时提示
+        var original = new Date(post.date);
+        var current = new Date();
+        var diff = Math.floor((current.getTime() - original.getTime()) / (24 * 3600 * 1000));
+        if (diff >= 365) {
+            template = template.replace("{{outdated}}", outdated);
+        } else {
+            // 去除此标签
+            template = template.replace("{{outdated}}", "");
+        }
         // 写入输出文件夹
-        fs.writeFileSync("./out/" + post.name + ".html", content, "utf8");
+        fs.writeFileSync("./out/" + post.name + ".html", template, "utf8");
+        // 复制文章自带的图片文件等到输出文件夹
+        fse.emptyDirSync("./out/attachment");
+        // 如果 attachment 文件夹存在则复制过去，否则认为这篇博客没有附带任何图片、文件等
+        // todo: 修正部分文件无法复制过去的问题
+        if (fs.existsSync("./draft/" + post.name + "/attachment/") == true) {
+            console.log("./draft/" + post.name + "/attachment/");
+            copydir.sync("./draft/" + post.name + "/attachment/", "./out/attachment");
+        }
     });
 
-    // 博客页面的生成过程
+    /* 博客文章的生成过程 - 复制主题提供的各项资源文件 */
+    var ignoreFolders = themeConfig.ignoreFolders;
+    var ignoreFiles = themeConfig.ignoreFiles;
+    copydir.sync(themeBasePath, './out/', function (stat, filepath, filename) {
+        if (stat === 'file' && ignoreFiles.indexOf(filename) >= 0) {
+            // 过滤掉指定的文件
+            return false;
+        }
+        if (stat === 'directory' && ignoreFolders.indexOf(filename) >= 0) {
+            // 过滤掉指定的文件夹
+            return false;
+        }
+        return true;
+    }, function (err) {
+        console.log(err);
+        return;
+    });
+
+    /* 博客页面的生成过程 - 生成首页 */
+
+    /* 博客页面的生成过程 - 生成固定页面 */
 
     console.log("生成过程结束");
 

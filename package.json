@@ -4,6 +4,7 @@
   "description": "A simple static blog page generator",
   "main": "app.js",
   "dependencies": {
+    "copy-dir": "^0.3.0",
     "fs-extra": "^5.0.0",
     "jQuery": "^1.7.4",
     "jquery": "^3.3.1",

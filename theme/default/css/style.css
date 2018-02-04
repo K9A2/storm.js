@@ -10,11 +10,19 @@ body {
     font-family: 'Gotham', 'Microsoft YaHei', "Open Sans", "Helvetica Neue", Helvetica, Arial, 'Microsoft YaHei', sans-serif;
 }
 
-a:link, a:visited, a:active, a:hover {
+a:link,
+a:visited,
+a:active,
+a:hover {
     text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     word-break: normal;
 }
 
@@ -107,8 +115,11 @@ div#icon a {
 }
 
 /*note: inline-block, block, inline 的区别*/
+
 /*note: 盒模型 px 宽度计算公式，百分比宽度计算公式*/
+
 /*note: css 固定头部导航条的制作*/
+
 .nav-list {
     color: inherit;
     list-style-type: none;
@@ -192,17 +203,26 @@ div#poster {
     background-color: #ebf8fe;
 }
 
-li.indent_2, .indent_3, .indent_4, .indent_5 {
+li.indent_2,
+.indent_3,
+.indent_4,
+.indent_5 {
     list-style: none;
     text-decoration: none;
     line-height: 2rem;
 }
 
-li.indent_2 a, .indent_3 a, .indent_4 a, .indent_5 a {
+li.indent_2 a,
+.indent_3 a,
+.indent_4 a,
+.indent_5 a {
     color: #24292e;
 }
 
-li.indent_2 a:hover, .indent_3 a:hover, .indent_4 a:hover, .indent_5 a:hover {
+li.indent_2 a:hover,
+.indent_3 a:hover,
+.indent_4 a:hover,
+.indent_5 a:hover {
     font-weight: bold;
     text-decoration: none;
 }
@@ -241,7 +261,7 @@ div#toTop {
     display: block;
 }
 
-div#toTop > .stick {
+div#toTop>.stick {
     position: absolute;
     width: 8px;
     height: 14px;
@@ -252,7 +272,7 @@ div#toTop > .stick {
     background-color: #aaa
 }
 
-div#toTop > .arrow {
+div#toTop>.arrow {
     position: absolute;
     left: 10px;
     top: -1px;
@@ -396,7 +416,8 @@ div#toc {
     display: inline;
 }
 
-.indexItem a:hover, a:visited {
+.indexItem a:hover,
+a:visited {
     text-decoration: none;
 }
 
@@ -558,8 +579,7 @@ div#icon img {
     padding-left: 1rem
 }
 
-div#content {
-}
+div#content {}
 
 a#user-name:link {
     text-decoration: none;
@@ -648,6 +668,7 @@ div#footer a {
 }
 
 /* note: css 文档加载顺序 */
+
 @media screen and (max-width: 768px) {
     body {
         width: 100%;
@@ -656,68 +677,54 @@ div#footer a {
         border: none;
         background: #f7f7f7;
     }
-
     #info {
         margin: 0 1rem 0 1rem;
         padding-left: 0;
         padding-right: 0;
         width: calc(100vw - 2rem);
     }
-
     #warning {
         width: calc(100vw - 2rem);
         margin-top: 1rem;
     }
-
     .postContainer {
         margin-top: 0;
         margin-bottom: 0;
     }
-
     div#title p {
         font-size: 1rem;
     }
-
     div#title h1 {
         font-size: 2rem;
     }
-
     div#nav .generated {
         display: none;
     }
-
     div#index {
         background: #f7f7f7;
         margin-top: 0;
         margin-bottom: 0;
     }
-
     div.indexList {
         min-height: calc(100vh - 330.075px);
     }
-
     div.indexItem {
         margin-top: 1rem;
         margin-bottom: 0;
     }
-
     .indexItem:last-child {
         margin-bottom: 1rem;
     }
-
     div.indexItem h1 {
         font-size: 1.5rem;
     }
-
     .tagList {
         padding-top: 0;
         padding-bottom: 0.5rem;
     }
-
     .tagItem {
         margin-top: 0.5rem;
     }
-
     div#main {
         width: auto;
         background: white;
@@ -726,26 +733,20 @@ div#footer a {
         overflow: auto;
         margin: 0;
     }
-
     div#author {
         display: none;
     }
-
     div#toc {
         display: none;
     }
-
     .container {
         width: 100%;
     }
-
     .categoryTitle {
         font-size: 1.5rem;
     }
-
     .markdown-body h1 {
         padding-top: 0.3em;
         border-bottom: 1px solid #eeeeee;
     }
 }
-

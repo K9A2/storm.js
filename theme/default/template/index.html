@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<!--suppress ALL -->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页</title>
     <link rel="SHORTCUT ICON" href="./img/icon.jpg">
 
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/marked.js"></script>
-    <script src="js/storm.js"></script>
+    <script src=".js/jquery-3.2.1.min.js"></script>
+    <script src=".js/marked.js"></script>
+    <script src=".js/custom.js"></script>
 
     <style>
         @media only screen and (max-width: 1080px) {
@@ -22,32 +22,36 @@
         }
     </style>
 
-    <link rel="stylesheet" href="css/content.css"/>
-    <link href="css/prettify.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href=".css/content.css" rel="stylesheet">
+    <link href=".css/prettify.css" rel="stylesheet">
+    <link href=".css/style.css" rel="stylesheet">
 </head>
+
 <body>
 
-<div id="nav">
-    <script>
-        getNavBar();
-    </script>
-</div>
+    {{nav}}
 
-<div style="background-color: #3f51b5;">
-    <div id="blog-info" class="container">
-        <script>
-            getBlogPoster();
-        </script>
+    <div style="background-color: #3f51b5;">
+        <div id="blog-info" class="container">
+            <h1>stormlin</h1>
+            <h2>On the way to be perfect</h2>
+        </div>
     </div>
-</div>
 
-<div id="index" class="indexList container">
+    <div id="index" class="indexList container">
+    </div>
+
+    <div id='toTop' title="返回顶部">
+        <div class="arrow"></div>
+        <div class="stick"></div>
+    </div>
+
+    {{footer}}
+
     <script>
         var requestedPost = [];
         $.ajax(settings.postPath).done(function (data) {
             $(data).find("posts").find("post-item").each(function () {
-                // noinspection Annotator
                 var categoryItem = {
                     id: $(this).children("id").text(),
                     name: $(this).children("name").text(),
@@ -119,16 +123,7 @@
             }
         });
     </script>
-</div>
-
-<div id='toTop' title="返回顶部">
-    <div class="arrow"></div>
-    <div class="stick"></div>
-</div>
-
-<script>
-    getFooter();
-</script>
 
 </body>
+
 </html>

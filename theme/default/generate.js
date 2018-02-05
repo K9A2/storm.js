@@ -1,19 +1,24 @@
+/* jshint esversion: 6 */
+
 /**
  * 本文件负责生成过程的具体操作
  */
 exports.generate = function (posts, pages, fse, config) {
 
-    /* app 基础变量加载 */
+    /* 基础变量加载 */
     var fs = require("fs");
     var marked = require("marked");
     var copydir = require('copy-dir');
     var themeConfig = require("./themeConfig.json");
     var themeBasePath = "./theme/" + config.theme + "/";
 
+    var outdated = fs.readFileSync(themeBasePath + "template/outdated.html");
+    var nav = fs.readFileSync(themeBasePath + "template/nav.html");
+    var footer = fs.readFileSync(themeBasePath + "template/footer.html");
+
     console.log("开始生成过程");
 
     /* 生成博客文章页面 */
-    var outdated = fs.readFileSync(themeBasePath + "template/outdated.html");
     fse.emptyDirSync("./out/attachment");
     posts.forEach(post => {
         var template = fs.readFileSync(themeBasePath + "template/" + "post.html", "utf8");
@@ -42,6 +47,9 @@ exports.generate = function (posts, pages, fse, config) {
             // 去除此标签
             template = template.replace("{{outdated}}", "");
         }
+        // 加入 footer 和 header
+        template = template.replace("{{nav}}", nav);
+        template = template.replace("{{footer}}", footer);
         // 写入输出文件夹
         fs.writeFileSync("./out/" + post.name + ".html", template, "utf8");
         // 如果 attachment 文件夹存在则复制过去，否则认为这篇博客没有附带任何图片、文件等
@@ -69,9 +77,39 @@ exports.generate = function (posts, pages, fse, config) {
     });
 
     /* 生成首页 */
+    var index = fs.readFileSync(themeBasePath + "template/" + "index.html", "utf8");
+    var indexItem = fs.readFileSync(themeBasePath + "template/" + "indexItem.html", "utf8");
+    var tagItem = fs.readFileSync(themeBasePath + "template/" + "tagItem.html", "utf8");
+
+    index = index.replace("{{nav}}", nav);
+    index = index.replace("{{footer}}", footer);
+    posts = posts.sort(by("date"));
+
+    posts.forEach(post => {
+
+    });
 
     /* 生成固定页面 */
 
     console.log("生成过程结束");
 
+};
+
+var by = function (name) {
+    return function (o, p) {
+        var a, b;
+        if (typeof o === "object" && typeof p === "object" && o && p) {
+            a = o[name];
+            b = p[name];
+            if (a === b) {
+                return 0;
+            }
+            if (typeof a === typeof b) {
+                return a > b ? -1 : 1;
+            }
+            return typeof a > typeof b ? -1 : 1;
+        } else {
+            throw ("error");
+        }
+    };
 };

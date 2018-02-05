@@ -57,19 +57,23 @@ colors = [
  * 实现点击返回页面顶部功能，来自 http://blog.csdn.net/zhyh1986/article/details/8644899
  */
 $(function () {
-    var $backToTopEle = $('#toTop'), $backToTopFun = function () {
-        // noinspection Annotator
-        // noinspection Annotator
-        // noinspection Annotator
-        var st = $(document).scrollTop(), winh = $(window).height();
-        (st > 200) ? $backToTopEle.fadeIn('slow') : $backToTopEle.fadeOut('slow');
-        //IE6下的定位
-        if (!window.XMLHttpRequest) {
-            $backToTopEle.css("top", st + winh - 166);
-        }
-    };
+    var $backToTopEle = $('#toTop'),
+        $backToTopFun = function () {
+            // noinspection Annotator
+            // noinspection Annotator
+            // noinspection Annotator
+            var st = $(document).scrollTop(),
+                winh = $(window).height();
+            (st > 200) ? $backToTopEle.fadeIn('slow'): $backToTopEle.fadeOut('slow');
+            //IE6下的定位
+            if (!window.XMLHttpRequest) {
+                $backToTopEle.css("top", st + winh - 166);
+            }
+        };
     $('#toTop').click(function () {
-        $("html, body").animate({scrollTop: 0}, 1200);
+        $("html, body").animate({
+            scrollTop: 0
+        }, 1200);
     });
     $backToTopEle.hide();
     $backToTopFun();
@@ -490,7 +494,24 @@ function getNavBar() {
  * @param name Element attribute
  * @returns {Function} Sorting algorithm
  */
-
+var by = function (name) {
+    return function (o, p) {
+        var a, b;
+        if (typeof o === "object" && typeof p === "object" && o && p) {
+            a = o[name];
+            b = p[name];
+            if (a === b) {
+                return 0;
+            }
+            if (typeof a === typeof b) {
+                return a > b ? -1 : 1;
+            }
+            return typeof a > typeof b ? -1 : 1;
+        } else {
+            throw ("error");
+        }
+    };
+};
 
 /**
  * Get footer

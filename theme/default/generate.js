@@ -110,6 +110,13 @@ exports.generate = function (posts, pages, fse, config) {
     fs.writeFileSync("./out/index.html", index, "utf8");
 
     /* 生成固定页面 */
+    // 复制博客描述文件供动态页面查询
+    fse.copySync("./draft/description.json", "./out/description.json");
+    // tag 页的处理
+    var tagPage = fs.readFileSync(themeBasePath + "template/" + "tag.html", "utf8");
+    tagPage = tagPage.replace("{{nav}}", nav);
+    tagPage = tagPage.replace("{{footer}}", footer);
+    fs.writeFileSync("./out/tag.html", tagPage);
 
     console.log("生成过程结束");
 

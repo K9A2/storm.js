@@ -1,144 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="SHORTCUT ICON" href="./img/icon.jpg">
+
     <title>分类</title>
 
-    <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/marked.js"></script>
-    <script src="js/storm.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/custom.js"></script>
 
-    <link rel="SHORTCUT ICON" href="./img/icon.jpg">
-    <link rel="stylesheet" href="css/content.css"/>
-    <link href="css/prettify.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<div id="nav">
-    <script>
-        getNavBar();
-    </script>
-</div>
+    {{nav}}
 
-<div id="tagInfo">
-    <div id="info" class="container">
+    <div id="tagInfo">
+        <div id="info" class="container">
+        </div>
     </div>
-</div>
 
-<div id="index" class="indexList container">
-</div>
+    <div id="index" class="indexList container">
+    </div>
 
-<!--suppress Annotator -->
-<script>
-    // 获取并设定页面标题
-    var tag = getParaValue("tag");
-    if (tag == null || tag === '') {
-        window.location.href = "./index.html"
-    }
-    $("title").html("标签：" + tag);
+    <script>
+        /* 获取并设定页面标题 */
+        var targetTag = getParaValue("tag");
+        if (targetTag == null || targetTag === '') {
+            window.location.href = "./index.html"
+        }
+        $("title").html("标签：" + targetTag);
 
-    var postHeader = $("<h1></h1>", {
-        text: 'Tag: ' + tag
-    });
-    var info = $("#info");
-    postHeader.appendTo(info);
+        var postHeader = $("<h1></h1>", {
+            text: 'Tag: ' + targetTag
+        });
+        var info = $("#info");
+        postHeader.appendTo(info);
 
-    var posts = [];
+        /* 获取包含制定 tag 的博客信息 */
+        var requestedPosts = [];
+        $.ajax("description.json").done(function (data) {
+            var posts = data.posts;
+            var tags = [];
+            posts.forEach(post => {
+                tags = post.tag.split(", ");
+                tags.forEach(tag => {
+                    tag = tag.trim();
+                });
+                if (tags.indexOf(targetTag) >= 0) {
+                    requestedPosts.push(post);
+                }
+            });
+            requestedPosts = requestedPosts.sort(by("date"));
 
-    $.ajax(settings.postPath).done(function (data) {
-        $(data).find("posts").find("post-item").each(function () {
-            var tagArray = $(this).children("tag").text().toString().split(',');
-            for (var i = 0; i < tagArray.length; i++) {
-                tagArray[i] = tagArray[i].trim();
+            if (posts == null) {
+                new RedirectTo404();
             }
-            if (tagArray.indexOf(tag) >= 0) {
-                // 包含指定 tag
-                var categoryItem = {
-                    id: $(this).children("id").text(),
-                    name: $(this).children("name").text(),
-                    title: $(this).children("title").text(),
-                    category: $(this).children("category").text(),
-                    tag: tagArray,
-                    date: $(this).children("date").text(),
-                    description: $(this).children("description").text()
-                };
-                posts.push(categoryItem);
+
+            var index = $("#index");
+
+            for (var i = 0; i < requestedPosts.length; i++) {
+                var indexItem = $("<div></div>", {
+                    class: "indexItem"
+                });
+
+                var date = $("<div></div>", {
+                    class: "date",
+                    text: requestedPosts[i].date
+                });
+                date.appendTo(indexItem);
+                var title = $("<a></a>", {
+                    href: "./post.html?name=" + requestedPosts[i].name
+                });
+                var header = $("<h1></h1>", {
+                    text: requestedPosts[i].title
+                });
+                header.appendTo(title);
+                title.appendTo(indexItem);
+
+                var description = $("<div></div>", {
+                    class: "description",
+                    text: requestedPosts[i].description
+                });
+                var readMore = $("<div></div>", {
+                    class: "readMore"
+                });
+                var link = $("<a></a>", {
+                    href: "./post.html?name=" + requestedPosts[i].name,
+                    text: "阅读原文..."
+                });
+                link.appendTo(readMore);
+                readMore.appendTo(description);
+                description.appendTo(indexItem);
+
+                var tagList = $("<div></div>", {
+                    class: "tagList"
+                });
+
+                for (var j = 0; j < tags.length; j++) {
+                    var tagItem = $("<div></div>", {
+                        class: "tagItem " + colors[j]
+                    });
+                    var tagLink = $("<a></a>", {
+                        href: "./tag.html?tag=" + tags[j],
+                        text: tags[j]
+                    });
+                    tagLink.appendTo(tagItem);
+                    tagItem.appendTo(tagList);
+                }
+                tagList.appendTo(indexItem);
+                indexItem.appendTo(index);
             }
         });
+    </script>
 
-        // 结果按照日期排序
-        posts.sort(by("date"));
-        posts.reverse();
+    <div id='toTop' title="返回顶部">
+        <div class="arrow"></div>
+        <div class="stick"></div>
+    </div>
 
-        if (posts == null) {
-            new RedirectTo404();
-        }
-        var index = $("#index");
-
-        for (var i = 0; i < posts.length; i++) {
-            var indexItem = $("<div></div>", {
-                class: "indexItem"
-            });
-
-            var date = $("<div></div>", {
-                class: "date",
-                text: posts[i].date
-            });
-            date.appendTo(indexItem);
-            var title = $("<a></a>", {
-                href: "./post.html?name=" + posts[i].name
-            });
-            var header = $("<h1></h1>", {
-                text: posts[i].title
-            });
-            header.appendTo(title);
-            title.appendTo(indexItem);
-
-            var description = $("<div></div>", {
-                class: "description",
-                text: posts[i].description
-            });
-            var readMore = $("<div></div>", {
-                class: "readMore"
-            });
-            var link = $("<a></a>", {
-                href: "./post.html?name=" + posts[i].name,
-                text: "阅读原文..."
-            });
-            link.appendTo(readMore);
-            readMore.appendTo(description);
-            description.appendTo(indexItem);
-
-            var tagList = $("<div></div>", {
-                class: "tagList"
-            });
-            for (var j = 0; j < posts[i].tag.length; j++) {
-                var tagItem = $("<div></div>", {
-                    class: "tagItem " + colors[j]
-                });
-                var tagLink = $("<a></a>", {
-                    href: "./tag.html?tag=" + posts[i].tag[j].trim(),
-                    text: posts[i].tag[j]
-                });
-                tagLink.appendTo(tagItem);
-                tagItem.appendTo(tagList);
-            }
-            tagList.appendTo(indexItem);
-            indexItem.appendTo(index);
-        }
-    });
-</script>
-
-<div id='toTop' title="返回顶部">
-    <div class="arrow"></div>
-    <div class="stick"></div>
-</div>
-
-<script>
-    getFooter();
-</script>
+    {{footer}}
 
 </body>
+
 </html>

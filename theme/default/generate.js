@@ -34,7 +34,7 @@ exports.generate = function (posts, pages, fse, config) {
         var tagList = "";
         tagArray.forEach(tag => {
             tag = tag.trim();
-            tagList = tagList + '<a href="./tag.html?tag=' + tag + '">' + tag + '</a>';
+            tagList += '<a href="./tag.html?tag=' + tag + '">' + tag + '</a>';
         });
         template = template.replace("{{tag}}", tagList);
         // 根据文章编写时间决定是否加入过时提示
@@ -80,14 +80,34 @@ exports.generate = function (posts, pages, fse, config) {
     var index = fs.readFileSync(themeBasePath + "template/" + "index.html", "utf8");
     var indexItem = fs.readFileSync(themeBasePath + "template/" + "indexItem.html", "utf8");
     var tagItem = fs.readFileSync(themeBasePath + "template/" + "tagItem.html", "utf8");
+    var postList = "";
 
     index = index.replace("{{nav}}", nav);
     index = index.replace("{{footer}}", footer);
     posts = posts.sort(by("date"));
 
     posts.forEach(post => {
-
+        // 复制文章信息
+        var newIndexItem = indexItem;
+        newIndexItem = newIndexItem.replace("{{date}}", post.date);
+        newIndexItem = newIndexItem.replace("{{link}}", "./" + post.name + ".html");
+        newIndexItem = newIndexItem.replace("{{title}}", post.title);
+        newIndexItem = newIndexItem.replace("{{description}}", post.description);
+        // 复制文章标签列表
+        var tagList = "";
+        var tagArray = post.tag.toString().split(",");
+        tagArray.forEach(tag => {
+            tag = tag.trim();
+            var newTagItem = tagItem;
+            newTagItem = newTagItem.replace(/{{tag}}/g, tag);
+            tagList += newTagItem;
+        });
+        newIndexItem = newIndexItem.replace("{{tagList}}", tagList);
+        postList += newIndexItem;
     });
+
+    index = index.replace("{{postList}}", postList);
+    fs.writeFileSync("./out/index.html", index, "utf8");
 
     /* 生成固定页面 */
 

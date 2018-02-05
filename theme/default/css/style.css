@@ -10,11 +10,19 @@ body {
     font-family: 'Gotham', 'Microsoft YaHei', "Open Sans", "Helvetica Neue", Helvetica, Arial, 'Microsoft YaHei', sans-serif;
 }
 
-a:link, a:visited, a:active, a:hover {
+a:link,
+a:visited,
+a:active,
+a:hover {
     text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     word-break: normal;
 }
 
@@ -53,6 +61,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #ffffff;
     background-color: #3f51b5;
     margin-top: 3rem;
+    min-height: 5rem;
     text-align: center;
 }
 
@@ -199,17 +208,26 @@ div#poster {
     background-color: #ebf8fe;
 }
 
-li.indent_2, .indent_3, .indent_4, .indent_5 {
+li.indent_2,
+.indent_3,
+.indent_4,
+.indent_5 {
     list-style: none;
     text-decoration: none;
     line-height: 2rem;
 }
 
-li.indent_2 a, .indent_3 a, .indent_4 a, .indent_5 a {
+li.indent_2 a,
+.indent_3 a,
+.indent_4 a,
+.indent_5 a {
     color: #24292e;
 }
 
-li.indent_2 a:hover, .indent_3 a:hover, .indent_4 a:hover, .indent_5 a:hover {
+li.indent_2 a:hover,
+.indent_3 a:hover,
+.indent_4 a:hover,
+.indent_5 a:hover {
     text-decoration: none;
 }
 
@@ -274,7 +292,7 @@ div.indexList {
 }
 
 .aboutBody {
-    min-height: calc(100vh - 271.2px);
+    min-height: calc(100vh - (3rem + 7rem + 8.5rem + 4rem + 4rem));
 }
 
 div.indexItem {
@@ -403,7 +421,8 @@ div#toc {
     display: inline;
 }
 
-.indexItem a:hover, a:visited {
+.indexItem a:hover,
+a:visited {
     text-decoration: none;
 }
 
@@ -670,6 +689,7 @@ a#user-name:active {
     padding: 1rem 0;
     text-align: center;
     background-color: #3f51b5;
+    min-height: 6.5rem;
 }
 
 .footer a {

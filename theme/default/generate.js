@@ -112,11 +112,21 @@ exports.generate = function (posts, pages, fse, config) {
     /* 生成固定页面 */
     // 复制博客描述文件供动态页面查询
     fse.copySync("./draft/description.json", "./out/description.json");
+
     // tag 页的处理
     var tagPage = fs.readFileSync(themeBasePath + "template/" + "tag.html", "utf8");
     tagPage = tagPage.replace("{{nav}}", nav);
     tagPage = tagPage.replace("{{footer}}", footer);
     fs.writeFileSync("./out/tag.html", tagPage);
+
+    // about 页的处理
+    var aboutPage = fs.readFileSync(themeBasePath + "template/" + "about.html", "utf8");
+    var about = fs.readFileSync("./draft/about/about.md", "utf8");
+
+    aboutPage = aboutPage.replace("{{nav}}", nav);
+    aboutPage = aboutPage.replace("{{footer}}", footer);
+    aboutPage = aboutPage.replace("{{markdown}}", marked(about));
+    fs.writeFileSync("./out/about.html", aboutPage);
 
     console.log("生成过程结束");
 

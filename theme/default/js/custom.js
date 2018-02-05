@@ -103,9 +103,6 @@ function getPostByTag(tag) {
                 }
                 if (tagArray.indexOf(tag) >= 0) {
                     // 包含指定 tag
-                    // noinspection Annotator
-                    // noinspection Annotator
-                    // noinspection Annotator
                     var categoryItem = {
                         id: $(this).children("id").text(),
                         name: $(this).children("name").text(),
@@ -134,7 +131,7 @@ function getTOC(id) {
     var j = linkBase.length;
     for (; j > 0; j--) {
         if (linkBase.charAt(j) === '#') {
-            break
+            break;
         }
     }
     if (j !== linkBase.length) {

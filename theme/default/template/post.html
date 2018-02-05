@@ -16,6 +16,7 @@
 
     <script src="./js/jquery.min.js"></script>
     <script src="./js/highlight.min.js"></script>
+    <script src="./js/custom.js"></script>
 
 </head>
 
@@ -80,7 +81,6 @@
                 </div>
             </div>
             <div id="toc">
-                {{toc}}
             </div>
         </div>
         <div class="rightCol">
@@ -101,7 +101,7 @@
     </div>
 
     <script>
-        
+        getTOC();
 
         // 用以去除写作 Markdown 文档中自然留下的一级标题
         var fileHeader = $("#content").find("h1");

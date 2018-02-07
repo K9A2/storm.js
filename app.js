@@ -7,21 +7,21 @@
     var fse = require("fs-extra");
 
     // 系统设置
-    var config = require("./config/config.json");
+    var config = require("./src/config/config.json");
 
     // 加载博客信息
-    var posts = require("./draft/description").posts;
-    var pages = require("./draft/description").pages;
+    var posts = require("./src/draft/description").posts;
+    var pages = require("./src/draft/description").pages;
 
     // 清空输出文件夹
-    if (!fse.emptyDirSync("./out")) {
+    if (!fse.emptyDirSync("./src/out")) {
         console.log("清空输出文件夹");
         fse.removeSync(".out");
         fse.emptyDirSync("./out");
     }
 
     // 自定义的生成过程
-    var generator = require("./theme/default/generate");
+    var generator = require("./src/theme/default/generate");
     generator.generate(posts, pages, fse, config);
 
 })();

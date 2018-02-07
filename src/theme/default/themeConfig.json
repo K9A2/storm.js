@@ -4,6 +4,6 @@
     "author": "stormlin",
     "email": "lin-jinting@outlook.com",
     "github": "https://github.com/K9A2",
-    "ignoreFolders": [],
+    "ignoreFolders": ["template"],
     "ignoreFiles": ["generate.js", "themeConfig.json"]
 }

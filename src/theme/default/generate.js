@@ -19,6 +19,7 @@ exports.generate = function (posts, pages, config, themeConfig) {
 
     /* 生成博客文章页面 */
     fse.emptyDirSync("./src/out/attachment");
+    fse.emptyDirSync("./src/out/html");
     posts.forEach(post => {
         var template = fs.readFileSync(themeBasePath + "/template/" + "post.html", "utf8");
         var content = fs.readFileSync("./src/draft/" + post.name + "/" + post.name + ".md", "utf8");

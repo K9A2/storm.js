@@ -119,11 +119,11 @@ a:hover {
     margin-bottom: 0;
 }
 
-/*note: inline-block, block, inline 的区别*/
+/*note: inline-block, block, inline 鐨勫尯鍒�*/
 
-/*note: 盒模型 px 宽度计算公式，百分比宽度计算公式*/
+/*note: 鐩掓ā鍨� px 瀹藉害璁＄畻鍏紡锛岀櫨鍒嗘瘮瀹藉害璁＄畻鍏紡*/
 
-/*note: css 固定头部导航条的制作*/
+/*note: css 鍥哄畾澶撮儴瀵艰埅鏉＄殑鍒朵綔*/
 
 .nav-list {
     color: inherit;
@@ -694,7 +694,7 @@ a#user-name:active {
     color: #ffffff;
 }
 
-/* note: css 文档加载顺序 */
+/* note: css 鏂囨。鍔犺浇椤哄簭 */
 
 @media screen and (max-width: 768px) {
     body {

@@ -99,13 +99,26 @@ gulp.task("font", function () {
         .pipe(gulp.dest("./dist/font"));
 });
 
+/**
+ * 复制 description.json 至输出文件夹
+ */
+gulp.task("description", function () {
+    gulp.src("./src/draft/description.json")
+        .pipe(gulp.dest("./dist"));
+});
+
 /* 清理输出文件夹 */
 gulp.task("cleanDistFolder", function () {
     del.sync("./dist");
 });
 
-gulp.task("build", ["cleanDistFolder", "css", "js", "img", "font"], function () {
+/* 程序执行后需要手动运行 orz */
+gulp.task("clean", function () {
+    console.log("in clean");
+    del.sync("./src/out");
+});
 
-
-
+/* 总任务 */
+gulp.task("build", ["cleanDistFolder", "css", "js", "img", "font", "description"], function () {
+    console.log("finish");
 });

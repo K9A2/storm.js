@@ -90,7 +90,7 @@ exports.generate = function (posts, pages, config, themeConfig) {
         // 复制文章信息
         var newIndexItem = indexItem;
         newIndexItem = newIndexItem.replace("{{date}}", post.date);
-        newIndexItem = newIndexItem.replace("{{link}}", "/" + post.name + ".html");
+        newIndexItem = newIndexItem.replace("{{link}}", "./" + post.name + ".html");
         newIndexItem = newIndexItem.replace("{{title}}", post.title);
         newIndexItem = newIndexItem.replace("{{description}}", post.description);
         // 复制文章标签列表

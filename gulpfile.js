@@ -116,6 +116,7 @@ gulp.task("cleanDistFolder", function () {
 gulp.task("clean", function () {
     console.log("in clean");
     del.sync("./src/out");
+    del.sync("./dist");
 });
 
 /* 总任务 */

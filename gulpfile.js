@@ -93,12 +93,6 @@ gulp.task("img", ["html"], function () {
         .pipe(gulp.dest("./dist/img"));
 });
 
-/* 复制自带字体 */
-gulp.task("font", function () {
-    gulp.src(themePath + "/font/*.*")
-        .pipe(gulp.dest("./dist/font"));
-});
-
 /**
  * 复制 description.json 至输出文件夹
  */
@@ -120,6 +114,6 @@ gulp.task("clean", function () {
 });
 
 /* 总任务 */
-gulp.task("build", ["cleanDistFolder", "css", "js", "img", "font", "description"], function () {
+gulp.task("build", ["cleanDistFolder", "css", "js", "img", "description"], function () {
     console.log("finish");
 });

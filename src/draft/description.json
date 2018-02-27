@@ -2,6 +2,7 @@
   "posts": [{
       "id": "1",
       "name": "install-font-in-ubuntu",
+      "title": "Linux 下安装 Source Code Pro 字体",
       "category": "Linux, Ubuntu, Font, Source Code Pro",
       "tag": "Linux, Ubuntu, Font, Source Code Pro",
       "date": "2017-04-21",

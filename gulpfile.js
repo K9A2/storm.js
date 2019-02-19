@@ -83,26 +83,28 @@ gulp.task(
     // 复制文章自带的图片
     gulp
       .src('./src/out/attachment/*.{png,jpg,gif}')
-      // .pipe(
-      //   cache(
-      //     imagemin({
-      //       progressive: true,
-      //       use: [pngquant()]
-      //     })
-      //   )
-      // )
+      .pipe(
+        imagemin({
+          progressive: true,
+          optimizationLevel: 5,
+          interlaced: true,
+          multipass: true,
+          use: [pngquant()]
+        })
+      )
       .pipe(gulp.dest('./dist/attachment'))
     // 复制主题自带的图片
     gulp
       .src(themePath + '/img/*.{png,jpg,gif}')
-      // .pipe(
-      //   cache(
-      //     imagemin({
-      //       progressive: true,
-      //       use: [pngquant()]
-      //     })
-      //   )
-      // )
+      .pipe(
+        imagemin({
+          progressive: true,
+          optimizationLevel: 5,
+          interlaced: true,
+          multipass: true,
+          use: [pngquant()]
+        })
+      )
       .pipe(gulp.dest('./dist/img'))
     done()
   })

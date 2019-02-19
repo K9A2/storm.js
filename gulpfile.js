@@ -25,8 +25,8 @@ gulp.task('html', done => {
   /* 引入与页面生成相关的模块 */
   var themeConfig = require(themePath + '/themeConfig.json')
   // 加载博客信息
-  var posts = require('./src/draft/description').posts
-  var pages = require('./src/draft/description').pages
+  var posts = require('./draft/description').posts
+  var pages = require('./draft/description').pages
   var generator = require('./src/theme/' + config.theme + '/generate')
 
   generator.generate(posts, pages, config, themeConfig)
@@ -114,7 +114,7 @@ gulp.task(
  * 复制 description.json 至输出文件夹
  */
 gulp.task('description', done => {
-  gulp.src('./src/draft/description.json').pipe(gulp.dest('./dist'))
+  gulp.src('./draft/description.json').pipe(gulp.dest('./dist'))
   done()
 })
 

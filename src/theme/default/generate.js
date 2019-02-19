@@ -24,7 +24,7 @@ exports.generate = function(posts, pages, config, themeConfig) {
       'utf8'
     )
     var content = fs.readFileSync(
-      './src/draft/' + post.name + '/' + post.name + '.md',
+      './draft/' + post.name + '/' + post.name + '.md',
       'utf8'
     )
     // 写入文章主题
@@ -47,9 +47,9 @@ exports.generate = function(posts, pages, config, themeConfig) {
     // 写入输出文件夹
     fs.writeFileSync('./src/out/html/' + post.name + '.html', template, 'utf8')
     // 如果 attachment 文件夹存在则复制过去，否则认为这篇博客没有附带任何图片、文件等
-    if (fs.existsSync('./src/draft/' + post.name + '/attachment') == true) {
+    if (fs.existsSync('./draft/' + post.name + '/attachment') == true) {
       copydir.sync(
-        './src/draft/' + post.name + '/attachment',
+        './draft/' + post.name + '/attachment',
         './src/out/attachment'
       )
     }
@@ -122,7 +122,7 @@ exports.generate = function(posts, pages, config, themeConfig) {
 
   /* 生成固定页面 */
   // 复制博客描述文件供动态页面查询
-  fse.copySync('./src/draft/description.json', './src/out/description.json')
+  fse.copySync('./draft/description.json', './src/out/description.json')
 
   // tag 页的处理
   var tagPage = fs.readFileSync(
@@ -138,7 +138,7 @@ exports.generate = function(posts, pages, config, themeConfig) {
     themeBasePath + '/template/' + 'about.html',
     'utf8'
   )
-  var about = fs.readFileSync('./src/draft/about/about.md', 'utf8')
+  var about = fs.readFileSync('./draft/about/about.md', 'utf8')
 
   aboutPage = aboutPage.replace('{{nav}}', nav)
   aboutPage = aboutPage.replace('{{footer}}', footer)

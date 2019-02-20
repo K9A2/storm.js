@@ -1,4 +1,11 @@
-<!-- Java 开发手册 -->
+---
+title: Java 开发手册
+tag: Java, Alibaba, Developer, HandBook
+date: 2017-05-29
+description: 这是阿里巴巴 Java 开发手册的文字版，与现有的 PDF 版本完全一致，供大家在开发 Java 程序时参考。
+---
+
+# Java 开发手册
 
 ## 一、编程规约
 ### (一) 命名规约

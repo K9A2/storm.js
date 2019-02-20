@@ -1,18 +1,27 @@
+---
+title: 如何在非 22 端口的主机上创建 git 仓库并共享
+tag: Git, SSH, Server
+date: 2018-01-21
+description: 很多情况下，我们需要在我们自建的远程主机上面创建在线 git 仓库。同时，由于安全原因，目标主机的 ssh 端口往往被设置成非 22 端口。这给我们创建 git仓库带来了一定的麻烦，需要一些特殊手段才能满足我们的需求。
+---
+
 # 如何在非 22 端口的主机上创建 git 仓库并共享
 
 **很多情况下，我们需要在我们自建的远程主机上面创建在线 git 仓库。同时，由于安全原因，目标主机的 ssh 端口往往被设置成非 22 端口。这给我们创建 git 仓库带来了一定的麻烦，需要一些特殊手段才能满足我们的需求。**
 
 ## 实施步骤
+
 假定已经装好了 git。所以就直接从添加 git 专用 user 开始。
 
-+ 创建一个名为 git 的用户，专门用来进行 git 相关操作：sudo adduser git
-+ 产生 ssh 公钥的方法见 git 官方文档：[生成 SSH 公钥](https://git-scm.com/book/zh/v1/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5)，就可以不用每次 push 都输入密码了
-+ mkdir 创建一个空文件夹，命名为 XXX.git
-+ 使用 git 在刚才创建的文件夹中创建一个裸仓库：sudo git init --bare sample.git
-+ 修改仓库所有者：sudo chown -R git:git sample.git，或者 chmod 修改文件夹权限
-+ 在 git clone 的地址前面加上 ssh://，例如 git clone ssh://git@10.137.20.113:2222/root/test.git 来 clone 新创建的仓库到你自己的电脑上
+- 创建一个名为 git 的用户，专门用来进行 git 相关操作：sudo adduser git
+- 产生 ssh 公钥的方法见 git 官方文档：[生成 SSH 公钥](https://git-scm.com/book/zh/v1/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5)，就可以不用每次 push 都输入密码了
+- mkdir 创建一个空文件夹，命名为 XXX.git
+- 使用 git 在刚才创建的文件夹中创建一个裸仓库：sudo git init --bare sample.git
+- 修改仓库所有者：sudo chown -R git:git sample.git，或者 chmod 修改文件夹权限
+- 在 git clone 的地址前面加上 ssh://，例如 git clone ssh://git@10.137.20.113:2222/root/test.git 来 clone 新创建的仓库到你自己的电脑上
 
 ## 简化创建仓库步骤的脚本
+
 在成功地手动执行完以上代码之后，我们可以在远程主机的仓库文件夹下面放置一个 shell 脚本，通过执行这个脚本来创建仓库，这样就可以节省不少功夫：
 
 ```shell
@@ -31,5 +40,5 @@ echo "git clone ssh://git@123.456.789.111:8888/~/git_repository/"$new_dir
 
 ## 参考材料
 
-+ [搭建Git服务器 - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000)
-+ [肖楠 - 处理git clone命令的非标准SSH端口连接](http://nanxiao.me/git-clone-ssh-non-22-port/)
+- [搭建 Git 服务器 - 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000)
+- [肖楠 - 处理 git clone 命令的非标准 SSH 端口连接](http://nanxiao.me/git-clone-ssh-non-22-port/)

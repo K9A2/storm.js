@@ -1,4 +1,11 @@
-<!-- FP-Growth 和 K-Means 学习报告 -->
+---
+title: FP-Growth 和 K-Means 学习报告
+tag: Java, DataMining, FP-Growth, K-Means, Performance
+date: 2017-06-07
+description: 最近学习了数据挖掘常用的两种算法：FP-Growth 和 K-Means。现在把我的学习结果分享给大家。
+---
+
+# FP-Growth 和 K-Means 学习报告
 
 **最近学习了数据挖掘常用的两种算法：FP-Growth 和 K-Means。现在把我的学习结果分享给大家。**
 
@@ -18,10 +25,11 @@
 ### 1.2 步骤简介
 
 FP-Growth 的步骤相对于 Apriori 会简单一点，但绝对值也不低。其伪代码步骤简介如下<sup>R5</sup>：
+
 ```java
 输入：事务集合 List<List<String>> transactions
 输出：频繁模式集合 List<List<String>> fpOutput
- 
+
 public void getFPOutput(List<List<String>> transactions, List<String> postPattern, List<List<String>> fpOutput) {
     构建头表项 HeaderTable：buildHeaderTable(transactions);
     构建 FP 树：buildFPTree(headerTable, transactions);
@@ -30,6 +38,7 @@ public void getFPOutput(List<List<String>> transactions, List<String> postPatter
     遍历每一个头项表节点并递归;
 }
 ```
+
 具体操作步骤请参考源代码。
 
 ### 1.3 实例分析
@@ -41,6 +50,7 @@ public void getFPOutput(List<List<String>> transactions, List<String> postPatter
 ![Data Sample](./attachment/实例数据.png)
 
 测试程序主要采用了三级处理的方式，预处理、FP-Growth 计算频繁项集和重整输出三个阶段：
+
 1.  预处理：<br>
     `fpInput = preProcess(csvFilePath, inputSeparator, requiredClass);`
 2.  FP-Growth 算法生成频繁项：<br>
@@ -56,12 +66,13 @@ public void getFPOutput(List<List<String>> transactions, List<String> postPatter
 预处理阶段的主要任务是为 FP-Growth 准备需要的输入数据。
 
 如前文所述，原始数据为日志文件，其数据项按行排列，并非 FP-Growth 所要求的多个事物项处在同一行。故预处理阶段的第一个任务就是把这些“属于”同一行的数据全部合并到同一行中：
+
 ```java
 算法输入：
     1.  String csvFilePath：以 CSV 文件格式存储的原始数据
     2.  String inputSeparator：CSV 文件中用来分隔同一行中的不同数据项的分隔符
     3.  String targetClass：目的图书分类
-    
+
 算法输出：
     List<List<String>> FPInput：FP-Growth 算法输入数据
 
@@ -79,6 +90,7 @@ List<List<String>> preProcess(String csvFilePath, String inputSeparator, char ta
 ##### 1.3.1.2 重整输出
 
 重整输出阶段的任务就是把 FP-Growth 算法输出的杂乱无章的结果重整为在条目之间具有唯一性的输出结果。
+
 ```java
 算法输入：
     1.  String dictionaryFilePath：CSV 文件格式的书名字典文件的位置
@@ -105,6 +117,7 @@ List<List<String>> reProcess(String dictionaryFilePath, String dictionarySeparat
 #### 1.3.2 如何把 FP-Growth 算法的输出还原成可阅读的频繁项集？
 
 FP-Growth 算法输出是杂乱无章的，所以我们就需要对它的输出进行重整。而为了尽可能扩大相关联事务的范围，我们采用了合并所有有交集的行的方法：
+
 ```java
 算法输入：
     1.  List<List<String>> result：处理结果
@@ -136,11 +149,13 @@ private static void getResultFiltered(List<List<String>> result, List<List<Strin
     }
 }
 ```
+
 以上算法中，HashSet 的使用有效加快了匹配的速度。同时，由于算法会删去已添加的行，重整算法的时间复杂度近似为 O(nlogn)，空间复杂度不会超过输入数组的大小，即 O(n)。
 
 #### 1.3.3 如何判断两个频繁项之间有交集？
 
 为了能尽可能地扩大结果中一条频繁项集的数据，为推荐算法提供更多样化的结果，在合并频繁项集的时候，需要判断两个频繁项之间是否有交集。如果两个频繁项之间有交集，则合并两者。
+
 ```java
 算法输入：
     1.  HashSet<String> a：已有结果的条件模式基
@@ -183,6 +198,7 @@ private static boolean isIntersected(HashSet<String> a, List<String> b) {
 ![n 维欧几里得距离](./attachment/n维欧几里得距离.jpg)
 
 实用的计算方法：
+
 ```java
 private static double getEuclidDistance(Point a, Point b) {
     double result = 0;
@@ -196,6 +212,7 @@ private static double getEuclidDistance(Point a, Point b) {
 #### 2.1.2 计算质心的方法：
 
 在 K-Means 算法中，分类需要按照欧几里得距离最小的原则。但在实用的算法中，通常采用重心来代替质心：
+
 ```java
 private static Point getClusterCenter(List<Point> points) {
     if (points.size() == 0) {
@@ -235,11 +252,13 @@ K-Means 算法是一种很好理解的算法，其步骤异常简单。
 由于每一个点不仅仅需要保存自身的三轴坐标，同时还要保存自身的类别以及名字，故新建了用于表示点的 `Point` 类，并以 `Point[]` 来表示点集。
 
 计算实例采用了 *CPDA 数据分析天地*提供的足球数据<sup>R3</sup>。由于设计的时候采用了三维点集，所以无法采用通常的二维分类着色图<sup>R2</sup>来表示，故直接输出三种分类。其实验结果如下：
+
 ```txt
 日本,韩国,澳大利亚,
 印尼,泰国,
 中国,朝鲜,伊拉克,伊朗,沙特,阿联酋,卡塔尔,乌兹别克斯坦,巴林,阿曼,约旦,
 ```
+
 其结果符合球队实际排位。
 
 另外，由于本次实验中尚未添加对分类的排序功能，即在输出的时候并非按照质心的“权重”来进行排序，故输出的结果是不能直接提取到别的程序中的。
@@ -249,8 +268,10 @@ K-Means 算法是一种很好理解的算法，其步骤异常简单。
 #### 2.4.1 随机初始质心的获取
 
 获取随机初始质心有两种方法：
+
 1.  第一种是采用 `Collection.shuffle()` 来直接打乱排序，然后直接取前 K 位作为随机初始质心；
 2.  第二种就是使用随机数。先计算出 K 个不重复的随机数，然后按照获得的随机数到 `Point[]` 数组中获取随机初始质心，其计算过程如下：
+
 ```java
 private static int[] getUnrepeatedRandomNumbers(int min, int max, int count) {
         int[] result = new int[count];
@@ -271,8 +292,9 @@ private static int[] getUnrepeatedRandomNumbers(int min, int max, int count) {
 ```
 
 #### 2.4.2 Point[] 数组的复制与判同
-    
+
 1.  如果直接调用系统提供的 `System.arraycopy(b, 0, a, 0, a.length)`，那在复制的时候就是浅复制：即两个数组都是“引用了”同一个来源。在其中一个数组被改变的时候，另外一个数组由于引用了同一块内存区域，其值也会被改变。故要实现数组的“深拷贝”，则需要自行编写复制方法：
+
 ```java
 private static Point[] getArrayCopy(Point[] b) {
     Point[] a = new Point[b.length];
@@ -283,7 +305,9 @@ private static Point[] getArrayCopy(Point[] b) {
     return a;
 }
 ```
+
 2.  那么如何判断两个质心是否移动呢？我们可以直接采用逐行判断的方式：
+
 ```java
 private static boolean isClusterCenterChanged(Point[] a, Point[] b) {
     for (int i = 0; i < a.length; i++) {
@@ -304,7 +328,7 @@ private static boolean isClusterCenterChanged(Point[] a, Point[] b) {
 ## 3.Reference
 
 1.  [Grant Stanley - Diapers, Beer, and Data Science in Retail](http://canworksmart.com/diapers-beer-retail-predictive-analytics/)
-2.  [听云博客 - JAVA实现K-means聚类](http://www.tuicool.com/articles/VBBnie)
-3.  [CPDA 数据分析天地 - 用K-means看透中国男足！](http://www.sohu.com/a/135368994_354986)
+2.  [听云博客 - JAVA 实现 K-means 聚类](http://www.tuicool.com/articles/VBBnie)
+3.  [CPDA 数据分析天地 - 用 K-means 看透中国男足！](http://www.sohu.com/a/135368994_354986)
 4.  [tianlan_new_start - 欧几里得距离、曼哈顿距离和切比雪夫距离](http://blog.csdn.net/tianlan_sharon/article/details/50904641)
-5.  [人非木石_xst - 单机和集群环境下的FP-Growth算法java实现(关联规则挖掘)](http://blog.csdn.net/shimin520shimin/article/details/49281381)
+5.  [人非木石\_xst - 单机和集群环境下的 FP-Growth 算法 java 实现(关联规则挖掘)](http://blog.csdn.net/shimin520shimin/article/details/49281381)

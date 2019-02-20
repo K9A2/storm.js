@@ -1,3 +1,10 @@
+---
+title: 建立基本的程序运行环境
+tag: Ubuntu, JDK, Maven, Node-js
+date: 2019-02-17
+description: 在 Ubuntu 下建立基本的程序运行环境 (Java 1.9 & Node-js)
+---
+
 # 建立基本的程序运行环境
 
 ## 1. 安装 Java 编译环境
@@ -34,6 +41,6 @@ npm install -g npm
 
 ## 3. 材料来源
 
-+ DigitalOcean, [How To Install Java with Apt-Get on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04)
-+ Linuxize, [How to install Apache Maven on Ubuntu 18.04](https://linuxize.com/post/how-to-install-apache-maven-on-ubuntu-18-04/)
-+ nodesource, [NodeSource Node.js Binary Distributions](https://linkhttps://github.com/nodesource/distributions/blob/master/README.md)
+- DigitalOcean, [How To Install Java with Apt-Get on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04)
+- Linuxize, [How to install Apache Maven on Ubuntu 18.04](https://linuxize.com/post/how-to-install-apache-maven-on-ubuntu-18-04/)
+- nodesource, [NodeSource Node.js Binary Distributions](https://linkhttps://github.com/nodesource/distributions/blob/master/README.md)

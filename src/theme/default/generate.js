@@ -1,5 +1,7 @@
 /* jshint esversion: 6 */
 
+var dateFormatter = require('dateformat')
+
 /**
  * 本文件负责生成过程的具体操作
  */
@@ -23,18 +25,16 @@ exports.generate = function(posts, pages, config, themeConfig) {
       themeBasePath + '/template/' + 'post.html',
       'utf8'
     )
-    var content = fs.readFileSync(
-      './draft/' + post.name + '/' + post.name + '.md',
-      'utf8'
-    )
+    var content = post['__content']
     // 写入文章主题
     template = template.replace('{{ markdown }}', marked(content))
     // 写入标题
     template = template.replace('{{ title }}', post.title)
     // 写入时间
+    post['date'] = dateFormatter(post.date, 'yyyy-mm-dd')
     template = template.replace('{{ date }}', post.date)
     // 写入标签
-    var tagArray = post.tag.toString().split(',')
+    var tagArray = post.tag.split(',')
     var tagList = ''
     tagArray.forEach(tag => {
       tag = tag.trim()
@@ -122,7 +122,6 @@ exports.generate = function(posts, pages, config, themeConfig) {
 
   /* 生成固定页面 */
   // 复制博客描述文件供动态页面查询
-  fse.copySync('./draft/description.json', './src/out/description.json')
 
   // tag 页的处理
   var tagPage = fs.readFileSync(

@@ -10,29 +10,88 @@ var uglify = require('gulp-uglify')
 /* 图像处理包 */
 var imagemin = require('gulp-imagemin')
 var pngquant = require('imagemin-pngquant')
-var cache = require('gulp-cache')
 
 /* 通用工具包 */
 var concat = require('gulp-concat')
 var del = require('del')
+var yaml = require('yaml-front-matter')
+var fs = require('fs')
 
 /* 主题设置 */
 var config = require('./src/config/config.json')
 var themePath = './src/theme/' + config.theme
 
+/**
+ * 获取 rootPath 下的所有子目录名字
+ *
+ * @param {string} rootPath 求子目录时的父目录
+ */
+function getTheNameOfAllChildFolders(rootPath) {
+  let folders = []
+  let files = fs.readdirSync(rootPath)
+  files.forEach(function(item) {
+    if (fs.lstatSync(rootPath + item).isDirectory() === true) {
+      folders.push(item)
+    }
+  })
+  return folders
+}
+
+/**
+ * 以 YAML 文件格式解析指定路径的文件, 无法解析的内容会被放在返回值的 '__content' 字段中
+ *
+ * @param {string} filePath 文件路径
+ */
+function loadMarkdownFile(filePath) {
+  return yaml.loadFront(fs.readFileSync(filePath, 'utf-8'))
+}
+
 /* 生成并输出 HTML 文件 */
 gulp.task('html', done => {
   /* 引入与页面生成相关的模块 */
   var themeConfig = require(themePath + '/themeConfig.json')
-  // 加载博客信息
-  var posts = require('./draft/description').posts
-  var pages = require('./draft/description').pages
   var generator = require('./src/theme/' + config.theme + '/generate')
+
+  /* 需要获取 ./draft 文件夹下面所有 Markdown 格式文章草稿并按 YAML 格式解析之 */
+  let posts = []
+  let pages = []
+  let folders = getTheNameOfAllChildFolders('./draft/')
+  for (let index in folders) {
+    let parsedObject = loadMarkdownFile(
+      './draft/' + folders[index] + '/' + folders[index] + '.md'
+    )
+    // Markdown 文件名与文件夹名相同
+    parsedObject['name'] = folders[index]
+    if (typeof parsedObject['template'] != 'undefined') {
+      pages.push(parsedObject)
+    } else {
+      posts.push(parsedObject)
+    }
+  }
 
   generator.generate(posts, pages, config, themeConfig)
 
   /* 复制生成的 HTML 文件 */
   gulp.src('./src/out/html/*.html').pipe(gulp.dest('./dist/'))
+  for (let index in posts) {
+    delete posts[index]['__content']
+  }
+  for (let index in pages) {
+    delete pages[index]['__content']
+  }
+
+  /* 制作 description.json 文件供其他模块使用 */
+  fs.writeFileSync(
+    './draft/description.json',
+    JSON.stringify(
+      {
+        posts: posts,
+        pages: pages
+      },
+      null,
+      2
+    )
+  )
 
   done()
 })

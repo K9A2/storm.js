@@ -137,7 +137,7 @@ exports.generate = function(posts, pages, config, themeConfig) {
     themeBasePath + '/template/' + 'about.html',
     'utf8'
   )
-  var about = fs.readFileSync('./draft/about/about.md', 'utf8')
+  var about = pages[0]['__content']
 
   aboutPage = aboutPage.replace('{{nav}}', nav)
   aboutPage = aboutPage.replace('{{footer}}', footer)

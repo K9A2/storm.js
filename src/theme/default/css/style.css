@@ -534,6 +534,7 @@ div#main {
   padding: 2rem;
   overflow: auto;
   margin-bottom: 2rem;
+  min-height: calc(100vh*0.535)
 }
 
 div#blog-info {
@@ -761,6 +762,7 @@ a#user-name:active {
     padding: 1rem;
     overflow: auto;
     margin: 0;
+    min-height: calc(100vh*0.613);
   }
   div#author {
     display: none;

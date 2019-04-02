@@ -1,7 +1,7 @@
 ---
 title: 建立基本的程序运行环境
 tag: Ubuntu, JDK, Maven, Node-js
-date: 2019-02-17
+date: 2019-04-02
 description: 在 Ubuntu 下建立基本的程序运行环境 (Java 1.9 & Node-js)
 ---
 
@@ -39,7 +39,17 @@ n stable
 npm install -g npm
 ```
 
-## 3. 材料来源
+## 3. 搜狗拼音乱码
+
+这个很烦人, Ubuntu 下基本上只有搜狗拼音能用. 在使用过程, 偶尔会出现候选词乱码的问题, 可用以下方法解决.
+
+```bash
+cd ~/.config
+# 删除所有与搜狗相关的文件夹
+rm -rf SogoPY* sogou*
+```
+
+## 材料来源
 
 - DigitalOcean, [How To Install Java with Apt-Get on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04)
 - Linuxize, [How to install Apache Maven on Ubuntu 18.04](https://linuxize.com/post/how-to-install-apache-maven-on-ubuntu-18-04/)

@@ -1,18 +1,39 @@
 {
   "posts": [
     {
+      "title": "设计模式 - 工厂模式与抽象工厂模式",
+      "tag": "java, design pattern",
+      "date": "2019-04-02",
+      "description": "工厂模式与抽象工厂模式的概念与使用",
+      "name": "design-pattern-factory"
+    },
+    {
+      "title": "设计模式 - 单例模式",
+      "tag": "java, design pattern",
+      "date": "2019-04-02",
+      "description": "各种单例模式的概念及应用",
+      "name": "design-pattern-single-object"
+    },
+    {
+      "title": "Java 内存管理",
+      "tag": "Java, JVM, Memory",
+      "date": "2019-04-02",
+      "description": "Java 模型与管理",
+      "name": "java-memory-management"
+    },
+    {
+      "title": "建立基本的程序运行环境",
+      "tag": "Ubuntu, JDK, Maven, Node-js",
+      "date": "2019-04-02",
+      "description": "在 Ubuntu 下建立基本的程序运行环境 (Java 1.9 & Node-js)",
+      "name": "setting-up-program-runtime"
+    },
+    {
       "title": "JavaScript 面试题集锦",
       "tag": "javascript, interview",
       "date": "2019-02-19",
       "description": "本文总结了一些作者在面试的时候所遇到的问题, 以供大家参考",
       "name": "js_interview_notes"
-    },
-    {
-      "title": "建立基本的程序运行环境",
-      "tag": "Ubuntu, JDK, Maven, Node-js",
-      "date": "2019-02-17",
-      "description": "在 Ubuntu 下建立基本的程序运行环境 (Java 1.9 & Node-js)",
-      "name": "setting-up-program-runtime"
     },
     {
       "title": "如何在非 22 端口的主机上创建 git 仓库并共享",
@@ -43,13 +64,6 @@
       "name": "install-font-in-ubuntu"
     },
     {
-      "title": "Mininet Documents In Chinese - Walkthrough",
-      "tag": "Mininet, Document",
-      "date": "2017-03-23",
-      "description": "本指南给出了大部分 Mininet 命令的使用方法，以及一些和 Wireshark 一起使用的典型例子。",
-      "name": "mininet-doc-walkthrough"
-    },
-    {
       "title": "Mininet Documents In Chinese - Get Start",
       "tag": "Mininet, Document",
       "date": "2017-03-23",
@@ -62,6 +76,13 @@
       "date": "2017-03-23",
       "description": "Mininet 的示例工作流",
       "name": "mininet-doc-sample-workflow"
+    },
+    {
+      "title": "Mininet Documents In Chinese - Walkthrough",
+      "tag": "Mininet, Document",
+      "date": "2017-03-23",
+      "description": "本指南给出了大部分 Mininet 命令的使用方法，以及一些和 Wireshark 一起使用的典型例子。",
+      "name": "mininet-doc-walkthrough"
     },
     {
       "title": "在Ubuntu 16.04下集成Mininet与FloodLight",

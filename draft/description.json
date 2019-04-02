@@ -2,17 +2,24 @@
   "posts": [
     {
       "title": "设计模式 - 工厂模式与抽象工厂模式",
-      "tag": "java, design pattern",
+      "tag": "Java, DesignPattern",
       "date": "2019-04-02",
       "description": "工厂模式与抽象工厂模式的概念与使用",
       "name": "design-pattern-factory"
     },
     {
       "title": "设计模式 - 单例模式",
-      "tag": "java, design pattern",
+      "tag": "Java, DesignPattern",
       "date": "2019-04-02",
       "description": "各种单例模式的概念及应用",
       "name": "design-pattern-single-object"
+    },
+    {
+      "title": "Java 基础 -  抽象类与接口",
+      "date": "2019-04-02",
+      "tag": "Java, AbstractClass, Interface",
+      "description": "Java 基础 - 抽象类与接口",
+      "name": "java-abstract-class-interface"
     },
     {
       "title": "Java 程序的编译与代码优化",
@@ -34,6 +41,13 @@
       "date": "2019-04-02",
       "description": "Java 模型与管理",
       "name": "java-memory-management"
+    },
+    {
+      "title": "Java 基础 - volatile 与 synchronized 的区别",
+      "date": "2019-04-02",
+      "tag": "Java, Concurrency",
+      "description": "Java 基础 - volatile 与 synchronized 的区别",
+      "name": "java-volatile-synchronized"
     },
     {
       "title": "Java 中的 ClassLoader",

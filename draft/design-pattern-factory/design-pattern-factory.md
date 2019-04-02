@@ -1,6 +1,6 @@
 ---
 title: 设计模式 - 工厂模式与抽象工厂模式 
-tag: java, design pattern
+tag: Java, DesignPattern
 date: 2019-04-02
 description: 工厂模式与抽象工厂模式的概念与使用
 ---

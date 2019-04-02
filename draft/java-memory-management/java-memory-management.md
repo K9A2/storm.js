@@ -19,6 +19,8 @@ description: Java 模型与管理
 6. 运行常亮池 (Runtime Constant Pool), 存放编译期生成的各种字面量和符号引用. 类加载后放入.
 7. 直接内存 (Direct Memory). 可导致 OOM 错误
 
+![JVM 内存模型](http://www.ityouknow.com/assets/images/2017/jvm/structure.png)
+
 ### 1.2 对象访问的方式
 
 通过类引用 (reference) 访问对象, 但 reference 的实现方式有以下几种方式:

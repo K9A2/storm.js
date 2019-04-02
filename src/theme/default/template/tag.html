@@ -73,7 +73,7 @@
                 });
                 date.appendTo(indexItem);
                 var title = $("<a></a>", {
-                    href: "./post.html?name=" + requestedPosts[i].name
+                    href: requestedPosts[i].name + ".html"
                 });
                 var header = $("<h1></h1>", {
                     text: requestedPosts[i].title
@@ -89,29 +89,30 @@
                     class: "readMore"
                 });
                 var link = $("<a></a>", {
-                    href: "./post.html?name=" + requestedPosts[i].name,
+                    href: requestedPosts[i].name + ".html",
                     text: "阅读原文..."
                 });
                 link.appendTo(readMore);
                 readMore.appendTo(description);
                 description.appendTo(indexItem);
 
-                var tagList = $("<div></div>", {
-                    class: "tagList"
-                });
+                // fixme: 标签错乱, 不能使用中文标签, 不能在标签中包含空格
+                // var tagList = $("<div></div>", {
+                //     class: "tagList"
+                // });
 
-                for (var j = 0; j < tags.length; j++) {
-                    var tagItem = $("<div></div>", {
-                        class: "tagItem"
-                    });
-                    var tagLink = $("<a></a>", {
-                        href: "./tag.html?tag=" + tags[j],
-                        text: tags[j]
-                    });
-                    tagLink.appendTo(tagItem);
-                    tagItem.appendTo(tagList);
-                }
-                tagList.appendTo(indexItem);
+                // for (var j = 0; j < tags.length; j++) {
+                //     var tagItem = $("<div></div>", {
+                //         class: "tagItem"
+                //     });
+                //     var tagLink = $("<a></a>", {
+                //         href: "./tag.html?tag=" + tags[j],
+                //         text: tags[j]
+                //     });
+                //     tagLink.appendTo(tagItem);
+                //     tagItem.appendTo(tagList);
+                // }
+                // tagList.appendTo(indexItem);
                 indexItem.appendTo(index);
             }
         });

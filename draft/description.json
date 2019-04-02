@@ -15,11 +15,25 @@
       "name": "design-pattern-single-object"
     },
     {
+      "title": "Java 程序的编译与代码优化",
+      "date": "2019-04-02",
+      "tag": "Java, Compiler, Optimization",
+      "description": "Java 程序的编译与优化",
+      "name": "java-compiler-and-optimization"
+    },
+    {
       "title": "Java 内存管理",
       "tag": "Java, JVM, Memory",
       "date": "2019-04-02",
       "description": "Java 模型与管理",
       "name": "java-memory-management"
+    },
+    {
+      "title": "Java 中的 ClassLoader",
+      "date": "2019-04-02",
+      "tag": "Java, ClassLoader",
+      "description": "Java 中的 ClassLoader",
+      "name": "jvm-class-loader"
     },
     {
       "title": "建立基本的程序运行环境",

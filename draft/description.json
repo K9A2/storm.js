@@ -43,6 +43,13 @@
       "name": "java-memory-management"
     },
     {
+      "title": "Java 基础 - 序列化与反序列化",
+      "date": "2019-04-02",
+      "tag": "Java, Serization",
+      "description": "Java 基础 - 序列化与反序列化",
+      "name": "java-serialization"
+    },
+    {
       "title": "Java 基础 - volatile 与 synchronized 的区别",
       "date": "2019-04-02",
       "tag": "Java, Concurrency",

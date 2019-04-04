@@ -1,60 +1,18 @@
 {
   "posts": [
     {
-      "title": "设计模式 - 工厂模式与抽象工厂模式",
-      "tag": "Java, DesignPattern",
-      "date": "2019-04-02",
-      "description": "工厂模式与抽象工厂模式的概念与使用",
-      "name": "design-pattern-factory"
+      "title": "Simple Netty Echo Server",
+      "date": "2019-04-03",
+      "tag": "Java, Netty",
+      "description": "基于 Netty 构造了一个简单的回显服务器.",
+      "name": "simple-netty-demo"
     },
     {
-      "title": "设计模式 - 单例模式",
-      "tag": "Java, DesignPattern",
-      "date": "2019-04-02",
-      "description": "各种单例模式的概念及应用",
-      "name": "design-pattern-single-object"
-    },
-    {
-      "title": "Java 基础 -  抽象类与接口",
-      "date": "2019-04-02",
-      "tag": "Java, AbstractClass, Interface",
-      "description": "Java 基础 - 抽象类与接口",
-      "name": "java-abstract-class-interface"
-    },
-    {
-      "title": "Java 程序的编译与代码优化",
-      "date": "2019-04-02",
-      "tag": "Java, Compiler, Optimization",
-      "description": "Java 程序的编译与优化",
-      "name": "java-compiler-and-optimization"
-    },
-    {
-      "title": "Java 中的高并发",
-      "date": "2019-04-02",
-      "tag": "Java, Concurrency",
-      "description": "Java 中的高并发",
-      "name": "java-concurrency"
-    },
-    {
-      "title": "Java 内存管理",
-      "tag": "Java, JVM, Memory",
-      "date": "2019-04-02",
-      "description": "Java 模型与管理",
-      "name": "java-memory-management"
-    },
-    {
-      "title": "Java 基础 - 序列化与反序列化",
-      "date": "2019-04-02",
-      "tag": "Java, Serization",
-      "description": "Java 基础 - 序列化与反序列化",
-      "name": "java-serialization"
-    },
-    {
-      "title": "Java 基础 - volatile 与 synchronized 的区别",
-      "date": "2019-04-02",
-      "tag": "Java, Concurrency",
-      "description": "Java 基础 - volatile 与 synchronized 的区别",
-      "name": "java-volatile-synchronized"
+      "title": "Linux 常用命令",
+      "date": "2019-04-03",
+      "tag": "Linux",
+      "description": "Linux 常用命令搜集",
+      "name": "linux-command"
     },
     {
       "title": "Java 中的 ClassLoader",
@@ -64,11 +22,67 @@
       "name": "jvm-class-loader"
     },
     {
+      "title": "Java 程序的编译与代码优化",
+      "date": "2019-04-02",
+      "tag": "Java, Compiler, Optimization",
+      "description": "Java 程序的编译与优化",
+      "name": "java-compiler-and-optimization"
+    },
+    {
       "title": "建立基本的程序运行环境",
       "tag": "Ubuntu, JDK, Maven, Node-js",
       "date": "2019-04-02",
       "description": "在 Ubuntu 下建立基本的程序运行环境 (Java 1.9 & Node-js)",
       "name": "setting-up-program-runtime"
+    },
+    {
+      "title": "Java 内存管理",
+      "tag": "Java, JVM, Memory",
+      "date": "2019-04-02",
+      "description": "Java 模型与管理",
+      "name": "java-memory-management"
+    },
+    {
+      "title": "设计模式 - 单例模式",
+      "tag": "Java, DesignPattern",
+      "date": "2019-04-02",
+      "description": "各种单例模式的概念及应用",
+      "name": "design-pattern-single-object"
+    },
+    {
+      "title": "设计模式 - 工厂模式与抽象工厂模式",
+      "tag": "Java, DesignPattern",
+      "date": "2019-04-02",
+      "description": "工厂模式与抽象工厂模式的概念与使用",
+      "name": "design-pattern-factory"
+    },
+    {
+      "title": "Java 基础 -  抽象类与接口",
+      "date": "2019-04-02",
+      "tag": "Java, AbstractClass, Interface",
+      "description": "Java 基础 - 抽象类与接口",
+      "name": "java-abstract-class-interface"
+    },
+    {
+      "title": "Java 基础 - volatile 与 synchronized 的区别",
+      "date": "2019-04-02",
+      "tag": "Java, Concurrency",
+      "description": "Java 基础 - volatile 与 synchronized 的区别",
+      "name": "java-volatile-synchronized"
+    },
+    {
+      "title": "Java 基础 - 序列化与反序列化",
+      "date": "2019-04-02",
+      "tag": "Java, Serization",
+      "description": "Java 基础 - 序列化与反序列化",
+      "name": "java-serialization"
+    },
+    {
+      "title": "Java 中的高并发",
+      "date": "2019-04-02",
+      "tag": "Java, Concurrency",
+      "description": "Java 中的高并发",
+      "name": "java-concurrency"
     },
     {
       "title": "JavaScript 面试题集锦",
@@ -106,6 +120,13 @@
       "name": "install-font-in-ubuntu"
     },
     {
+      "title": "Mininet Documents In Chinese - Walkthrough",
+      "tag": "Mininet, Document",
+      "date": "2017-03-23",
+      "description": "本指南给出了大部分 Mininet 命令的使用方法，以及一些和 Wireshark 一起使用的典型例子。",
+      "name": "mininet-doc-walkthrough"
+    },
+    {
       "title": "Mininet Documents In Chinese - Get Start",
       "tag": "Mininet, Document",
       "date": "2017-03-23",
@@ -120,13 +141,6 @@
       "name": "mininet-doc-sample-workflow"
     },
     {
-      "title": "Mininet Documents In Chinese - Walkthrough",
-      "tag": "Mininet, Document",
-      "date": "2017-03-23",
-      "description": "本指南给出了大部分 Mininet 命令的使用方法，以及一些和 Wireshark 一起使用的典型例子。",
-      "name": "mininet-doc-walkthrough"
-    },
-    {
       "title": "在Ubuntu 16.04下集成Mininet与FloodLight",
       "tag": "Mininet, Floodlight, Ubuntu",
       "date": "2017-02-24",
@@ -134,18 +148,18 @@
       "name": "integrate-mininet-and-floodlight-in-ubuntu"
     },
     {
-      "title": "在Ubuntu 16.04中安装软件时提示缺少某个包应该怎么办？",
-      "tag": "ubuntu, apt, error",
-      "date": "2017-02-23",
-      "description": "如何解决安装过程中出现的丢失某个包的现象",
-      "name": "fix-missing-packages-in-ubuntu"
-    },
-    {
       "title": "在Ubuntu 16.04下安装Floodlight v1.2",
       "tag": "Floodlight, Ubuntu",
       "date": "2017-02-23",
       "description": "本文主要介绍在Ubuntu 16.04下安装Floodlight v1.2的安装步骤。其中博主会重点讲博主在安装配置的过程中所踩到的坑。希望大家能在看完此文章之后，避免陷入不必要的麻烦中。",
       "name": "install-floodlight-in-ubuntu"
+    },
+    {
+      "title": "在Ubuntu 16.04中安装软件时提示缺少某个包应该怎么办？",
+      "tag": "ubuntu, apt, error",
+      "date": "2017-02-23",
+      "description": "如何解决安装过程中出现的丢失某个包的现象",
+      "name": "fix-missing-packages-in-ubuntu"
     },
     {
       "title": "在Ubuntu 16.04下安装Java 8",

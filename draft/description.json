@@ -8,6 +8,13 @@
       "name": "java-hashmap-hashtable-concurrenthashmap"
     },
     {
+      "title": "Java 红黑树",
+      "date": "2019-04-08",
+      "tag": "Java",
+      "description": "Java 红黑树",
+      "name": "java-red-black-tree"
+    },
+    {
       "title": "Java 中的异常处理",
       "date": "2019-04-04",
       "tag": "Java, Exception",

@@ -1,6 +1,13 @@
 {
   "posts": [
     {
+      "title": "Java 中的 ArrayList 与 LinkedList",
+      "date": "2019-04-09",
+      "tag": "Java",
+      "description": "Java 中的 ArrayList 与 LinkedList",
+      "name": "java-arraylist-linkedlist"
+    },
+    {
       "title": "Java 中的 HashMap, HashTable 与 ConcurrentHashMap",
       "date": "2019-04-08",
       "tag": "Java, HashMap",

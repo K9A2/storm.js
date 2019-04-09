@@ -8,6 +8,13 @@
       "name": "java-arraylist-linkedlist"
     },
     {
+      "title": "Java 泛型类, 泛型接口, 泛型方法",
+      "date": "2019-04-09",
+      "tag": "Java",
+      "description": "Java 泛型类, 泛型接口, 泛型方法",
+      "name": "java-generic"
+    },
+    {
       "title": "Java 中的 HashMap, HashTable 与 ConcurrentHashMap",
       "date": "2019-04-08",
       "tag": "Java, HashMap",

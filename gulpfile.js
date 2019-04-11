@@ -16,6 +16,7 @@ var concat = require('gulp-concat')
 var del = require('del')
 var yaml = require('yaml-front-matter')
 var fs = require('fs')
+var fse = require('fs-extra')
 var zip = require('gulp-zip')
 
 /* 主题设置 */
@@ -73,7 +74,7 @@ gulp.task('html', done => {
   generator.generate(posts, pages, config, themeConfig)
 
   /* 复制生成的 HTML 文件 */
-  gulp.src('./src/out/html/*.html').pipe(gulp.dest('./dist/'))
+  // gulp.src('./src/out/html/*.html').pipe(gulp.dest('./dist/'))
   for (let index in posts) {
     delete posts[index]['__content']
   }
@@ -141,18 +142,18 @@ gulp.task(
   'img',
   gulp.series('html', done => {
     // 复制文章自带的图片
-    gulp
-      .src('./src/out/attachment/*.{png,jpg,gif}')
-      .pipe(
-        imagemin({
-          progressive: true,
-          optimizationLevel: 5,
-          interlaced: true,
-          multipass: true,
-          use: [pngquant()]
-        })
-      )
-      .pipe(gulp.dest('./dist/attachment'))
+    // gulp
+    //   .src('./src/out/attachment/*.{png,jpg,gif}')
+    //   .pipe(
+    //     imagemin({
+    //       progressive: true,
+    //       optimizationLevel: 5,
+    //       interlaced: true,
+    //       multipass: true,
+    //       use: [pngquant()]
+    //     })
+    //   )
+    //   .pipe(gulp.dest('./dist/attachment'))
     // 复制主题自带的图片
     gulp
       .src(themePath + '/img/*.{png,jpg,gif}')
@@ -197,7 +198,8 @@ gulp.task('cleanDistFolder', done => {
 /* 程序执行后需要手动运行 orz */
 gulp.task('clean', done => {
   del.sync('./src/out')
-  del.sync('./dist')
+  fse.emptyDirSync('./dist/')
+  // del.sync('./dist/*')
   del.sync('./dist.zip')
   done()
 })

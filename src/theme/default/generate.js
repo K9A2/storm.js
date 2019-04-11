@@ -18,8 +18,7 @@ exports.generate = function(posts, pages, config, themeConfig) {
   var footer = fs.readFileSync(themeBasePath + '/template/footer.html')
 
   /* 生成博客文章页面 */
-  fse.emptyDirSync('./src/out/attachment')
-  fse.emptyDirSync('./src/out/html')
+  fse.ensureDirSync('./dist/post/')
   posts.forEach(post => {
     var template = fs.readFileSync(
       themeBasePath + '/template/' + 'post.html',
@@ -38,19 +37,20 @@ exports.generate = function(posts, pages, config, themeConfig) {
     var tagList = ''
     tagArray.forEach(tag => {
       tag = tag.trim()
-      tagList += '<a href="./tag.html?tag=' + tag + '">' + tag + '</a>'
+      tagList += '<a href="/tag.html?tag=' + tag + '">' + tag + '</a>'
     })
     template = template.replace('{{ tag }}', tagList)
     // 加入 footer 和 header
     template = template.replace('{{ nav }}', nav)
     template = template.replace('{{ footer }}', footer)
     // 写入输出文件夹
-    fs.writeFileSync('./src/out/html/' + post.name + '.html', template, 'utf8')
+    fse.ensureDirSync('./dist/post/' + post.name + '/')
+    fs.writeFileSync('./dist/post/' + post.name + '/' + post.name + '.html', template, 'utf8')
     // 如果 attachment 文件夹存在则复制过去，否则认为这篇博客没有附带任何图片、文件等
     if (fs.existsSync('./draft/' + post.name + '/attachment') == true) {
       copydir.sync(
-        './draft/' + post.name + '/attachment',
-        './src/out/attachment'
+        './draft/' + post.name + '/attachment/',
+        './dist/post/' + post.name + '/'
       )
     }
   })
@@ -60,7 +60,7 @@ exports.generate = function(posts, pages, config, themeConfig) {
   var ignoreFiles = themeConfig.ignoreFiles
   copydir.sync(
     themeBasePath,
-    './src/out/',
+    './dist/',
     function(stat, filepath, filename) {
       if (stat === 'file' && ignoreFiles.indexOf(filename) >= 0) {
         // 过滤掉指定的文件
@@ -101,7 +101,7 @@ exports.generate = function(posts, pages, config, themeConfig) {
     // 复制文章信息
     var newIndexItem = indexItem
     newIndexItem = newIndexItem.replace('{{date}}', post.date)
-    newIndexItem = newIndexItem.replace('{{link}}', './' + post.name + '.html')
+    newIndexItem = newIndexItem.replace('{{link}}', '/post/' + post.name + '/' + post.name + '.html')
     newIndexItem = newIndexItem.replace('{{title}}', post.title)
     newIndexItem = newIndexItem.replace('{{description}}', post.description)
     // 复制文章标签列表
@@ -118,7 +118,7 @@ exports.generate = function(posts, pages, config, themeConfig) {
   })
 
   index = index.replace('{{postList}}', postList)
-  fs.writeFileSync('./src/out/html/index.html', index, 'utf8')
+  fs.writeFileSync('./dist/index.html', index, 'utf8')
 
   /* 生成固定页面 */
   // 复制博客描述文件供动态页面查询
@@ -130,7 +130,7 @@ exports.generate = function(posts, pages, config, themeConfig) {
   )
   tagPage = tagPage.replace('{{nav}}', nav)
   tagPage = tagPage.replace('{{footer}}', footer)
-  fs.writeFileSync('./src/out/html/tag.html', tagPage)
+  fs.writeFileSync('./dist/tag.html', tagPage)
 
   // about 页的处理
   var aboutPage = fs.readFileSync(
@@ -142,7 +142,7 @@ exports.generate = function(posts, pages, config, themeConfig) {
   aboutPage = aboutPage.replace('{{nav}}', nav)
   aboutPage = aboutPage.replace('{{footer}}', footer)
   aboutPage = aboutPage.replace('{{markdown}}', marked(about))
-  fs.writeFileSync('./src/out/html/about.html', aboutPage)
+  fs.writeFileSync('./dist/about.html', aboutPage)
 }
 
 var by = function(name) {

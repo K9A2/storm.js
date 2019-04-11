@@ -74,7 +74,7 @@
                 });
                 date.appendTo(indexItem);
                 var title = $("<a></a>", {
-                    href: requestedPosts[i].name + ".html"
+                    href: '/post/' + requestedPosts[i].name + '/' + requestedPosts[i].name + ".html",
                 });
                 var header = $("<h1></h1>", {
                     text: requestedPosts[i].title
@@ -90,7 +90,7 @@
                     class: "readMore"
                 });
                 var link = $("<a></a>", {
-                    href: requestedPosts[i].name + ".html",
+                    href: '/post/' + requestedPosts[i].name + '/' + requestedPosts[i].name + ".html",
                     text: "阅读原文..."
                 });
                 link.appendTo(readMore);

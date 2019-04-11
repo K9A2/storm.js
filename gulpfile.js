@@ -74,7 +74,6 @@ gulp.task('html', done => {
   generator.generate(posts, pages, config, themeConfig)
 
   /* 复制生成的 HTML 文件 */
-  // gulp.src('./src/out/html/*.html').pipe(gulp.dest('./dist/'))
   for (let index in posts) {
     delete posts[index]['__content']
   }
@@ -141,19 +140,6 @@ gulp.task('js', done => {
 gulp.task(
   'img',
   gulp.series('html', done => {
-    // 复制文章自带的图片
-    // gulp
-    //   .src('./src/out/attachment/*.{png,jpg,gif}')
-    //   .pipe(
-    //     imagemin({
-    //       progressive: true,
-    //       optimizationLevel: 5,
-    //       interlaced: true,
-    //       multipass: true,
-    //       use: [pngquant()]
-    //     })
-    //   )
-    //   .pipe(gulp.dest('./dist/attachment'))
     // 复制主题自带的图片
     gulp
       .src(themePath + '/img/*.{png,jpg,gif}')
@@ -199,7 +185,6 @@ gulp.task('cleanDistFolder', done => {
 gulp.task('clean', done => {
   del.sync('./src/out')
   fse.emptyDirSync('./dist/')
-  // del.sync('./dist/*')
   del.sync('./dist.zip')
   done()
 })
@@ -208,7 +193,6 @@ gulp.task('clean', done => {
 gulp.task(
   'build',
   gulp.series('cleanDistFolder', 'css', 'js', 'img', 'description', done => {
-    console.log('finish')
     done()
   })
 )

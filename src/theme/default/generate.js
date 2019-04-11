@@ -120,9 +120,6 @@ exports.generate = function(posts, pages, config, themeConfig) {
   index = index.replace('{{postList}}', postList)
   fs.writeFileSync('./dist/index.html', index, 'utf8')
 
-  /* 生成固定页面 */
-  // 复制博客描述文件供动态页面查询
-
   // tag 页的处理
   var tagPage = fs.readFileSync(
     themeBasePath + '/template/' + 'tag.html',

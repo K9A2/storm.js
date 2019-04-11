@@ -1,6 +1,6 @@
 ---
 title: 在Ubuntu 16.04下安装配置VS Code、CLion以及Idea
-tag: Ubuntu, Clion, VSCode, IDEA
+tag: 开发杂记, Clion, VSCode, IDEA
 date: 2016-12-28
 description: Linux下面安装软件还是相当麻烦的。故在这里记录下博主自己配置开发环境的方法，免得博主自己不记得了。
 ---

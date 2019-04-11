@@ -1,6 +1,6 @@
 ---
 title: 设计模式 - 单例模式
-tag: Java, DesignPattern
+tag: 设计模式
 date: 2019-04-02
 description: 各种单例模式的概念及应用
 ---

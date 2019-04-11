@@ -1,6 +1,6 @@
 ---
 title: 在Ubuntu 16.04下安装Floodlight v1.2
-tag: Floodlight, Ubuntu
+tag: 开发杂记, Floodlight
 date: 2017-02-23
 description: 本文主要介绍在Ubuntu 16.04下安装Floodlight v1.2的安装步骤。其中博主会重点讲博主在安装配置的过程中所踩到的坑。希望大家能在看完此文章之后，避免陷入不必要的麻烦中。
 ---

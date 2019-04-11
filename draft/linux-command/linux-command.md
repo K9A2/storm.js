@@ -1,7 +1,7 @@
 ---
 title: Linux 常用命令
 date: 2019-04-03
-tag: Linux
+tag: 开发杂记
 description: Linux 常用命令搜集
 ---
 

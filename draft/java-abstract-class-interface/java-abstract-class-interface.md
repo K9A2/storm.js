@@ -1,7 +1,7 @@
 ---
 title: Java 基础 -  抽象类与接口
 date: 2019-04-02
-tag: Java, AbstractClass, Interface
+tag: Java 基础, AbstractClass, Interface
 description: Java 基础 - 抽象类与接口
 ---
 

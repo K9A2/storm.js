@@ -1,6 +1,6 @@
 ---
 title: Linux 下安装 Source Code Pro 字体
-tag: Linux, Font, Source Code Pro
+tag: 开发杂记, Source Code Pro
 date: 2017-04-21
 description: Linux 下安装 Source Code Pro 字体。则需要执行以下步骤。
 ---

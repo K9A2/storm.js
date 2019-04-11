@@ -1,7 +1,7 @@
 ---
 title: Java 基础 - volatile 与 synchronized 的区别
 date: 2019-04-02
-tag: Java, Concurrency
+tag: Java 基础, Concurrency
 description: Java 基础 - volatile 与 synchronized 的区别
 ---
 

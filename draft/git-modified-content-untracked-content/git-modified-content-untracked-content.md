@@ -1,6 +1,6 @@
 ---
 title: 使用Git的时候遇到“modified content, untracked content”应该如何处理
-tag: Git
+tag: 开发杂记, Git
 date: 2017-01-06
 description: 今天在使用Git创建并提交一个Repo到Git网站上的时候，在GitHub网站上发现提交的代码中有不能访问的文件夹。那么，应该如何解决这个问题呢？
 ---

@@ -10,90 +10,90 @@
     {
       "title": "Java 面试题",
       "date": "2019-04-10",
-      "tag": "Java",
+      "tag": "Java, 面试题",
       "description": "Java 面试题",
       "name": "java-interview"
     },
     {
-      "title": "网络协议栈",
+      "title": "TCP/IP 网络协议栈",
       "date": "2019-04-10",
-      "tag": "TCP/IP",
+      "tag": "基础知识",
       "description": "网络协议栈",
       "name": "network-stack"
     },
     {
-      "title": "Java 中的 ArrayList 与 LinkedList",
+      "title": "Java 基础 - ArrayList 与 LinkedList",
       "date": "2019-04-09",
-      "tag": "Java",
+      "tag": "Java 基础",
       "description": "Java 中的 ArrayList 与 LinkedList",
       "name": "java-arraylist-linkedlist"
     },
     {
-      "title": "Java 泛型类, 泛型接口, 泛型方法",
+      "title": "Java 基础 - Java 泛型类, 泛型接口, 泛型方法",
       "date": "2019-04-09",
-      "tag": "Java",
+      "tag": "Java 基础",
       "description": "Java 泛型类, 泛型接口, 泛型方法",
       "name": "java-generic"
     },
     {
-      "title": "Java 中的 HashMap, HashTable 与 ConcurrentHashMap",
+      "title": "Java 基础 - HashMap, HashTable 与 ConcurrentHashMap",
       "date": "2019-04-08",
-      "tag": "Java, HashMap",
+      "tag": "Java 基础, HashMap",
       "description": "Java 中的 HashMap, HashTable 与 ConcurrentHashMap",
       "name": "java-hashmap-hashtable-concurrenthashmap"
     },
     {
-      "title": "Java 红黑树",
+      "title": "红黑树",
       "date": "2019-04-08",
-      "tag": "Java",
+      "tag": "算法与数据结构",
       "description": "Java 红黑树",
       "name": "java-red-black-tree"
     },
     {
-      "title": "Java 中的异常处理",
+      "title": "Java 基础 - 异常处理",
       "date": "2019-04-04",
-      "tag": "Java, Exception",
+      "tag": "Java 基础, Exception",
       "description": "Java 中的异常处理",
       "name": "java-exception"
     },
     {
-      "title": "Java 流的概念与使用",
+      "title": "Java 基础 - 流的概念与使用",
       "date": "2019-04-04",
-      "tag": "Java, Stream",
+      "tag": "Java 基础, Stream",
       "description": "Java 流的概念与使用",
       "name": "java-stream"
     },
     {
       "title": "Java 基础 - 多线程",
       "date": "2019-04-04",
-      "tag": "Java",
+      "tag": "Java 基础",
       "description": "Java 基础 - 多线程",
       "name": "java-thread"
     },
     {
       "title": "Linux 常用命令",
       "date": "2019-04-03",
-      "tag": "Linux",
+      "tag": "开发杂记",
       "description": "Linux 常用命令搜集",
       "name": "linux-command"
     },
     {
       "title": "Simple Netty Echo Server",
       "date": "2019-04-03",
-      "tag": "Java, Netty",
+      "tag": "Netty",
       "description": "基于 Netty 构造了一个简单的回显服务器.",
       "name": "simple-netty-demo"
     },
     {
       "title": "设计模式 - 工厂模式与抽象工厂模式",
-      "tag": "Java, DesignPattern",
+      "tag": "设计模式",
       "date": "2019-04-02",
       "description": "工厂模式与抽象工厂模式的概念与使用",
       "name": "design-pattern-factory"
     },
     {
       "title": "设计模式 - 单例模式",
-      "tag": "Java, DesignPattern",
+      "tag": "设计模式",
       "date": "2019-04-02",
       "description": "各种单例模式的概念及应用",
       "name": "design-pattern-single-object"
@@ -101,27 +101,27 @@
     {
       "title": "Java 基础 -  抽象类与接口",
       "date": "2019-04-02",
-      "tag": "Java, AbstractClass, Interface",
+      "tag": "Java 基础, AbstractClass, Interface",
       "description": "Java 基础 - 抽象类与接口",
       "name": "java-abstract-class-interface"
     },
     {
-      "title": "Java 程序的编译与代码优化",
+      "title": "深入理解 JVM - Java 程序的编译与代码优化",
       "date": "2019-04-02",
-      "tag": "Java, Compiler, Optimization",
+      "tag": "深入理解 JVM, 编译器",
       "description": "Java 程序的编译与优化",
       "name": "java-compiler-and-optimization"
     },
     {
-      "title": "Java 中的高并发",
+      "title": "深入理解 JVM - Java 中的高并发",
       "date": "2019-04-02",
-      "tag": "Java, Concurrency",
+      "tag": "深入理解 JVM, Concurrency",
       "description": "Java 中的高并发",
       "name": "java-concurrency"
     },
     {
-      "title": "Java 内存管理",
-      "tag": "Java, JVM, Memory",
+      "title": "深入理解 JVM - Java 内存管理",
+      "tag": "深入理解 JVM, Memory",
       "date": "2019-04-02",
       "description": "Java 模型与管理",
       "name": "java-memory-management"
@@ -129,48 +129,48 @@
     {
       "title": "Java 基础 - 序列化与反序列化",
       "date": "2019-04-02",
-      "tag": "Java, Serization",
+      "tag": "Java 基础, Serization",
       "description": "Java 基础 - 序列化与反序列化",
       "name": "java-serialization"
     },
     {
       "title": "Java 基础 - volatile 与 synchronized 的区别",
       "date": "2019-04-02",
-      "tag": "Java, Concurrency",
+      "tag": "Java 基础, Concurrency",
       "description": "Java 基础 - volatile 与 synchronized 的区别",
       "name": "java-volatile-synchronized"
     },
     {
-      "title": "Java 中的 ClassLoader",
+      "title": "深入理解 JVM - Java 中的 ClassLoader",
       "date": "2019-04-02",
-      "tag": "Java, ClassLoader",
+      "tag": "深入理解 JVM, ClassLoader",
       "description": "Java 中的 ClassLoader",
       "name": "jvm-class-loader"
     },
     {
       "title": "建立基本的程序运行环境",
-      "tag": "Ubuntu, JDK, Maven, Node-js",
+      "tag": "开发杂记, JDK, Maven, Node-js",
       "date": "2019-04-02",
       "description": "在 Ubuntu 下建立基本的程序运行环境 (Java 1.9 & Node-js)",
       "name": "setting-up-program-runtime"
     },
     {
       "title": "JavaScript 面试题集锦",
-      "tag": "javascript, interview",
+      "tag": "Javascript, 面试题",
       "date": "2019-02-19",
       "description": "本文总结了一些作者在面试的时候所遇到的问题, 以供大家参考",
       "name": "js_interview_notes"
     },
     {
       "title": "如何在非 22 端口的主机上创建 git 仓库并共享",
-      "tag": "Git, SSH, Server",
+      "tag": "开发杂记, Git",
       "date": "2018-01-21",
       "description": "很多情况下，我们需要在我们自建的远程主机上面创建在线 git 仓库。同时，由于安全原因，目标主机的 ssh 端口往往被设置成非 22 端口。这给我们创建 git仓库带来了一定的麻烦，需要一些特殊手段才能满足我们的需求。",
       "name": "git_repo_non22"
     },
     {
       "title": "FP-Growth 和 K-Means 学习报告",
-      "tag": "Java, DataMining, FP-Growth, K-Means, Performance",
+      "tag": "数据挖掘, FP-Growth, K-Means",
       "date": "2017-06-07",
       "description": "最近学习了数据挖掘常用的两种算法：FP-Growth 和 K-Means。现在把我的学习结果分享给大家。",
       "name": "DataMiningReport"
@@ -184,7 +184,7 @@
     },
     {
       "title": "Linux 下安装 Source Code Pro 字体",
-      "tag": "Linux, Font, Source Code Pro",
+      "tag": "开发杂记, Source Code Pro",
       "date": "2017-04-21",
       "description": "Linux 下安装 Source Code Pro 字体。则需要执行以下步骤。",
       "name": "install-font-in-ubuntu"
@@ -219,42 +219,42 @@
     },
     {
       "title": "在Ubuntu 16.04中安装软件时提示缺少某个包应该怎么办？",
-      "tag": "ubuntu, apt, error",
+      "tag": "开发杂记, apt",
       "date": "2017-02-23",
       "description": "如何解决安装过程中出现的丢失某个包的现象",
       "name": "fix-missing-packages-in-ubuntu"
     },
     {
       "title": "在Ubuntu 16.04下安装Floodlight v1.2",
-      "tag": "Floodlight, Ubuntu",
+      "tag": "开发杂记, Floodlight",
       "date": "2017-02-23",
       "description": "本文主要介绍在Ubuntu 16.04下安装Floodlight v1.2的安装步骤。其中博主会重点讲博主在安装配置的过程中所踩到的坑。希望大家能在看完此文章之后，避免陷入不必要的麻烦中。",
       "name": "install-floodlight-in-ubuntu"
     },
     {
       "title": "在Ubuntu 16.04下安装Java 8",
-      "tag": "Java, Ubuntu",
+      "tag": "开发杂记",
       "date": "2017-02-22",
       "description": "本文记录了在 Ubuntu 16.04 下安装 Java 8 的操作流程",
       "name": "install-java8-in-ubuntu"
     },
     {
       "title": "使用Git的时候遇到“modified content, untracked content”应该如何处理",
-      "tag": "Git",
+      "tag": "开发杂记, Git",
       "date": "2017-01-06",
       "description": "今天在使用Git创建并提交一个Repo到Git网站上的时候，在GitHub网站上发现提交的代码中有不能访问的文件夹。那么，应该如何解决这个问题呢？",
       "name": "git-modified-content-untracked-content"
     },
     {
       "title": "storm.js 开发总结",
-      "tag": "javascript, summary",
+      "tag": "Javascript",
       "date": "2017-01-01",
       "description": "记录了开发 storm.js 中所遇到的一些要点和坑点，分享给大家。",
       "name": "summary_for_developing_storm_js"
     },
     {
       "title": "在Ubuntu 16.04下安装配置VS Code、CLion以及Idea",
-      "tag": "Ubuntu, Clion, VSCode, IDEA",
+      "tag": "开发杂记, Clion, VSCode, IDEA",
       "date": "2016-12-28",
       "description": "Linux下面安装软件还是相当麻烦的。故在这里记录下博主自己配置开发环境的方法，免得博主自己不记得了。",
       "name": "install-clion-vscode-idea-in-ubuntu"

@@ -1,7 +1,7 @@
 ---
 title: Java 基础 - 多线程
 date: 2019-04-04
-tag: Java
+tag: Java 基础
 description: Java 基础 - 多线程
 ---
 

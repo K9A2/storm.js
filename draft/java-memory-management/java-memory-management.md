@@ -1,6 +1,6 @@
 ---
-title: Java 内存管理
-tag: Java, JVM, Memory
+title: 深入理解 JVM - Java 内存管理
+tag: 深入理解 JVM, Memory
 date: 2019-04-02
 description: Java 模型与管理
 ---

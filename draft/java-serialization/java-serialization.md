@@ -1,7 +1,7 @@
 ---
 title: Java 基础 - 序列化与反序列化
 date: 2019-04-02
-tag: Java, Serization
+tag: Java 基础, Serization
 description: Java 基础 - 序列化与反序列化
 ---
 

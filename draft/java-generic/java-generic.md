@@ -1,7 +1,7 @@
 ---
-title: Java 泛型类, 泛型接口, 泛型方法
+title: Java 基础 - Java 泛型类, 泛型接口, 泛型方法
 date: 2019-04-09
-tag: Java
+tag: Java 基础
 description: Java 泛型类, 泛型接口, 泛型方法
 ---
 

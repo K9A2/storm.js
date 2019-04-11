@@ -1,6 +1,6 @@
 ---
 title: storm.js 开发总结
-tag: javascript, summary
+tag: Javascript
 date: 2017-01-01
 description: 记录了开发 storm.js 中所遇到的一些要点和坑点，分享给大家。
 ---

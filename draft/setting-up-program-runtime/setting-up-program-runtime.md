@@ -1,6 +1,6 @@
 ---
 title: 建立基本的程序运行环境
-tag: Ubuntu, JDK, Maven, Node-js
+tag: 开发杂记, JDK, Maven, Node-js
 date: 2019-04-02
 description: 在 Ubuntu 下建立基本的程序运行环境 (Java 1.9 & Node-js)
 ---

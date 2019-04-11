@@ -1,6 +1,6 @@
 ---
 title: 在Ubuntu 16.04中安装软件时提示缺少某个包应该怎么办？
-tag: ubuntu, apt, error
+tag: 开发杂记, apt
 date: 2017-02-23
 description: 如何解决安装过程中出现的丢失某个包的现象
 ---

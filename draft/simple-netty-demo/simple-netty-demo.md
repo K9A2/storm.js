@@ -1,7 +1,7 @@
 ---
 title: Simple Netty Echo Server
 date: 2019-04-03
-tag: Java, Netty
+tag: Netty
 description: 基于 Netty 构造了一个简单的回显服务器.
 ---
 

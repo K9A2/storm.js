@@ -1,6 +1,6 @@
 ---
 title: JavaScript 面试题集锦
-tag: javascript, interview
+tag: Javascript, 面试题
 date: 2019-02-19
 description: 本文总结了一些作者在面试的时候所遇到的问题, 以供大家参考
 ---

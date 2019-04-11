@@ -1,7 +1,7 @@
 ---
-title: Java 中的 HashMap, HashTable 与 ConcurrentHashMap
+title: Java 基础 - HashMap, HashTable 与 ConcurrentHashMap
 date: 2019-04-08
-tag: Java, HashMap
+tag: Java 基础, HashMap
 description: Java 中的 HashMap, HashTable 与 ConcurrentHashMap
 ---
 

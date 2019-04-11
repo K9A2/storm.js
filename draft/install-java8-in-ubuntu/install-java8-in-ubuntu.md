@@ -1,6 +1,6 @@
 ---
 title: 在Ubuntu 16.04下安装Java 8
-tag: Java, Ubuntu
+tag: 开发杂记
 date: 2017-02-22
 description: 本文记录了在 Ubuntu 16.04 下安装 Java 8 的操作流程
 ---

@@ -1,7 +1,7 @@
 ---
-title: Java 中的 ArrayList 与 LinkedList
+title: Java 基础 - ArrayList 与 LinkedList
 date: 2019-04-09
-tag: Java
+tag: Java 基础
 description: Java 中的 ArrayList 与 LinkedList
 ---
 

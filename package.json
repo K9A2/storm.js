@@ -8,6 +8,7 @@
     "dateformat": "^3.0.3",
     "fs-extra": "^5.0.0",
     "gulp-cache": "^1.0.2",
+    "gulp-zip": "^4.2.0",
     "imagemin-pngquant": "^6.0.0",
     "jQuery": "^1.7.4",
     "jquery": "^3.3.1",

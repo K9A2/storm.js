@@ -16,6 +16,7 @@ var concat = require('gulp-concat')
 var del = require('del')
 var yaml = require('yaml-front-matter')
 var fs = require('fs')
+var zip = require('gulp-zip')
 
 /* 主题设置 */
 var config = require('./src/config/config.json')
@@ -177,6 +178,16 @@ gulp.task('description', done => {
   done()
 })
 
+/**
+ * 把输出文件夹打包为 zip 文件
+ */
+gulp.task('package', done => {
+  gulp.src('./dist/*')
+    .pipe(zip('dist.zip'))
+    .pipe(gulp.dest('./'))
+  done()
+})
+
 // /* 清理输出文件夹 */
 gulp.task('cleanDistFolder', done => {
   del.sync('./dist')
@@ -187,6 +198,7 @@ gulp.task('cleanDistFolder', done => {
 gulp.task('clean', done => {
   del.sync('./src/out')
   del.sync('./dist')
+  // del.sync('./dist.zip')
   done()
 })
 

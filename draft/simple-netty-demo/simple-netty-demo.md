@@ -11,7 +11,7 @@ description: 基于 Netty 构造了一个简单的回显服务器.
 
 ### 1.1 网络通信模型
 
-![网络 IO 模型](./attachment/model.png)
+![网络 IO 模型](./model.png)
 
 - BIO (Block IO) 阻塞式 IO: 服务器通过一个 Acceptor 线程负责监听客户端请求和为每个客户端创建一个新的线程进行链路处理. 典型的一请求一应答模式. 若客户端数量增多, 频繁地创建和销毁线程会给服务器打开很大的压力. 后改良为用线程池的方式代替新增线程, 被称为伪异步 IO.
 - NIO (Non-Block IO) 非阻塞式 iO: 客户端和服务器之间通过 Channel 通信. NIO 可以在 Channel 进行读写操作. 这些 Channel 都会被注册在 Selector 多路复用器上. Selector 通过一个线程不停的轮询这些 Channel. 找出已经准备就绪的 Channel 执行 IO 操作.  

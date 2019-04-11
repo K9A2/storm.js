@@ -670,7 +670,7 @@ public static void main(String args[]) {
 
 1. 【推荐】图中默认上层依赖于下层，箭头关系表示可直接依赖，如：开放接口层可以依赖于 Web 层，也可以直接依赖于 Service 层，依此类推：
 
-![层次设计](./attachment/layer.jpg)
+![层次设计](./layer.jpg)
 
 + 开放接口层：可直接封装 Service 接口暴露成 RPC 接口；通过 Web 封装成 http 接口；网关控制层等。
 + 终端显示层：各个端的模板渲染并执行显示层。当前主要是 velocity 渲染，JS 渲染，JSP 渲染，移动端展示层等。

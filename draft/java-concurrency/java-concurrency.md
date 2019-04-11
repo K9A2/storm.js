@@ -11,7 +11,7 @@ description: Java 中的高并发
 
 Java 内存模型规定所有变量都储存在主内存 main memory 中。每条线程还有自己的工作内存，保存了被线程使用到的变量的主内存副本。线程对变量的所有操作都只能在工作内存中进行，而不能直接读写主内存。不同线程之间不共享工作内存中的变量。共享需要靠主内存完成。
 
-![thread-memory](./attachment/thread-memory.png)
+![thread-memory](./thread-memory.png)
 
 ## 2. volatile 与 synchronized
 
@@ -35,7 +35,7 @@ volatile
 
 ### 3.2 线程的状态转换
 
-![thread-status](./attachment/thread-status.png)
+![thread-status](./thread-status.png)
 
 1. 新建 new：创建后尚未启动的线程。
 2. 运行 runable：包括 running 和 ready，可能处于执行状态后者等待执行状态。

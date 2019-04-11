@@ -47,7 +47,7 @@ public void getFPOutput(List<List<String>> transactions, List<String> postPatter
 
 针对 FP-Growth 的实例分析，我们采用了一个具有 27 万测试数据的数据集（示例见 Fig.1，可以通过[度盘链接](http://pan.baidu.com/s/1eRZ0vke)下载）。在经过预处理阶段之后（即源代码中的 `preProcess` 方法），数据量下降为 6 万多，全过程处理时间大约为 10 秒。不同机器可能需要不同的处理时间，具体请参照在程序起止是输出的时间戳。
 
-![Data Sample](./attachment/实例数据.png)
+![Data Sample](./实例数据.png)
 
 测试程序主要采用了三级处理的方式，预处理、FP-Growth 计算频繁项集和重整输出三个阶段：
 
@@ -195,7 +195,7 @@ private static boolean isIntersected(HashSet<String> a, List<String> b) {
 
 分类的方法主要是计算某个点与所有 K 个质心之间的欧几里得距离。计算两个 n 维点之间的欧几里得距离<sup>R4</sup>：
 
-![n 维欧几里得距离](./attachment/n维欧几里得距离.jpg)
+![n 维欧几里得距离](./n维欧几里得距离.jpg)
 
 实用的计算方法：
 

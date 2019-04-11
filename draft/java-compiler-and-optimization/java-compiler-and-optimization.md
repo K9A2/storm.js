@@ -9,7 +9,7 @@ description: Java 程序的编译与优化
 
 ## 1. javac 的编译过程
 
-![Java 编译过程](./attachment/compiling-process.png)
+![Java 编译过程](./compiling-process.png)
 
 ### 1.1 解析与填充符号表
 
@@ -31,7 +31,7 @@ description: Java 程序的编译与优化
 
 ## 2. JIT 等运行期优化技术
 
-![JIT](./attachment/jit.png)
+![JIT](./jit.png)
 
 JIT（just in time）编译器：把某些频繁执行的代码编译为 native code 来提高执行效率。获取热度的方式有以下两种：
 

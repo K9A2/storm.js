@@ -11,7 +11,7 @@ description: 今天在使用Git创建并提交一个Repo到Git网站上的时候
 
 今天在使用 Git 创建并提交一个 Repo 到 Git 网站上的时候，在 GitHub 网站上发现提交的代码中有不能访问的文件夹。如下图中的灰色文件夹：
 
-![问题描述](./attachment/problem.png)
+![问题描述](./problem.png)
 
 ## 思考与解决
 

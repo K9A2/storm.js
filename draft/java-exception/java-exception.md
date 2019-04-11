@@ -11,7 +11,7 @@ description: Java 中的异常处理
 
 Java 中的异常包括错误 (Error) 和异常 (Exception) 两类. 这两者在继承关系上的共同祖先为 Throwable 类. 通过继承 Throwable 类, 错误和异常都可以被代码块抛出. 然而, 异常和错误仍有不同之处. 其中, 错误表示仅靠程序本身无法恢复的的严重问题, 比如内存溢出 (OutOfMemoryError) 以及栈溢出错误 (StackOverFlowError) 等. 在发生这些错误的时候, 我们除了尽力使程序安全退出外, 并没有较好的办法去解决这些错误. 相比而言, 导致异常的问题的严重程度要低得多. 比如, 通过恰当设计程序的流程并进行充分的检查能够有效避免异常的发生. 因此, 在开发的时候, 我们更应该关注而且可以解决的是程序运行过程中所发生的异常.
 
-![exception](./attachment/exception.png)
+![exception](./exception.png)
 
 ## 1. 异常处理的基本方式
 

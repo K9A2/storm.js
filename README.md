@@ -1,4 +1,4 @@
-# stormlin
+# storm.js
 
 一个以 Markdown + gulp 4 + Node.js 为技术栈的静态博客生成器, 能够按照给定的主题包一键生成部署所需的 HTML, CSS 和 JS 文件, 并打包为 zip 文件. 要求使用者具有 Node.js 和 npm 环境. 测试环境为 Node.js 11.10.1 和 npm 6.9.0. 所有功能通过测试.
 

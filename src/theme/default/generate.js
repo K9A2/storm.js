@@ -38,7 +38,7 @@ exports.generate = function(posts, pages, config, themeConfig) {
     var tagList = ''
     tagArray.forEach(tag => {
       tag = tag.trim()
-      tagList += '<a href="/tag.html?tag=' + tag + '">' + tag + '</a>'
+      tagList += '<a href="./tag.html?tag=' + tag + '">' + tag + '</a>'
     })
     template = template.replace('{{ tag }}', tagList)
     // 加入 footer 和 header

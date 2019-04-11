@@ -10,6 +10,21 @@
 - `gulp package` - 把上述生成的 `./dist/` 文件夹打包为 `dist.zip`, 并放置在当前文件夹中
 - `gulp clean` - 删除上述生成的 `./dist/` 文件夹和 `dist.zip` 文件
 
+本工具在构建 HTML 文件的时候, 会使用 `yaml-front-matter` 模块来读取 Markdown 文件的 YAML 头信息, 以便构造文件的 Metadata, 来方便其他页面索引. 因此, 编写 Markdown 文件的时候, 需要在 Markdown 文件头添加 YAML 头. 实例如下:
+
+```yaml
+---
+title: your title
+date: file date
+tag: tag 1, tag 2, tag 3
+description: a sample document
+---
+
+# Markdown 标题
+
+接下来是你的笔记内容...
+```
+
 ## 2. 模块化主题包开发
 
 gulpfil.js 的工作流程:

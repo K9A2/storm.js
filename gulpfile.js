@@ -198,7 +198,7 @@ gulp.task('cleanDistFolder', done => {
 gulp.task('clean', done => {
   del.sync('./src/out')
   del.sync('./dist')
-  // del.sync('./dist.zip')
+  del.sync('./dist.zip')
   done()
 })
 

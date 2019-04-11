@@ -28,7 +28,8 @@
 
     <script>
         /* 获取并设定页面标题 */
-        var targetTag = getParaValue("tag");
+        var targetTag = decodeURI(getParaValue("tag"));
+        console.log(targetTag);
         if (targetTag == null || targetTag === '') {
             window.location.href = "./index.html"
         }

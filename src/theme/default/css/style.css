@@ -464,6 +464,7 @@ a:visited {
   padding: 0.5rem 1rem;
   margin-right: 0.5rem;
   border-radius: 2px;
+  line-height: 1.25rem
 }
 
 .tagItem:nth-child(1) {

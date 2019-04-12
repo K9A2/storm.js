@@ -46,13 +46,17 @@ exports.generate = function(posts, pages, config, themeConfig) {
     // 写入输出文件夹
     fse.ensureDirSync('./dist/post/' + post.name + '/')
     fs.writeFileSync('./dist/post/' + post.name + '/' + post.name + '.html', template, 'utf8')
-    // 如果 attachment 文件夹存在则复制过去，否则认为这篇博客没有附带任何图片、文件等
-    if (fs.existsSync('./draft/' + post.name + '/attachment') == true) {
-      copydir.sync(
-        './draft/' + post.name + '/attachment/',
-        './dist/post/' + post.name + '/'
-      )
-    }
+
+    copydir.sync(
+      './draft/' + post.name + '/',
+      './dist/post/' + post.name + '/',
+      function(stat, filePath, fileName) {
+        if (stat === 'file' && fileName === post.name + '.md') {
+          return false;
+        }
+        return true;
+      }
+    )
   })
 
   /* 复制主题提供的各项资源文件 */

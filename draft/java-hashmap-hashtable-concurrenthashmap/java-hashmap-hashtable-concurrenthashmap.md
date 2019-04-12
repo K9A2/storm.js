@@ -16,7 +16,7 @@ HashMap 与 ConcurrentHashMap 以及 HashTable 的主要差别是:
 - HashMap 不是同步的, 线程不安全, 不可用于多线程环境. 而 ConcurrentHashMap 与 HashTable 两者都有同步措施, 可以在多线程环境中使用. 但两者线程安全的实现上有巨大的差别. HashTable 简单粗暴地给每一个需要同步的方法都加上了 synchronized 关键字. 简而言之, 在同一时刻有且只有一个线程能够进行这些需要可能会造成同步问题的操作. 而 ConcurrentHashMap 则是把 hash 桶分成多个 segment, 然后锁定相关的 segment 的方式来进行同步. HashTable 现已被废弃.
 - HashMap 允许最多一个 null 值作为 key , value 可以有多个 null. 而 ConcurrentHashMap 和 HashTable 都不允许.
 - HashTable 继承 Dictionary 类, HashMap 和 ConcurrentHashMap 继承自 Map 类.  
-  ![继承关系](https://img-blog.csdn.net/20170802205635418?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbG9naW5fc29uYXRh/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+  ![继承关系](./继承关系.png)
 
 ## 2. HashMap 常用方法赏析
 
